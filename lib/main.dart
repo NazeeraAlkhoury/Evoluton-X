@@ -1,4 +1,4 @@
-import 'package:evoluton_x/core/utils/app_colors.dart';
+import 'package:evoluton_x/core/utils/app_themes.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -13,10 +13,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: AppColors.primaryColor),
-        useMaterial3: true,
-      ),
+      theme: AppThemes.lightThemeData,
       debugShowCheckedModeBanner: false,
       home: const MyHomePage(title: 'Evoluton-X'),
     );
