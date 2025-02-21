@@ -1,6 +1,7 @@
 import 'package:evoluton_x/core/utils/app_colors.dart';
 import 'package:evoluton_x/core/utils/app_image_assets.dart';
 import 'package:evoluton_x/features/splash/presentation/widgets/custom_slide_text.dart';
+import 'package:evoluton_x/home_view.dart';
 import 'package:flutter/material.dart';
 
 class SplashViewBody extends StatefulWidget {
@@ -19,6 +20,7 @@ class _SplashViewBodyState extends State<SplashViewBody>
   void initState() {
     super.initState();
     initAnimation();
+    goToPage();
   }
 
   @override
@@ -74,6 +76,18 @@ class _SplashViewBodyState extends State<SplashViewBody>
       ),
     );
     controller.forward();
+  }
+
+  Future<void> goToPage() {
+    return Future.delayed(
+      const Duration(seconds: 3),
+      () => Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(
+          builder: (context) => const HomeView(),
+        ),
+      ),
+    );
   }
 
   @override
