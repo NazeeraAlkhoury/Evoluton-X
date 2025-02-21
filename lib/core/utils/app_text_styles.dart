@@ -42,7 +42,7 @@ abstract class AppTextStyles {
       );
 
   static TextStyle styleSemiBold16(BuildContext context) => TextStyle(
-        color: AppColors.buttonTextColor,
+        color: AppColors.blackColor,
         fontSize: getResponsiveFontSize(context, fontSize: 16),
         fontWeight: FontWeight.w600,
       );
