@@ -20,27 +20,25 @@ class _SplashViewBodyState extends State<SplashViewBody>
   void initState() {
     super.initState();
     initAnimation();
-    goToPage();
+    //goToPage();
   }
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: DecoratedBox(
-        decoration: getBoxDecoration(),
-        child: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Image.asset(
-                AppImageAssets.logo,
-              ),
-              const SizedBox(
-                height: 5,
-              ),
-              CustomSlideText(positionAnimation: positionAnimation),
-            ],
-          ),
+    return DecoratedBox(
+      decoration: getBoxDecoration(),
+      child: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Image.asset(
+              AppImageAssets.logo,
+            ),
+            const SizedBox(
+              height: 5,
+            ),
+            CustomSlideText(positionAnimation: positionAnimation),
+          ],
         ),
       ),
     );
