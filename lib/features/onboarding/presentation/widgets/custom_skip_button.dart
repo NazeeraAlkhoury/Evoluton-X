@@ -10,24 +10,27 @@ class CustomSkipButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: 27.8,
-      child: ElevatedButton(
-        style: ElevatedButton.styleFrom(
-          elevation: 0,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(10),
-            side: const BorderSide(
-              color: AppColors.deepSkyBlueColor,
-              width: 2,
+    return Align(
+      alignment: AlignmentDirectional.topEnd,
+      child: SizedBox(
+        height: 27.8,
+        child: ElevatedButton(
+          style: ElevatedButton.styleFrom(
+            elevation: 0,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(10),
+              side: const BorderSide(
+                color: AppColors.deepSkyBlueColor,
+                width: 2,
+              ),
             ),
           ),
-        ),
-        onPressed: () {},
-        child: Text(
-          AppStrings.skip,
-          style: AppTextStyles.styleSemiBold10(context).copyWith(
-            color: AppColors.blackColor,
+          onPressed: () {},
+          child: Text(
+            AppStrings.skip,
+            style: AppTextStyles.styleSemiBold10(context).copyWith(
+              color: AppColors.blackColor,
+            ),
           ),
         ),
       ),
