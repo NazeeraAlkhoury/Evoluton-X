@@ -1,5 +1,5 @@
 import 'package:evoluton_x/core/utils/app_themes.dart';
-import 'package:evoluton_x/features/splash/presentation/views/splash_view.dart';
+import 'package:evoluton_x/features/onboarding/presentation/views/onboarding_view.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
       title: 'Evoluton-X',
       theme: AppThemes.lightThemeData,
       debugShowCheckedModeBanner: false,
-      home: const SplashView(),
+      home: const OnBoardingView(),
     );
   }
 }
