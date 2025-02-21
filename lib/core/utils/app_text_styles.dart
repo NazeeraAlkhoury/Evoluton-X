@@ -76,6 +76,12 @@ abstract class AppTextStyles {
         fontWeight: FontWeight.bold,
       );
 
+  static TextStyle styleExtraBold26(BuildContext context) => TextStyle(
+        // color: Colors.transparent,
+        fontSize: getResponsiveFontSize(context, fontSize: 26),
+        fontWeight: FontWeight.w800,
+      );
+
 // Responsive fun
   static double getResponsiveFontSize(BuildContext context,
       {required double fontSize}) {
