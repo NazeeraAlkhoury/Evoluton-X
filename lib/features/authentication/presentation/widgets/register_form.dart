@@ -4,6 +4,7 @@ import 'package:evoluton_x/core/utils/app_strings.dart';
 import 'package:evoluton_x/core/utils/app_text_styles.dart';
 import 'package:evoluton_x/core/widgets/app_button.dart';
 import 'package:evoluton_x/features/authentication/presentation/widgets/custom_text_form_field.dart';
+import 'package:evoluton_x/features/authentication/presentation/widgets/register_with_proof.dart';
 import 'package:flutter/material.dart';
 
 class RegisterForm extends StatefulWidget {
@@ -45,7 +46,7 @@ class _RegisterFormState extends State<RegisterForm> {
           ),
           const SizedBox(height: 12),
           Text(
-            AppStrings.lastName,
+            AppStrings.email,
             style: AppTextStyles.styleSemiBold18(context),
           ),
           const SizedBox(height: 8),
@@ -92,10 +93,31 @@ class _RegisterFormState extends State<RegisterForm> {
           const SizedBox(height: 20),
           AppButton(
             textButton: AppStrings.next,
-            onPressed: () {},
-          )
+            onPressed: () {
+              showRegisterBottomSheet(
+                context: context,
+                widget: const RegisterwithProof(),
+              );
+            },
+          ),
         ],
       ),
     );
   }
+}
+
+Future<dynamic> showRegisterBottomSheet(
+    {required BuildContext context, required Widget widget}) {
+  return showModalBottomSheet(
+      context: context,
+      isScrollControlled: true,
+      elevation: 0,
+      isDismissible: false,
+      enableDrag: false,
+      barrierColor: Colors.black.withOpacity(0.7),
+      shape: const LinearBorder(),
+      backgroundColor: AppColors.whiteColor,
+      builder: (context) {
+        return widget;
+      });
 }
