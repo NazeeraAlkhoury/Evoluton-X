@@ -12,10 +12,12 @@ class RegisterHeader extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-      //   mainAxisAlignment: MainAxisAlignment.center,
+      //   mainAxisSize: MainAxisSize.min,
       children: [
         const CustomBackButton(),
-        Image.asset(AppImageAssets.logo),
+        Image.asset(
+          AppImageAssets.logo,
+        ),
         Text(
           AppStrings.register,
           style: AppTextStyles.styleSemiBold20(context),
