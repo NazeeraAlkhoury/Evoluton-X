@@ -5,14 +5,16 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class CustomBackButton extends StatelessWidget {
+  final void Function()? onTap;
   const CustomBackButton({
     super.key,
+    this.onTap,
   });
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {},
+      onTap: onTap,
       child: Row(
         children: [
           const Icon(
