@@ -1,9 +1,12 @@
+import 'package:evoluton_x/core/functions/show_custom_bottom_sheet.dart';
 import 'package:evoluton_x/core/utils/app_colors.dart';
 import 'package:evoluton_x/core/utils/app_icons_assets.dart';
+import 'package:evoluton_x/core/utils/app_image_assets.dart';
 import 'package:evoluton_x/core/utils/app_strings.dart';
 import 'package:evoluton_x/core/utils/app_text_styles.dart';
 import 'package:evoluton_x/core/widgets/app_button.dart';
 import 'package:evoluton_x/features/authentication/presentation/widgets/custom_text_form_field.dart';
+import 'package:evoluton_x/features/authentication/presentation/widgets/password_changed_success_sheet.dart';
 import 'package:flutter/material.dart';
 
 class ResetPassForm extends StatefulWidget {
@@ -60,7 +63,12 @@ class _ResetPassFormState extends State<ResetPassForm> {
             }),
           ),
           const SizedBox(height: 60),
-          AppButton(textButton: AppStrings.next, onPressed: () {}),
+          AppButton(
+              textButton: AppStrings.login,
+              onPressed: () {
+                showCustomBottomSheet(context,
+                    child: const PasswordChangedSuccessSheet());
+              }),
         ],
       ),
     );
