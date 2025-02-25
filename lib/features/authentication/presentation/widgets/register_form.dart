@@ -96,7 +96,7 @@ class _RegisterFormState extends State<RegisterForm> {
             onPressed: () {
               showRegisterBottomSheet(
                 context: context,
-                widget: const RegisterwithProof(),
+                widget: const RegisterwithProofSheet(),
               );
             },
           ),

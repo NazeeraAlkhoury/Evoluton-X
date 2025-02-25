@@ -4,8 +4,8 @@ import 'package:evoluton_x/core/utils/app_text_styles.dart';
 import 'package:evoluton_x/core/widgets/app_button.dart';
 import 'package:flutter/material.dart';
 
-class RegisterwithProof extends StatelessWidget {
-  const RegisterwithProof({
+class RegisterwithProofSheet extends StatelessWidget {
+  const RegisterwithProofSheet({
     super.key,
   });
 
