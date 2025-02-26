@@ -1,6 +1,7 @@
 import 'package:evoluton_x/core/utils/app_colors.dart';
 import 'package:evoluton_x/core/utils/app_strings.dart';
 import 'package:evoluton_x/core/utils/app_text_styles.dart';
+import 'package:evoluton_x/features/authentication/presentation/widgets/custom_close_sheet.dart';
 import 'package:evoluton_x/features/authentication/presentation/widgets/file_picker_section.dart';
 import 'package:evoluton_x/features/authentication/presentation/widgets/file_selected_section.dart';
 import 'package:flutter/material.dart';
@@ -34,16 +35,7 @@ class _RegisterwithProofSheetState extends State<RegisterwithProofSheet> {
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          Align(
-            alignment: AlignmentDirectional.topStart,
-            child: GestureDetector(
-              onTap: () => Navigator.of(context).pop(),
-              child: const Icon(
-                Icons.cancel_outlined,
-                color: AppColors.blackColor,
-              ),
-            ),
-          ),
+          const CustomCloseSheet(),
           const SizedBox(
             height: 30,
           ),

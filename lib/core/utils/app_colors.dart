@@ -13,4 +13,5 @@ abstract class AppColors {
   static const Color whiteColor = Color(0xffFFFFFF);
   static const Color dotColor = Color(0xffD9D9D9);
   static const Color fillFieldColor = Color(0xffEBEBEB);
+  static const Color texthintColor = Color(0xffBABABA);
 }

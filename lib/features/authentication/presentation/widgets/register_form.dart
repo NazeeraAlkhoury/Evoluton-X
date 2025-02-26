@@ -93,6 +93,7 @@ class _RegisterFormState extends State<RegisterForm> {
           const SizedBox(height: 20),
           AppButton(
             textButton: AppStrings.next,
+            widthButton: double.infinity,
             onPressed: () {
               showRegisterBottomSheet(
                 context: context,

@@ -1,7 +1,6 @@
 import 'package:evoluton_x/core/functions/show_custom_bottom_sheet.dart';
 import 'package:evoluton_x/core/utils/app_colors.dart';
 import 'package:evoluton_x/core/utils/app_icons_assets.dart';
-import 'package:evoluton_x/core/utils/app_image_assets.dart';
 import 'package:evoluton_x/core/utils/app_strings.dart';
 import 'package:evoluton_x/core/utils/app_text_styles.dart';
 import 'package:evoluton_x/core/widgets/app_button.dart';
@@ -65,6 +64,7 @@ class _ResetPassFormState extends State<ResetPassForm> {
           const SizedBox(height: 60),
           AppButton(
               textButton: AppStrings.login,
+              widthButton: double.infinity,
               onPressed: () {
                 showCustomBottomSheet(context,
                     child: const PasswordChangedSuccessSheet());

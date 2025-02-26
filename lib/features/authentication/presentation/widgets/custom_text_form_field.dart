@@ -9,6 +9,7 @@ class CustomTextFormField extends StatelessWidget {
   final bool? isObscureText;
   final String? suffixIcon;
   final void Function()? onSuffix;
+  final TextInputType? keyboardType;
   const CustomTextFormField({
     super.key,
     required this.hintText,
@@ -16,6 +17,7 @@ class CustomTextFormField extends StatelessWidget {
     this.isObscureText = false,
     this.suffixIcon,
     this.onSuffix,
+    this.keyboardType,
   });
 
   @override
@@ -26,6 +28,7 @@ class CustomTextFormField extends StatelessWidget {
         style: AppTextStyles.styleRegular14(context),
         obscureText: isObscureText!,
         obscuringCharacter: '*',
+        keyboardType: keyboardType,
         decoration: InputDecoration(
           prefixIcon: Padding(
             padding: const EdgeInsets.all(10),

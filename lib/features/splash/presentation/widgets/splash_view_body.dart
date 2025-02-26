@@ -1,7 +1,7 @@
 import 'package:evoluton_x/core/utils/app_colors.dart';
 import 'package:evoluton_x/core/utils/app_image_assets.dart';
+import 'package:evoluton_x/features/onboarding/presentation/views/onboarding_view.dart';
 import 'package:evoluton_x/features/splash/presentation/widgets/custom_slide_text.dart';
-import 'package:evoluton_x/home_view.dart';
 import 'package:flutter/material.dart';
 
 class SplashViewBody extends StatefulWidget {
@@ -82,7 +82,7 @@ class _SplashViewBodyState extends State<SplashViewBody>
       () => Navigator.pushReplacement(
         context,
         MaterialPageRoute(
-          builder: (context) => const HomeView(),
+          builder: (context) => const OnBoardingView(),
         ),
       ),
     );
