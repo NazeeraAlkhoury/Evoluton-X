@@ -5,17 +5,21 @@ import 'package:flutter/material.dart';
 class AppButton extends StatelessWidget {
   final String textButton;
   final void Function()? onPressed;
+  final double? widthButton;
+  final double? hieghtButton;
   const AppButton({
     super.key,
     required this.textButton,
     this.onPressed,
+    this.widthButton,
+    this.hieghtButton,
   });
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 44,
-      width: double.infinity,
+      height: hieghtButton ?? 44,
+      width: widthButton,
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
           shape: RoundedRectangleBorder(
