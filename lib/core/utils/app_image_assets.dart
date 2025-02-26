@@ -5,4 +5,5 @@ abstract class AppImageAssets {
   static const String onboarding3 = 'assets/images/onboarding_3.png';
   static const String changePassSuccess =
       'assets/images/change_pass_successfully.png';
+  static const String homeImage = 'assets/images/home_image.png';
 }
