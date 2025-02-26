@@ -1,13 +1,31 @@
 import 'package:evoluton_x/core/utils/app_colors.dart';
 import 'package:evoluton_x/core/utils/app_strings.dart';
 import 'package:evoluton_x/core/utils/app_text_styles.dart';
-import 'package:evoluton_x/core/widgets/app_button.dart';
+import 'package:evoluton_x/features/authentication/presentation/widgets/file_picker_section.dart';
+import 'package:evoluton_x/features/authentication/presentation/widgets/file_selected_section.dart';
 import 'package:flutter/material.dart';
+import 'package:file_picker/file_picker.dart';
 
-class RegisterwithProofSheet extends StatelessWidget {
+class RegisterwithProofSheet extends StatefulWidget {
   const RegisterwithProofSheet({
     super.key,
   });
+
+  @override
+  State<RegisterwithProofSheet> createState() => _RegisterwithProofSheetState();
+}
+
+class _RegisterwithProofSheetState extends State<RegisterwithProofSheet> {
+  String? selectedFileName;
+
+  Future chooseFile() async {
+    FilePickerResult? result = await FilePicker.platform.pickFiles();
+    if (result != null) {
+      setState(() {
+        selectedFileName = result.files.single.name;
+      });
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -19,6 +37,7 @@ class RegisterwithProofSheet extends StatelessWidget {
           Align(
             alignment: AlignmentDirectional.topStart,
             child: GestureDetector(
+              onTap: () => Navigator.of(context).pop(),
               child: const Icon(
                 Icons.cancel_outlined,
                 color: AppColors.blackColor,
@@ -45,13 +64,13 @@ class RegisterwithProofSheet extends StatelessWidget {
           const SizedBox(
             height: 40,
           ),
-          AppButton(
-            textButton: AppStrings.chooseFile,
-            onPressed: () {},
-          ),
-          const SizedBox(
-            height: 50,
-          ),
+          if (selectedFileName == null) ...[
+            FilePickerSection(
+              onPressed: chooseFile,
+            ),
+          ] else ...[
+            FileSelectedSection(selectedFileName: selectedFileName),
+          ],
         ],
       ),
     );
