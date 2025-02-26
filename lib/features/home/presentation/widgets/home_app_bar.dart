@@ -18,12 +18,10 @@ class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
           AppIconAssets.more,
         ),
       ),
-      title: Center(
-        child: Image.asset(
-          AppImageAssets.logo,
-          width: 55,
-          height: 44,
-        ),
+      title: Image.asset(
+        AppImageAssets.logo,
+        width: 55,
+        height: 44,
       ),
       actions: [
         AppButton(
