@@ -1,7 +1,6 @@
 import 'package:evoluton_x/core/utils/app_colors.dart';
 import 'package:evoluton_x/core/utils/app_image_assets.dart';
 import 'package:evoluton_x/core/utils/app_routes.dart';
-import 'package:evoluton_x/features/onboarding/presentation/views/onboarding_view.dart';
 import 'package:evoluton_x/features/splash/presentation/widgets/custom_slide_text.dart';
 import 'package:flutter/material.dart';
 

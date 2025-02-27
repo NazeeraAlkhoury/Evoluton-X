@@ -1,4 +1,4 @@
-import 'package:evoluton_x/features/authentication/presentation/widgets/verify_password_view_body.dart';
+import 'package:evoluton_x/features/authentication/presentation/widgets/verify_password/verify_password_view_body.dart';
 import 'package:flutter/material.dart';
 
 class VerifyPasswordView extends StatelessWidget {

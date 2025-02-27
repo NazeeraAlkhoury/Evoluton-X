@@ -3,7 +3,7 @@ import 'package:evoluton_x/core/utils/app_icons_assets.dart';
 import 'package:evoluton_x/core/utils/app_strings.dart';
 import 'package:evoluton_x/core/utils/app_text_styles.dart';
 import 'package:evoluton_x/core/widgets/app_button.dart';
-import 'package:evoluton_x/features/authentication/presentation/widgets/custom_forger_pass_button.dart';
+import 'package:evoluton_x/features/authentication/presentation/widgets/login/custom_forger_pass_button.dart';
 import 'package:evoluton_x/features/authentication/presentation/widgets/custom_text_form_field.dart';
 import 'package:flutter/material.dart';
 

@@ -1,4 +1,4 @@
-import 'package:evoluton_x/features/authentication/presentation/widgets/forget_pass_view_body.dart';
+import 'package:evoluton_x/features/authentication/presentation/widgets/forget_password/forget_pass_view_body.dart';
 import 'package:flutter/material.dart';
 
 class ForgetPasswordView extends StatelessWidget {

@@ -1,6 +1,5 @@
 import 'package:evoluton_x/core/utils/app_routes.dart';
 import 'package:evoluton_x/core/utils/app_themes.dart';
-import 'package:evoluton_x/features/home/presentation/views/home_view.dart';
 import 'package:flutter/material.dart';
 
 void main() {

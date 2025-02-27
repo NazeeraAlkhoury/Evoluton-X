@@ -1,5 +1,5 @@
-import 'package:evoluton_x/features/authentication/presentation/widgets/login_form.dart';
-import 'package:evoluton_x/features/authentication/presentation/widgets/login_header.dart';
+import 'package:evoluton_x/features/authentication/presentation/widgets/login/login_form.dart';
+import 'package:evoluton_x/features/authentication/presentation/widgets/login/login_header.dart';
 import 'package:flutter/material.dart';
 
 class LoginViewBody extends StatelessWidget {

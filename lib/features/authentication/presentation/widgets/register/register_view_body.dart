@@ -1,5 +1,5 @@
-import 'package:evoluton_x/features/authentication/presentation/widgets/register_form.dart';
-import 'package:evoluton_x/features/authentication/presentation/widgets/register_header.dart';
+import 'package:evoluton_x/features/authentication/presentation/widgets/register/register_form.dart';
+import 'package:evoluton_x/features/authentication/presentation/widgets/register/register_header.dart';
 
 import 'package:flutter/material.dart';
 
