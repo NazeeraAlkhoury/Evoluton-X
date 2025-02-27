@@ -1,5 +1,6 @@
 import 'package:evoluton_x/core/utils/app_colors.dart';
 import 'package:evoluton_x/core/utils/app_image_assets.dart';
+import 'package:evoluton_x/core/utils/app_routes.dart';
 import 'package:evoluton_x/core/utils/app_strings.dart';
 import 'package:evoluton_x/core/utils/app_text_styles.dart';
 import 'package:evoluton_x/features/authentication/presentation/widgets/custom_back_button.dart';
@@ -16,7 +17,9 @@ class LoginHeader extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       children: [
         CustomBackButton(
-          onTap: () {},
+          onTap: () {
+            Navigator.pushReplacementNamed(context, AppRoutes.homeAfterChecked);
+          },
         ),
         Image.asset(
           AppImageAssets.logo,

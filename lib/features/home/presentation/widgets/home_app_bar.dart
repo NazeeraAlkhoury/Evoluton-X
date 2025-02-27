@@ -1,5 +1,6 @@
 import 'package:evoluton_x/core/utils/app_icons_assets.dart';
 import 'package:evoluton_x/core/utils/app_image_assets.dart';
+import 'package:evoluton_x/core/utils/app_routes.dart';
 import 'package:evoluton_x/core/utils/app_strings.dart';
 import 'package:evoluton_x/core/widgets/app_button.dart';
 import 'package:flutter/material.dart';
@@ -26,7 +27,9 @@ class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
       actions: [
         AppButton(
           textButton: AppStrings.register,
-          onPressed: () {},
+          onPressed: () {
+            Navigator.pushNamed(context, AppRoutes.register);
+          },
           hieghtButton: 36.77,
         ),
         const SizedBox(

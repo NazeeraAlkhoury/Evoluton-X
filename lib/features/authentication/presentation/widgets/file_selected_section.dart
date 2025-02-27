@@ -38,7 +38,7 @@ class FileSelectedSection extends StatelessWidget {
           children: [
             const CustomReplaceButton(),
             AppButton(
-              widthButton: 118,
+              //  widthButton: 118,
               textButton: AppStrings.continu,
               onPressed: () {
                 Navigator.of(context).pop();

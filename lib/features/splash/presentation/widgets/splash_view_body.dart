@@ -1,5 +1,6 @@
 import 'package:evoluton_x/core/utils/app_colors.dart';
 import 'package:evoluton_x/core/utils/app_image_assets.dart';
+import 'package:evoluton_x/core/utils/app_routes.dart';
 import 'package:evoluton_x/features/onboarding/presentation/views/onboarding_view.dart';
 import 'package:evoluton_x/features/splash/presentation/widgets/custom_slide_text.dart';
 import 'package:flutter/material.dart';
@@ -20,7 +21,7 @@ class _SplashViewBodyState extends State<SplashViewBody>
   void initState() {
     super.initState();
     initAnimation();
-    //goToPage();
+    goToPage();
   }
 
   @override
@@ -79,12 +80,7 @@ class _SplashViewBodyState extends State<SplashViewBody>
   Future<void> goToPage() {
     return Future.delayed(
       const Duration(seconds: 3),
-      () => Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(
-          builder: (context) => const OnBoardingView(),
-        ),
-      ),
+      () => Navigator.pushReplacementNamed(context, AppRoutes.onBoarding),
     );
   }
 

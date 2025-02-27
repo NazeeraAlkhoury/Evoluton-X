@@ -1,5 +1,6 @@
 import 'package:evoluton_x/core/utils/app_colors.dart';
 import 'package:evoluton_x/core/utils/app_image_assets.dart';
+import 'package:evoluton_x/core/utils/app_routes.dart';
 import 'package:evoluton_x/core/utils/app_strings.dart';
 import 'package:evoluton_x/core/utils/app_text_styles.dart';
 import 'package:evoluton_x/core/widgets/app_button.dart';
@@ -85,7 +86,9 @@ class HomeViewBody extends StatelessWidget {
             padding: const EdgeInsetsDirectional.symmetric(horizontal: 20),
             child: AppButton(
               textButton: AppStrings.registerNow,
-              onPressed: () {},
+              onPressed: () {
+                Navigator.pushNamed(context, AppRoutes.register);
+              },
               widthButton: double.infinity,
             ),
           ),

@@ -1,4 +1,5 @@
 import 'package:evoluton_x/core/utils/app_image_assets.dart';
+import 'package:evoluton_x/core/utils/app_routes.dart';
 import 'package:evoluton_x/core/utils/app_strings.dart';
 import 'package:evoluton_x/core/widgets/app_button.dart';
 import 'package:evoluton_x/features/onboarding/presentation/widgets/custom_pageview.dart';
@@ -60,6 +61,7 @@ class _OnBoardingViewBodyState extends State<OnBoardingViewBody> {
                 ),
                 AppButton(
                   textButton: AppStrings.next,
+                  widthButton: double.infinity,
                   onPressed: () {
                     goToNextPage();
                   },
@@ -80,6 +82,8 @@ class _OnBoardingViewBodyState extends State<OnBoardingViewBody> {
         ),
         curve: Curves.easeInOut,
       );
+    } else {
+      Navigator.popAndPushNamed(context, AppRoutes.home);
     }
   }
 }

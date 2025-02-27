@@ -12,7 +12,6 @@ class CustomReplaceButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       height: 44,
-      width: 118,
       child: ElevatedButton(
           onPressed: () {},
           style: ElevatedButton.styleFrom(

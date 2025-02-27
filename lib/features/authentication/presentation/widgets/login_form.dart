@@ -46,6 +46,7 @@ class LoginForm extends StatelessWidget {
           const SizedBox(height: 60),
           AppButton(
             textButton: AppStrings.login,
+            widthButton: double.infinity,
             onPressed: () {},
           ),
         ],

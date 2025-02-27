@@ -1,5 +1,6 @@
 import 'package:evoluton_x/core/utils/app_colors.dart';
 import 'package:evoluton_x/core/utils/app_image_assets.dart';
+import 'package:evoluton_x/core/utils/app_routes.dart';
 import 'package:evoluton_x/core/widgets/app_button.dart';
 import 'package:evoluton_x/features/home/presentation/widgets/idol_image_listview.dart';
 import 'package:flutter/material.dart';
@@ -90,7 +91,9 @@ class HomeAfterCheckedViewBody extends StatelessWidget {
               padding: const EdgeInsetsDirectional.symmetric(horizontal: 20),
               child: AppButton(
                 textButton: AppStrings.beginJourney,
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.pushReplacementNamed(context, AppRoutes.login);
+                },
                 widthButton: double.infinity,
               ),
             ),

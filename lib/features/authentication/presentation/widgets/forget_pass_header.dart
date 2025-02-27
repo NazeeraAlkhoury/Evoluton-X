@@ -1,3 +1,4 @@
+import 'package:evoluton_x/core/utils/app_routes.dart';
 import 'package:evoluton_x/core/utils/app_strings.dart';
 import 'package:evoluton_x/features/authentication/presentation/widgets/auth_header_row.dart';
 import 'package:evoluton_x/features/authentication/presentation/widgets/custom_back_button.dart';
@@ -10,13 +11,15 @@ class ForgetPassHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Column(
+    return Column(
       children: [
-        CustomBackButton(),
-        SizedBox(
+        CustomBackButton(
+          onTap: () => Navigator.pushReplacementNamed(context, AppRoutes.login),
+        ),
+        const SizedBox(
           height: 12,
         ),
-        AuthHeaderRow(
+        const AuthHeaderRow(
           title: AppStrings.forgetPass,
         ),
       ],

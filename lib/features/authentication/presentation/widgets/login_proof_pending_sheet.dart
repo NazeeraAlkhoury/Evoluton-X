@@ -1,4 +1,5 @@
 import 'package:evoluton_x/core/utils/app_colors.dart';
+import 'package:evoluton_x/core/utils/app_routes.dart';
 import 'package:evoluton_x/core/utils/app_strings.dart';
 import 'package:evoluton_x/core/widgets/app_button.dart';
 import 'package:flutter/material.dart';
@@ -36,7 +37,9 @@ class LoginProofPendingSheet extends StatelessWidget {
           ),
           AppButton(
             textButton: AppStrings.returnHome,
-            onPressed: () {},
+            onPressed: () {
+              Navigator.popAndPushNamed(context, AppRoutes.homeAfterChecked);
+            },
             widthButton: double.infinity,
           ),
         ],

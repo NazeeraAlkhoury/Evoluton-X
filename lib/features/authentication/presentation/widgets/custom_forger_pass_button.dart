@@ -1,3 +1,4 @@
+import 'package:evoluton_x/core/utils/app_routes.dart';
 import 'package:evoluton_x/core/utils/app_strings.dart';
 import 'package:evoluton_x/core/utils/app_text_styles.dart';
 import 'package:flutter/material.dart';
@@ -21,7 +22,9 @@ class CustomForgetPassButton extends StatelessWidget {
           tapTargetSize: MaterialTapTargetSize.shrinkWrap,
           visualDensity: VisualDensity.compact,
         ),
-        onPressed: () {},
+        onPressed: () {
+          Navigator.pushReplacementNamed(context, AppRoutes.forgetPassword);
+        },
         child: Text(
           AppStrings.forgetPassword,
           style: AppTextStyles.styleSemiBold10(context).copyWith(
