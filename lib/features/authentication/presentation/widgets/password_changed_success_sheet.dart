@@ -2,7 +2,7 @@ import 'package:evoluton_x/core/utils/app_image_assets.dart';
 import 'package:evoluton_x/core/utils/app_strings.dart';
 import 'package:evoluton_x/core/utils/app_text_styles.dart';
 import 'package:evoluton_x/core/widgets/app_button.dart';
-import 'package:evoluton_x/core/widgets/custom_bottomsheet_handle.dart';
+import 'package:evoluton_x/core/widgets/bottomsheet_handle.dart';
 import 'package:flutter/material.dart';
 
 class PasswordChangedSuccessSheet extends StatelessWidget {
@@ -15,7 +15,7 @@ class PasswordChangedSuccessSheet extends StatelessWidget {
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
-        const CustomBottomSheetHandle(),
+        const BottomSheetHandle(),
         const SizedBox(
           height: 30,
         ),
