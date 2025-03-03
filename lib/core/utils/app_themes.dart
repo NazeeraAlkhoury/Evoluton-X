@@ -13,14 +13,16 @@ abstract class AppThemes {
     colorScheme: ColorScheme.fromSeed(seedColor: AppColors.primaryColor),
     useMaterial3: true,
     textTheme: GoogleFonts.poppinsTextTheme(),
-    bottomNavigationBarTheme: const BottomNavigationBarThemeData(
-      backgroundColor: AppColors.primaryColor,
-      selectedItemColor: AppColors.whiteColor,
-      unselectedItemColor: AppColors.blackColor,
-      selectedLabelStyle: TextStyle(fontSize: 0),
-      unselectedLabelStyle: TextStyle(fontSize: 0),
-      showSelectedLabels: false,
-      showUnselectedLabels: false,
-    ),
+    // bottomNavigationBarTheme: const BottomNavigationBarThemeData(
+    //   backgroundColor: AppColors.primaryColor,
+    //   selectedItemColor: AppColors.whiteColor,
+    //   unselectedItemColor: AppColors.blackColor,
+    //   type: BottomNavigationBarType.fixed,
+    //   elevation: 0,
+    //   selectedLabelStyle: TextStyle(fontSize: 0),
+    //   unselectedLabelStyle: TextStyle(fontSize: 0),
+    //   showSelectedLabels: false,
+    //   showUnselectedLabels: false,
+    // ),
   );
 }

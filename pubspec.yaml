@@ -32,6 +32,8 @@ dependencies:
   get_it: ^7.7.0
 
   expandable_page_view: ^1.0.17
+  carousel_slider: ^5.0.0
+  persistent_bottom_nav_bar: ^6.2.1
 
   device_preview: ^1.2.0
 

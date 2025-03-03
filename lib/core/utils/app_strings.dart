@@ -82,4 +82,12 @@ abstract class AppStrings {
       'The password has been changed successfully';
   static const String loginNow = 'login now';
   static const String forgetPass = 'Forget password';
+  //Details
+  static const String pos = 'Pos';
+  static const String age = 'Age';
+  static const String height = 'Height';
+  static const String nation = 'Nation';
+  static const String suggest = 'Suggested for you';
+  static const String bestclubs = 'Best clubs';
+  static const String showAll = 'show all';
 }
