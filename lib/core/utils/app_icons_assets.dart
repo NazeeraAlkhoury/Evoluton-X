@@ -6,4 +6,5 @@ abstract class AppIconAssets {
   static const String visibilityOff = 'assets/icons/visibility_off.svg';
   static const String more = 'assets/icons/more.svg';
   static const String check = 'assets/icons/check.svg';
+  static const String filter = 'assets/icons/filter.svg';
 }

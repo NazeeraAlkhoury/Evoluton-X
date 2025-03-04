@@ -90,4 +90,17 @@ abstract class AppStrings {
   static const String suggest = 'Suggested for you';
   static const String bestclubs = 'Best clubs';
   static const String showAll = 'show all';
+  //filter clubs
+  static const String allClubs = 'All clubs';
+  static const String clubsFilter = 'clubs filter';
+  static const String whoClubLookingFor = 'Who club you looking for ?';
+
+  static const String searchPlayerFast =
+      'With Evoluton-X search filter find any player you want in just few second';
+  static const String club = 'Club';
+  static const String chooseNation = 'Choose the Nation';
+  static const String chooseClub = 'Choose the club';
+  static const String filterNow = 'Filter now';
+  static const String selectNation = 'choose the nation you want  :';
+  static const String send = 'Send';
 }
