@@ -6,6 +6,7 @@ import 'package:evoluton_x/core/utils/app_text_styles.dart';
 import 'package:evoluton_x/features/details/presentation/controllers/details_bloc/details_bloc.dart';
 import 'package:evoluton_x/features/details/presentation/widgets/best_club_listview.dart';
 import 'package:evoluton_x/features/details/presentation/widgets/best_clubs_show_row.dart';
+import 'package:evoluton_x/features/details/presentation/widgets/custom_leading_appbar.dart';
 import 'package:evoluton_x/features/details/presentation/widgets/players_card_listview.dart';
 import 'package:evoluton_x/features/details/presentation/widgets/slider_section.dart';
 import 'package:flutter/material.dart';
@@ -21,6 +22,9 @@ class DetailsView extends StatelessWidget {
       child: CustomScrollView(
         slivers: [
           SliverAppBar(
+            elevation: 0,
+            leadingWidth: 140,
+            leading: const CustomLeadingAppbar(),
             title: Image.asset(
               AppImageAssets.logo,
               width: 55,
@@ -32,6 +36,9 @@ class DetailsView extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
+                const SizedBox(
+                  height: 10,
+                ),
                 const SliderSection(),
                 const SizedBox(
                   height: 15,
