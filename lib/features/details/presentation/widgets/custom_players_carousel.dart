@@ -2,8 +2,10 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 
 class CustomPlayersCarousel extends StatelessWidget {
+  final Function(int index, CarouselPageChangedReason reason) onChanged;
   const CustomPlayersCarousel({
     super.key,
+    required this.onChanged,
   });
 
   @override
@@ -15,12 +17,7 @@ class CustomPlayersCarousel extends StatelessWidget {
         autoPlayInterval: const Duration(seconds: 3),
         enlargeCenterPage: true,
         viewportFraction: 1,
-        onPageChanged: (index, reason) {
-          //  _currentIndex = index;
-          // setState(() {
-          //   _currentIndex = index;
-          // });
-        },
+        onPageChanged: onChanged,
       ),
       items: List.generate(
         3,

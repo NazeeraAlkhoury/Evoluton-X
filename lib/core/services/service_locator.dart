@@ -1,4 +1,5 @@
-import 'package:evoluton_x/features/layout/presentation/controller/layout_bloc/bloc/layout_bloc.dart';
+import 'package:evoluton_x/features/details/presentation/controllers/details_bloc/details_bloc.dart';
+import 'package:evoluton_x/features/layout/presentation/controller/layout_bloc/layout_bloc.dart';
 import 'package:get_it/get_it.dart';
 
 final GetIt getIt = GetIt.instance;
@@ -18,6 +19,9 @@ class ServiceLocator {
     //Bloc
     getIt.registerFactory<LayoutBloc>(
       () => LayoutBloc(),
+    );
+    getIt.registerFactory<DetailsBloc>(
+      () => DetailsBloc(),
     );
   }
 }

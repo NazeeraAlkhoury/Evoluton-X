@@ -5,10 +5,9 @@ import 'package:evoluton_x/features/authentication/presentation/views/login_view
 import 'package:evoluton_x/features/authentication/presentation/views/register_view.dart';
 import 'package:evoluton_x/features/authentication/presentation/views/reset_password_view.dart';
 import 'package:evoluton_x/features/authentication/presentation/views/verify_password_view.dart';
-import 'package:evoluton_x/features/details/presentation/views/filter_clubs_view.dart';
 import 'package:evoluton_x/features/home/presentation/views/home_after_checked_view.dart';
 import 'package:evoluton_x/features/home/presentation/views/home_view.dart';
-import 'package:evoluton_x/features/layout/presentation/controller/layout_bloc/bloc/layout_bloc.dart';
+import 'package:evoluton_x/features/layout/presentation/controller/layout_bloc/layout_bloc.dart';
 import 'package:evoluton_x/features/layout/presentation/views/main_layout_view.dart';
 import 'package:evoluton_x/features/onboarding/presentation/views/onboarding_view.dart';
 import 'package:evoluton_x/features/splash/presentation/views/splash_view.dart';

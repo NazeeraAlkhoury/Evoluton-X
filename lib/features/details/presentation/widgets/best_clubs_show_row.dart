@@ -5,8 +5,6 @@ import 'package:evoluton_x/features/details/presentation/views/filter_clubs_view
 import 'package:flutter/material.dart';
 import 'package:persistent_bottom_nav_bar/persistent_bottom_nav_bar.dart';
 
-import '../../../../core/utils/app_routes.dart';
-
 class BestClubsShowRow extends StatelessWidget {
   const BestClubsShowRow({
     super.key,

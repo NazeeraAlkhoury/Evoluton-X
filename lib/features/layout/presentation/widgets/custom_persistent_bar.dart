@@ -1,5 +1,4 @@
 import 'package:evoluton_x/core/utils/app_colors.dart';
-import 'package:evoluton_x/features/layout/presentation/controller/layout_bloc/bloc/layout_state.dart';
 import 'package:flutter/material.dart';
 import 'package:persistent_bottom_nav_bar/persistent_bottom_nav_bar.dart';
 
@@ -50,5 +49,3 @@ class CustomPersistentTabView extends StatelessWidget {
     );
   }
 }
-//  context.read<LayoutBloc>().add(NavBarItemTappedEvent(index: index));
-//         print("Tab $index Selected");

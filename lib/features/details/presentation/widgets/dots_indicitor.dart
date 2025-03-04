@@ -12,10 +12,14 @@ class DotsIndicitor extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
       children: List.generate(
         3,
-        (index) => CustomDots(
-          isActive: _currentIndex == index,
+        (index) => Padding(
+          padding: const EdgeInsetsDirectional.only(end: 5),
+          child: CustomDots(
+            isActive: _currentIndex == index,
+          ),
         ),
       ),
     );
