@@ -3,7 +3,6 @@ import 'package:evoluton_x/core/services/bloc_observer.dart';
 import 'package:evoluton_x/core/services/service_locator.dart';
 import 'package:evoluton_x/core/utils/app_routes.dart';
 import 'package:evoluton_x/core/utils/app_themes.dart';
-import 'package:evoluton_x/features/splash/presentation/views/splash_view.dart';
 import 'package:flutter/material.dart';
 
 void main() async {
@@ -27,9 +26,9 @@ class MyApp extends StatelessWidget {
       title: 'Evoluton-X',
       theme: AppThemes.lightThemeData,
       debugShowCheckedModeBanner: false,
-      home: SplashView(),
+      // home: SplashView(),
       onGenerateRoute: AppRoutes.onGenerateRoute,
-      // initialRoute: AppRoutes.splash,
+      initialRoute: AppRoutes.splash,
       // locale: DevicePreview.locale(context),
       // builder: DevicePreview.appBuilder,
     );

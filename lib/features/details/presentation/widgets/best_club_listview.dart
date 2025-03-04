@@ -13,7 +13,10 @@ class BestClubsListView extends StatelessWidget {
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
         itemCount: 20,
-        itemBuilder: (context, index) => const CustomClub(),
+        itemBuilder: (context, index) => const AspectRatio(
+          aspectRatio: 1.12 / 1.03,
+          child: CustomClub(),
+        ),
       ),
     );
   }

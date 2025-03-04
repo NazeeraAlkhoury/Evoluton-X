@@ -1,4 +1,3 @@
-import 'package:evoluton_x/features/details/presentation/views/details_view.dart';
 import 'package:evoluton_x/features/layout/presentation/controller/layout_bloc/layout_event.dart';
 import 'package:evoluton_x/features/layout/presentation/widgets/custom_persistent_bar.dart';
 import 'package:flutter/material.dart';

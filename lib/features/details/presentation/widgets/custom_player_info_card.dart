@@ -25,10 +25,17 @@ class CustomPlayerInfoCard extends StatelessWidget {
           children: [
             Flexible(
               // fit: BoxFit.scaleDown,
-              child: Image.asset(
-                'assets/images/player.png',
-                fit: BoxFit.fill,
-                height: 67,
+              child: ClipRRect(
+                borderRadius: const BorderRadius.only(
+                  topLeft: Radius.circular(10),
+                  topRight: Radius.circular(10),
+                ),
+                child: Image.asset(
+                  'assets/images/player.png',
+                  fit: BoxFit.cover,
+                  width: double.infinity,
+                  height: 67,
+                ),
               ),
             ),
             Text(

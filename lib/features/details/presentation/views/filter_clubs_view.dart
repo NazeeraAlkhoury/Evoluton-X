@@ -1,3 +1,4 @@
+import 'package:evoluton_x/features/details/presentation/widgets/filter_clubs/filter_clubs_view_body.dart';
 import 'package:flutter/material.dart';
 
 class FilterClubsView extends StatelessWidget {
@@ -5,8 +6,10 @@ class FilterClubsView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: Colors.red,
+    return const SafeArea(
+      child: Scaffold(
+        body: FilterClubsViewBody(),
+      ),
     );
   }
 }
