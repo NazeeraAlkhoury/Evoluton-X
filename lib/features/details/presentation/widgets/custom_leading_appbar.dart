@@ -1,5 +1,6 @@
 import 'package:evoluton_x/core/utils/app_text_styles.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class CustomLeadingAppbar extends StatelessWidget {
   const CustomLeadingAppbar({
@@ -17,7 +18,10 @@ class CustomLeadingAppbar extends StatelessWidget {
           ),
           Text(
             'zak marbilon',
-            style: AppTextStyles.styleSemiBold16(context),
+            style: AppTextStyles.styleSemiBold16(context).copyWith(
+              fontStyle: FontStyle.italic,
+              fontFamily: GoogleFonts.inter().fontFamily,
+            ),
           ),
           const SizedBox(
             width: 5,
