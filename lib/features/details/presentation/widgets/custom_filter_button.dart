@@ -1,13 +1,18 @@
 import 'package:evoluton_x/core/utils/app_colors.dart';
 import 'package:evoluton_x/core/utils/app_icons_assets.dart';
-import 'package:evoluton_x/core/utils/app_strings.dart';
 import 'package:evoluton_x/core/utils/app_text_styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class CustomFilterButton extends StatelessWidget {
+  final String label;
+  final void Function()? onPressed;
+  final Color? color;
   const CustomFilterButton({
     super.key,
+    this.onPressed,
+    this.color,
+    required this.label,
   });
 
   @override
@@ -15,19 +20,23 @@ class CustomFilterButton extends StatelessWidget {
     return SizedBox(
       height: 38.7,
       child: ElevatedButton.icon(
-        onPressed: () {},
+        onPressed: onPressed,
         label: Text(
-          AppStrings.clubsFilter,
+          label,
           style: AppTextStyles.styleRegular12(context).copyWith(
             color: AppColors.buttonTextColor,
           ),
         ),
         iconAlignment: IconAlignment.end,
-        icon: SvgPicture.asset(
-          AppIconAssets.filter,
+        icon: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 3),
+          child: SvgPicture.asset(
+            AppIconAssets.filter,
+          ),
         ),
         style: ElevatedButton.styleFrom(
-          backgroundColor: AppColors.darkGreyColor,
+          backgroundColor: color ?? AppColors.darkGreyColor,
+          disabledBackgroundColor: AppColors.primaryColor.withOpacity(0.5),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(9),
           ),

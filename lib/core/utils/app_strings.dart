@@ -103,4 +103,5 @@ abstract class AppStrings {
   static const String filterNow = 'Filter now';
   static const String selectNation = 'choose the nation you want  :';
   static const String send = 'Send';
+  static const String cancel = 'Cancel';
 }

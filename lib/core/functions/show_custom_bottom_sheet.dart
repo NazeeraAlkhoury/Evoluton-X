@@ -9,6 +9,7 @@ Future<dynamic> showCustomBottomSheet(
     elevation: 0,
     isScrollControlled: true,
     isDismissible: false,
+    useRootNavigator: true,
     barrierColor: Colors.black.withOpacity(0.8),
     builder: (context) {
       return Padding(
