@@ -20,6 +20,9 @@ class StatisticRow extends StatelessWidget {
           style: AppTextStyles.styleSemiBold18(context)
               .copyWith(color: AppColors.blackColor),
         ),
+        const SizedBox(
+          width: 20,
+        ),
         Text(
           value,
           style: AppTextStyles.styleRegular16(context),

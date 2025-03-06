@@ -13,7 +13,11 @@ class DetailsTapBarView extends StatelessWidget {
     return Center(
       child: Container(
         padding: const EdgeInsets.all(30),
-        margin: const EdgeInsets.symmetric(horizontal: 40),
+        margin: const EdgeInsets.only(
+          left: 40,
+          right: 40,
+          bottom: 80,
+        ),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(20),
           border: Border.all(

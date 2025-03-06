@@ -29,49 +29,69 @@ class StatisticTabBarView extends StatelessWidget {
       AppStrings.strength,
     ];
     return Padding(
-      padding: const EdgeInsets.all(16.0),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          const SizedBox(
-            height: 15,
-          ),
-          ListView.builder(
-            shrinkWrap: true,
-            itemBuilder: (context, index) => Padding(
-              padding: const EdgeInsets.only(bottom: 10),
-              child: StatisticRow(
-                name: statisticNames[index],
-                value: '85/100',
-              ),
+      padding: const EdgeInsets.all(20.0),
+      child: CustomScrollView(
+        slivers: [
+          SliverToBoxAdapter(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const SizedBox(
+                  height: 15,
+                ),
+                Column(
+                  children: statisticNames
+                      .map(
+                        (e) => Padding(
+                          padding: const EdgeInsets.only(bottom: 10),
+                          child: StatisticRow(
+                            name: e,
+                            value: '85/100',
+                          ),
+                        ),
+                      )
+                      .toList(),
+                ),
+                // ListView.builder(
+                //   shrinkWrap: true,
+                //   physics: const NeverScrollableScrollPhysics(),
+                // itemBuilder: (context, index) => Padding(
+                //   padding: const EdgeInsets.only(bottom: 10),
+                //   child: StatisticRow(
+                //     name: statisticNames[index],
+                //     value: '85/100',
+                //   ),
+                //   ),
+                //   itemCount: statisticNames.length,
+                // ),
+                const SizedBox(
+                  height: 20,
+                ),
+                Text(
+                  AppStrings.tryModel,
+                  style: AppTextStyles.styleSemiBold18(context)
+                      .copyWith(color: AppColors.blackColor),
+                ),
+                const SizedBox(
+                  height: 10,
+                ),
+                Text(
+                  AppStrings.tryModelDesciption,
+                  style: AppTextStyles.styleRegular14(context),
+                ),
+                const SizedBox(
+                  height: 15,
+                ),
+                AppButton(
+                  textButton: AppStrings.starScaning,
+                  onPressed: () {},
+                  widthButton: double.infinity,
+                ),
+                const SizedBox(
+                  height: 80,
+                ),
+              ],
             ),
-            itemCount: statisticNames.length,
-          ),
-          const SizedBox(
-            height: 20,
-          ),
-          Text(
-            AppStrings.tryModel,
-            style: AppTextStyles.styleSemiBold18(context)
-                .copyWith(color: AppColors.blackColor),
-          ),
-          const SizedBox(
-            height: 10,
-          ),
-          Text(
-            AppStrings.tryModelDesciption,
-            style: AppTextStyles.styleRegular14(context),
-          ),
-          const SizedBox(
-            height: 15,
-          ),
-          AppButton(
-            textButton: AppStrings.starScaning,
-            onPressed: () {},
-            widthButton: double.infinity,
-          ),
-          const SizedBox(
-            height: 80,
           ),
         ],
       ),
