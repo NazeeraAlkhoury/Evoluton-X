@@ -6,6 +6,7 @@ import 'package:evoluton_x/features/details/presentation/widgets/custom_selectab
 import 'package:flutter/material.dart';
 
 class CustomSelectableDialog extends StatelessWidget {
+  final String title;
   final List<String> options;
   final String? selectedOption;
   final void Function(String?) onSelectOption;
@@ -16,13 +17,14 @@ class CustomSelectableDialog extends StatelessWidget {
     this.selectedOption,
     required this.onSelectOption,
     this.onSavedOption,
+    required this.title,
   });
 
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
       title: Text(
-        AppStrings.selectNation,
+        title,
         style: AppTextStyles.styleSemiBold16(context),
       ),
       content: Column(
@@ -32,7 +34,7 @@ class CustomSelectableDialog extends StatelessWidget {
               (option) => CustomSelectableTile(
                 title: option,
                 selectedOption: selectedOption,
-                onSelect: (option) => onSelectOption,
+                onSelect: onSelectOption,
               ),
             )
             .toList(),

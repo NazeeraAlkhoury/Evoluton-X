@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 Future<dynamic> showCustomFilterDialog(
   BuildContext context, {
   required Widget child,
-  required String dialogTiltle,
 }) {
   return showDialog(
     context: context,

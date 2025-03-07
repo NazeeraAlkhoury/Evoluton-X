@@ -102,6 +102,31 @@ abstract class AppStrings {
   static const String chooseClub = 'Choose the club';
   static const String filterNow = 'Filter now';
   static const String selectNation = 'choose the nation you want  :';
+  static const String selectClub = 'choose the club you want  :';
   static const String send = 'Send';
   static const String cancel = 'Cancel';
+//
+  static const String details = 'Detailes';
+  static const String statistics = 'Statistics';
+  static const String number = 'number';
+  static const String favLeg = 'Fav leg';
+  static const String value = 'value';
+  static const String finshing = 'Finshing :';
+  static const String crossing = 'Crossing :';
+  static const String headingAccuracy = 'Heading accuracy :';
+  static const String shortPassing = 'Short passing :';
+  static const String volleys = 'Volleys :';
+  static const String dribbling = 'Dribbling :';
+  static const String curve = 'Curve :';
+  static const String freekickAccuracy = 'Freekick accuracy :';
+  static const String ballControl = 'Ball control :';
+  static const String acceleration = 'Acceleration :';
+  static const String sprinSpeed = 'Sprint speed :';
+  static const String shotPower = 'shot power :';
+  static const String marking = 'Marking :';
+  static const String strength = 'Strength :';
+  static const String tryModel = 'Try EV-X Model';
+  static const String tryModelDesciption =
+      'The player\'s data is scanned and information is predicted from it that makes your work easier as a scout';
+  static const String starScaning = 'start scaning';
 }

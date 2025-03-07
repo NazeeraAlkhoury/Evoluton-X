@@ -1,7 +1,7 @@
 import 'package:evoluton_x/core/utils/app_routes.dart';
 import 'package:evoluton_x/core/utils/app_strings.dart';
 import 'package:evoluton_x/features/authentication/presentation/widgets/auth_header_row.dart';
-import 'package:evoluton_x/features/authentication/presentation/widgets/custom_back_button.dart';
+import 'package:evoluton_x/core/widgets/custom_back_button.dart';
 import 'package:flutter/material.dart';
 
 class ResetPassHeader extends StatelessWidget {
