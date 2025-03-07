@@ -1,6 +1,6 @@
 import 'package:equatable/equatable.dart';
 
-class ClubFilterEvent extends Equatable {
+abstract class ClubFilterEvent extends Equatable {
   @override
   List<Object?> get props => [];
 }

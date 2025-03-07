@@ -129,4 +129,16 @@ abstract class AppStrings {
   static const String tryModelDesciption =
       'The player\'s data is scanned and information is predicted from it that makes your work easier as a scout';
   static const String starScaning = 'start scaning';
+  //search
+  static const String searchNow = 'Search for what you want ..';
+  static const String lastSearch = 'Last search';
+  static const String search = 'Search';
+  static const String searchFilter = 'Search filter';
+  static const String postion = 'Postion';
+  static const String theResult = 'The Result :';
+  static const String favouritePlayers = 'My favourite players';
+  static const String choosePostion = 'Choose the postion';
+  static const String chooseAge = 'Choose the age';
+  static const String selectPosition = 'choose the position you want  :';
+  static const String selectAge = 'choose the age you want  :';
 }
