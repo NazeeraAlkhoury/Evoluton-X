@@ -1,3 +1,4 @@
+import 'package:evoluton_x/core/functions/show_custom_bottom_sheet.dart';
 import 'package:evoluton_x/core/utils/app_colors.dart';
 import 'package:evoluton_x/core/utils/app_icons_assets.dart';
 import 'package:evoluton_x/core/utils/app_strings.dart';
@@ -17,11 +18,9 @@ class CustomSearchButton extends StatelessWidget {
       height: 44,
       child: ElevatedButton(
         onPressed: () {
-          showBottomSheet(
-            context: context,
-            builder: (context) {
-              return const SearchFilterSheet();
-            },
+          showCustomBottomSheet(
+            context,
+            child: const SearchFilterSheet(),
           );
         },
         style: ElevatedButton.styleFrom(

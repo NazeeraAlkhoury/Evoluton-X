@@ -44,9 +44,7 @@ class SearchBloc extends Bloc<SearchEvent, SearchState> {
 
   FutureOr<void> _selectedPosition(event, emit) {
     emit(
-      state.copyWith(
-        selectedPosition: event.selectedPosition,
-      ),
+      state.copyWith(selectedPosition: event.selectedPosition),
     );
   }
 
@@ -61,7 +59,7 @@ class SearchBloc extends Bloc<SearchEvent, SearchState> {
   FutureOr<void> _selectClub(event, emit) {
     emit(
       state.copyWith(
-        savedClub: event.selectedClub,
+        selectedClub: event.selectedClub,
       ),
     );
   }

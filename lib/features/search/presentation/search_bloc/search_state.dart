@@ -46,6 +46,7 @@ class SearchState extends Equatable {
         savedNation,
         selectedClub,
         savedClub,
+        selectedPosition,
         savedPosition,
         savedClub,
         selectedAge,

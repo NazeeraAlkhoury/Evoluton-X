@@ -7,4 +7,5 @@ abstract class AppIconAssets {
   static const String more = 'assets/icons/more.svg';
   static const String check = 'assets/icons/check.svg';
   static const String filter = 'assets/icons/filter.svg';
+  static const String lastSearch = 'assets/icons/last_search.svg';
 }
