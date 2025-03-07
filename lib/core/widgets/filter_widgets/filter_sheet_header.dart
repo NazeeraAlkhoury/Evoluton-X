@@ -1,7 +1,7 @@
 import 'package:evoluton_x/core/utils/app_colors.dart';
 import 'package:evoluton_x/core/utils/app_text_styles.dart';
 import 'package:evoluton_x/core/widgets/bottomsheet_handle.dart';
-import 'package:evoluton_x/features/details/presentation/widgets/custom_evolution_search_description.dart';
+import 'package:evoluton_x/core/widgets/filter_widgets/custom_evolution_search_description.dart';
 import 'package:flutter/material.dart';
 
 class FilterSheetHeader extends StatelessWidget {

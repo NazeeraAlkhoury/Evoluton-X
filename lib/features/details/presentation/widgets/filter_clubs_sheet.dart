@@ -1,13 +1,13 @@
 import 'package:evoluton_x/core/functions/show_custom_filter_dialog.dart';
 import 'package:evoluton_x/core/utils/app_colors.dart';
 import 'package:evoluton_x/core/utils/app_strings.dart';
-import 'package:evoluton_x/core/widgets/custom_selectable_dialog.dart';
+import 'package:evoluton_x/core/widgets/filter_widgets/custom_selectable_dialog.dart';
 import 'package:evoluton_x/features/details/presentation/controllers/club_filter_bloc/club_filter_bloc.dart';
 import 'package:evoluton_x/features/details/presentation/controllers/club_filter_bloc/club_filter_event.dart';
 import 'package:evoluton_x/features/details/presentation/controllers/club_filter_bloc/club_filter_state.dart';
-import 'package:evoluton_x/features/details/presentation/widgets/custom_filter_button.dart';
-import 'package:evoluton_x/features/details/presentation/widgets/filter_selector_row.dart';
-import 'package:evoluton_x/features/details/presentation/widgets/filter_sheet_header.dart';
+import 'package:evoluton_x/core/widgets/filter_widgets/custom_filter_button.dart';
+import 'package:evoluton_x/core/widgets/filter_widgets/filter_selector_row.dart';
+import 'package:evoluton_x/core/widgets/filter_widgets/filter_sheet_header.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

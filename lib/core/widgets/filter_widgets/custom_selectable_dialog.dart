@@ -1,8 +1,8 @@
 import 'package:evoluton_x/core/utils/app_colors.dart';
 import 'package:evoluton_x/core/utils/app_strings.dart';
 import 'package:evoluton_x/core/utils/app_text_styles.dart';
-import 'package:evoluton_x/features/details/presentation/widgets/custom_filter_dialog_action_button.dart';
-import 'package:evoluton_x/features/details/presentation/widgets/custom_selectable_tile.dart';
+import 'package:evoluton_x/core/widgets/filter_widgets/custom_filter_dialog_action_button.dart';
+import 'package:evoluton_x/core/widgets/filter_widgets/custom_selectable_tile.dart';
 import 'package:flutter/material.dart';
 
 class CustomSelectableDialog extends StatelessWidget {

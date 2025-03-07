@@ -1,4 +1,4 @@
-import 'package:evoluton_x/features/details/presentation/widgets/custom_dot.dart';
+import 'package:evoluton_x/features/details/presentation/widgets/details/custom_dot.dart';
 import 'package:flutter/material.dart';
 
 class DotsIndicitor extends StatelessWidget {

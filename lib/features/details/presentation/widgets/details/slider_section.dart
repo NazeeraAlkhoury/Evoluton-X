@@ -1,8 +1,8 @@
 import 'package:evoluton_x/features/details/presentation/controllers/details_bloc/details_bloc.dart';
 import 'package:evoluton_x/features/details/presentation/controllers/details_bloc/details_event.dart';
 import 'package:evoluton_x/features/details/presentation/controllers/details_bloc/details_state.dart';
-import 'package:evoluton_x/features/details/presentation/widgets/custom_players_carousel.dart';
-import 'package:evoluton_x/features/details/presentation/widgets/dots_indicitor.dart';
+import 'package:evoluton_x/features/details/presentation/widgets/details/custom_players_carousel.dart';
+import 'package:evoluton_x/features/details/presentation/widgets/details/dots_indicitor.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
