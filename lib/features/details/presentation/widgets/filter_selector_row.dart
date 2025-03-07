@@ -1,5 +1,4 @@
 import 'package:evoluton_x/core/utils/app_colors.dart';
-import 'package:evoluton_x/core/utils/app_strings.dart';
 import 'package:evoluton_x/core/utils/app_text_styles.dart';
 import 'package:evoluton_x/core/widgets/app_button.dart';
 import 'package:flutter/material.dart';

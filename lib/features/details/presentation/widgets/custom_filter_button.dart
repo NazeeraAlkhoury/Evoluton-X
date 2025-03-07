@@ -8,17 +8,22 @@ class CustomFilterButton extends StatelessWidget {
   final String label;
   final void Function()? onPressed;
   final Color? color;
+  final bool isOpacity;
+  final double? width;
   const CustomFilterButton({
     super.key,
     this.onPressed,
     this.color,
     required this.label,
+    this.isOpacity = true,
+    this.width,
   });
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
       height: 38.7,
+      width: width,
       child: ElevatedButton.icon(
         onPressed: onPressed,
         label: Text(
@@ -30,8 +35,11 @@ class CustomFilterButton extends StatelessWidget {
         iconAlignment: IconAlignment.end,
         icon: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 3),
-          child: SvgPicture.asset(
-            AppIconAssets.filter,
+          child: Opacity(
+            opacity: isOpacity ? 1.0 : 0.2,
+            child: SvgPicture.asset(
+              AppIconAssets.filter,
+            ),
           ),
         ),
         style: ElevatedButton.styleFrom(
