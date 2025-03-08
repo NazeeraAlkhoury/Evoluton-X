@@ -77,10 +77,11 @@ class _SplashViewBodyState extends State<SplashViewBody>
   }
 
   Future<void> goToPage() {
-    return Future.delayed(
-      const Duration(seconds: 3),
-      () => Navigator.pushReplacementNamed(context, AppRoutes.mainLayout),
-    );
+    return Future.delayed(const Duration(seconds: 3), () {
+      if (mounted) {
+        Navigator.pushReplacementNamed(context, AppRoutes.mainLayout);
+      }
+    });
   }
 
   @override

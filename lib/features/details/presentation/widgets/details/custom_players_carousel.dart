@@ -13,8 +13,9 @@ class CustomPlayersCarousel extends StatelessWidget {
     return CarouselSlider(
       options: CarouselOptions(
         height: 200,
-        //  autoPlay: true,
-        autoPlayInterval: const Duration(seconds: 3),
+        // autoPlay: true,
+        // autoPlayInterval: const Duration(seconds: 3),
+        reverse: true,
         enlargeCenterPage: true,
         viewportFraction: 1,
         onPageChanged: onChanged,

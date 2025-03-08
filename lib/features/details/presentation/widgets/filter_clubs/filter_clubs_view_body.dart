@@ -21,8 +21,8 @@ class FilterClubsViewBody extends StatelessWidget {
         ),
         SliverPadding(
           padding: EdgeInsets.only(
-            left: 16,
-            right: 16,
+            left: 20,
+            right: 20,
             top: 15,
             bottom: 70,
           ),

@@ -7,24 +7,31 @@ import 'package:evoluton_x/features/search/presentation/search_bloc/search_bloc.
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:device_preview/device_preview.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await ServiceLocator().setupServiceLocator();
   Bloc.observer = MyBlocObserver();
-  runApp(
-    // DevicePreview(
-    //   builder: (context) => const MyApp(),
-    // ),
-    MultiBlocProvider(providers: [
-      BlocProvider(
-        create: (context) => getIt<ClubFilterBloc>(),
-      ),
-      BlocProvider(
-        create: (context) => getIt<SearchBloc>(),
-      ),
-    ], child: const MyApp()),
-  );
+  runApp(DevicePreview(
+      builder: (context) => MultiBlocProvider(providers: [
+            BlocProvider(
+              create: (context) => getIt<ClubFilterBloc>(),
+            ),
+            BlocProvider(
+              create: (context) => getIt<SearchBloc>(),
+            ),
+          ], child: const MyApp())));
+  //  const MyApp();
+
+  // MultiBlocProvider(providers: [
+  //   BlocProvider(
+  //     create: (context) => getIt<ClubFilterBloc>(),
+  //   ),
+  //   BlocProvider(
+  //     create: (context) => getIt<SearchBloc>(),
+  //   ),
+  // ], child: const MyApp());
 }
 
 class MyApp extends StatelessWidget {

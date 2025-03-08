@@ -1,8 +1,8 @@
 import 'package:evoluton_x/features/details/presentation/widgets/custom_club.dart';
 import 'package:flutter/material.dart';
 
-class ClubSuggestionsGrid extends StatelessWidget {
-  const ClubSuggestionsGrid({
+class ResultClubGridView extends StatelessWidget {
+  const ResultClubGridView({
     super.key,
   });
 
@@ -11,9 +11,8 @@ class ClubSuggestionsGrid extends StatelessWidget {
     return SliverGrid.builder(
       itemCount: 10,
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-        // childAspectRatio: 1.1 / 1.03,
         crossAxisCount: 2,
-        crossAxisSpacing: 15,
+        crossAxisSpacing: 10,
         mainAxisSpacing: 6,
       ),
       itemBuilder: (context, index) => const CustomClub(),

@@ -13,6 +13,7 @@ class DetailsTapBarView extends StatelessWidget {
     return Center(
       child: Container(
         padding: const EdgeInsets.all(30),
+        height: 200,
         margin: const EdgeInsets.only(
           left: 40,
           right: 40,
@@ -25,42 +26,55 @@ class DetailsTapBarView extends StatelessWidget {
             width: 1,
           ),
         ),
-        child: const Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Row(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Expanded(child: CustomPlayerDetailsItem()),
-                SizedBox(
-                  width: 20,
-                ),
-                Expanded(child: CustomPlayerDetailsItem()),
-                SizedBox(
-                  width: 20,
-                ),
-                Expanded(child: CustomPlayerDetailsItem()),
-              ],
-            ),
-            SizedBox(
-              height: 20,
-            ),
-            Row(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Expanded(child: CustomPlayerDetailsItem()),
-                SizedBox(
-                  width: 20,
-                ),
-                Expanded(child: CustomPlayerDetailsItem()),
-                SizedBox(
-                  width: 20,
-                ),
-                Expanded(child: CustomPlayerDetailsItem()),
-              ],
-            ),
-          ],
+        child: GridView.builder(
+          itemCount: 6,
+          itemBuilder: (context, index) =>
+              const SizedBox(height: 36, child: CustomPlayerDetailsItem()),
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 3,
+            childAspectRatio: 1,
+            crossAxisSpacing: 20,
+            mainAxisSpacing: 0,
+          ),
         ),
+        // child: SingleChildScrollView(
+        //   child: const Column(
+        //     mainAxisSize: MainAxisSize.min,
+        //     children: [
+        //       Row(
+        //         mainAxisSize: MainAxisSize.min,
+        //         children: [
+        //           Expanded(child: CustomPlayerDetailsItem()),
+        //           SizedBox(
+        //             width: 20,
+        //           ),
+        //           Expanded(child: CustomPlayerDetailsItem()),
+        //           SizedBox(
+        //             width: 20,
+        //           ),
+        //           Expanded(child: CustomPlayerDetailsItem()),
+        //         ],
+        //       ),
+        //       SizedBox(
+        //         height: 20,
+        //       ),
+        //       Row(
+        //         mainAxisSize: MainAxisSize.min,
+        //         children: [
+        //           Expanded(child: CustomPlayerDetailsItem()),
+        //           SizedBox(
+        //             width: 20,
+        //           ),
+        //           Expanded(child: CustomPlayerDetailsItem()),
+        //           SizedBox(
+        //             width: 20,
+        //           ),
+        //           Expanded(child: CustomPlayerDetailsItem()),
+        //         ],
+        //       ),
+        //     ],
+        //   ),
+        // ),
       ),
     );
   }

@@ -1,8 +1,8 @@
-import 'package:evoluton_x/features/details/presentation/widgets/custom_club.dart';
+import 'package:evoluton_x/features/details/presentation/widgets/custom_player_info_card.dart';
 import 'package:flutter/material.dart';
 
-class ClubSuggestionsGrid extends StatelessWidget {
-  const ClubSuggestionsGrid({
+class ResultSearchFilterGridView extends StatelessWidget {
+  const ResultSearchFilterGridView({
     super.key,
   });
 
@@ -13,10 +13,10 @@ class ClubSuggestionsGrid extends StatelessWidget {
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
         // childAspectRatio: 1.1 / 1.03,
         crossAxisCount: 2,
-        crossAxisSpacing: 15,
+        crossAxisSpacing: 10,
         mainAxisSpacing: 6,
       ),
-      itemBuilder: (context, index) => const CustomClub(),
+      itemBuilder: (context, index) => const CustomPlayerInfoCard(),
     );
   }
 }
