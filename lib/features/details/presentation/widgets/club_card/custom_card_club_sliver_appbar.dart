@@ -16,6 +16,8 @@ class CustomCardClubSleverAppBar extends StatelessWidget {
       elevation: 0,
       floating: false,
       pinned: true,
+      titleTextStyle: AppTextStyles.styleRegular16(context),
+      centerTitle: true,
       leading: Padding(
         padding: const EdgeInsets.only(left: 10),
         child: FittedBox(

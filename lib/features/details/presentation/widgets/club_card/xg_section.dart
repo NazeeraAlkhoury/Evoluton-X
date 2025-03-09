@@ -37,7 +37,7 @@ class XgListView extends StatelessWidget {
       shrinkWrap: true,
       physics: const NeverScrollableScrollPhysics(),
       itemBuilder: (context, index) => const Padding(
-        padding: EdgeInsets.only(bottom: 10),
+        padding: EdgeInsetsDirectional.only(bottom: 10, end: 15),
         child: CustomPlayersXg(),
       ),
       itemCount: 4,
