@@ -27,6 +27,7 @@ class _ClubCardViewState extends State<ClubCardView>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       body: ClubCardViewBody(tabController: _tabController),
     );
   }

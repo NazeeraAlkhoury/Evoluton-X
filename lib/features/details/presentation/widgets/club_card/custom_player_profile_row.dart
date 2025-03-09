@@ -26,46 +26,55 @@ class CustomPlayerProfileRow extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(
-                        'Carlo ancelotti',
-                        style: AppTextStyles.styleRegular14(context),
+                      FittedBox(
+                        fit: BoxFit.scaleDown,
+                        child: Text(
+                          'Carlo ancelotti',
+                          style: AppTextStyles.styleRegular14(context),
+                        ),
                       ),
                       const SizedBox(
                         height: 5,
                       ),
-                      Row(
-                        children: [
-                          Padding(
-                            padding: const EdgeInsetsDirectional.only(end: 10),
-                            child: Text(
-                              '9',
-                              style: AppTextStyles.styleRegular12(context),
+                      FittedBox(
+                        fit: BoxFit.scaleDown,
+                        child: Row(
+                          children: [
+                            Padding(
+                              padding:
+                                  const EdgeInsetsDirectional.only(end: 10),
+                              child: Text(
+                                '9',
+                                style: AppTextStyles.styleRegular12(context),
+                              ),
                             ),
-                          ),
-                          Padding(
-                            padding: const EdgeInsetsDirectional.only(end: 10),
-                            child: Text(
-                              '25 y',
-                              style: AppTextStyles.styleRegular12(context),
+                            Padding(
+                              padding:
+                                  const EdgeInsetsDirectional.only(end: 10),
+                              child: Text(
+                                '25 y',
+                                style: AppTextStyles.styleRegular12(context),
+                              ),
                             ),
-                          ),
-                          const SizedBox(
-                            height: 10,
-                          ),
-                          const Padding(
-                            padding: EdgeInsetsDirectional.only(end: 10),
-                            child: CustomFlagOrClubAvatar(
-                              imagePath: 'assets/images/flag.png',
+                            const SizedBox(
+                              height: 10,
                             ),
-                          ),
-                          Padding(
-                            padding: const EdgeInsetsDirectional.only(end: 10),
-                            child: Text(
-                              'FRA',
-                              style: AppTextStyles.styleRegular12(context),
+                            const Padding(
+                              padding: EdgeInsetsDirectional.only(end: 10),
+                              child: CustomFlagOrClubAvatar(
+                                imagePath: 'assets/images/flag.png',
+                              ),
                             ),
-                          ),
-                        ],
+                            Padding(
+                              padding:
+                                  const EdgeInsetsDirectional.only(end: 10),
+                              child: Text(
+                                'FRA',
+                                style: AppTextStyles.styleRegular12(context),
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
                     ],
                   ),

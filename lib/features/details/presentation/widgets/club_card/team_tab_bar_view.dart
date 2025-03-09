@@ -22,6 +22,9 @@ class TeamTabBarView extends StatelessWidget {
                   height: 20,
                 ),
                 TeamPlayersSection(),
+                SizedBox(
+                  height: 70,
+                ),
               ],
             ),
           ),

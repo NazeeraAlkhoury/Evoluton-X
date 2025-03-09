@@ -1,4 +1,3 @@
-import 'package:evoluton_x/core/utils/app_colors.dart';
 import 'package:evoluton_x/core/utils/app_text_styles.dart';
 import 'package:evoluton_x/core/widgets/custom_back_button.dart';
 import 'package:evoluton_x/core/widgets/custom_flag_or_club_avatar.dart';

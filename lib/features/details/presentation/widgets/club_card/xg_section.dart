@@ -14,7 +14,7 @@ class XgSection extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         CustomShowRow(
-          text: AppStrings.assists,
+          text: AppStrings.xg,
           onPressed: () {},
         ),
         const SizedBox(
