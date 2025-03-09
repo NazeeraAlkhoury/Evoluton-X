@@ -141,4 +141,15 @@ abstract class AppStrings {
   static const String chooseAge = 'Choose the age';
   static const String selectPosition = 'choose the position you want  :';
   static const String selectAge = 'choose the age you want  :';
+  //
+  static const String team = 'Team';
+  static const String topPlayers = 'top players';
+  static const String coach = 'Coach';
+  static const String teamPlayers = 'Team players';
+  static const String topStrikers = 'Top strikers';
+  static const String topMidfielder = 'Top Midfielder';
+  static const String goals = 'Goals';
+  static const String assists = 'Assists';
+  static const String xg = 'XG';
+  static const String achievedChances = 'Achieved chances';
 }

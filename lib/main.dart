@@ -13,25 +13,26 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await ServiceLocator().setupServiceLocator();
   Bloc.observer = MyBlocObserver();
-  runApp(DevicePreview(
-      builder: (context) => MultiBlocProvider(providers: [
-            BlocProvider(
-              create: (context) => getIt<ClubFilterBloc>(),
-            ),
-            BlocProvider(
-              create: (context) => getIt<SearchBloc>(),
-            ),
-          ], child: const MyApp())));
-  //  const MyApp();
+  runApp(
+      // DevicePreview(
+      //   builder: (context) => MultiBlocProvider(providers: [
+      //         BlocProvider(
+      //           create: (context) => getIt<ClubFilterBloc>(),
+      //         ),
+      //         BlocProvider(
+      //           create: (context) => getIt<SearchBloc>(),
+      //         ),
+      //       ], child: const MyApp())));
+      //  const MyApp();
 
-  // MultiBlocProvider(providers: [
-  //   BlocProvider(
-  //     create: (context) => getIt<ClubFilterBloc>(),
-  //   ),
-  //   BlocProvider(
-  //     create: (context) => getIt<SearchBloc>(),
-  //   ),
-  // ], child: const MyApp());
+      MultiBlocProvider(providers: [
+    BlocProvider(
+      create: (context) => getIt<ClubFilterBloc>(),
+    ),
+    BlocProvider(
+      create: (context) => getIt<SearchBloc>(),
+    ),
+  ], child: const MyApp()));
 }
 
 class MyApp extends StatelessWidget {
