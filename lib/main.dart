@@ -7,6 +7,7 @@ import 'package:evoluton_x/features/search/presentation/search_bloc/search_bloc.
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+// ignore: unused_import
 import 'package:device_preview/device_preview.dart';
 
 void main() async {

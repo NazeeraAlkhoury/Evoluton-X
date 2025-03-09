@@ -4,7 +4,6 @@ import 'package:evoluton_x/core/utils/app_icons_assets.dart';
 import 'package:evoluton_x/core/utils/app_strings.dart';
 import 'package:evoluton_x/core/utils/app_text_styles.dart';
 import 'package:evoluton_x/features/authentication/presentation/widgets/delet_account_sheet.dart';
-import 'package:evoluton_x/features/search/presentation/widgets/search_filter_sheet.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
