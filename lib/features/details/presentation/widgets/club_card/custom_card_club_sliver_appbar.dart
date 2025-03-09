@@ -1,6 +1,7 @@
 import 'package:evoluton_x/core/utils/app_colors.dart';
 import 'package:evoluton_x/core/utils/app_text_styles.dart';
 import 'package:evoluton_x/core/widgets/custom_back_button.dart';
+import 'package:evoluton_x/core/widgets/custom_flag_or_club_avatar.dart';
 import 'package:flutter/material.dart';
 
 class CustomCardClubSleverAppBar extends StatelessWidget {
@@ -31,21 +32,24 @@ class CustomCardClubSleverAppBar extends StatelessWidget {
             const SizedBox(
               height: 20,
             ),
-            const CircleAvatar(
+            const CustomFlagOrClubAvatar(
+              imagePath: 'assets/images/flag.png',
               radius: 80,
-              backgroundColor: AppColors.blackColor,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                CircleAvatar(
-                  radius: 8,
-                  child: Image.asset(
-                    'assets/images/flag.png',
-                    fit: BoxFit.cover,
-                    width: double.infinity,
-                  ),
+                const CustomFlagOrClubAvatar(
+                  imagePath: 'assets/images/flag.png',
                 ),
+                // CircleAvatar(
+                //   radius: 8,
+                //   child: Image.asset(
+                //     'assets/images/flag.png',
+                //     fit: BoxFit.cover,
+                //     width: double.infinity,
+                //   ),
+                // ),
                 Padding(
                   padding: const EdgeInsets.only(left: 8),
                   child: Text(
