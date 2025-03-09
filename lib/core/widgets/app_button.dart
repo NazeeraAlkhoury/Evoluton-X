@@ -26,6 +26,7 @@ class AppButton extends StatelessWidget {
             borderRadius: BorderRadius.circular(10),
           ),
           backgroundColor: AppColors.primaryColor,
+          disabledBackgroundColor: AppColors.primaryColor.withOpacity(.5),
           elevation: 0,
         ),
         onPressed: onPressed,

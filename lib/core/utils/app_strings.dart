@@ -152,4 +152,5 @@ abstract class AppStrings {
   static const String assists = 'Assists';
   static const String xg = 'XG';
   static const String achievedChances = 'Achieved chances';
+  static const String scanningNow = 'scaning now...';
 }
