@@ -7,4 +7,5 @@ abstract class AppImageAssets {
       'assets/images/change_pass_successfully.png';
   static const String homeImage = 'assets/images/home_image.png';
   static const String scan = 'assets/images/scan.png';
+  static const String logout = 'assets/images/logout.png';
 }

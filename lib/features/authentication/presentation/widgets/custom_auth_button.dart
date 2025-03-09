@@ -1,11 +1,14 @@
 import 'package:evoluton_x/core/utils/app_colors.dart';
-import 'package:evoluton_x/core/utils/app_strings.dart';
 import 'package:evoluton_x/core/utils/app_text_styles.dart';
 import 'package:flutter/material.dart';
 
-class CustomReplaceButton extends StatelessWidget {
-  const CustomReplaceButton({
+class CustomAuthButton extends StatelessWidget {
+  final String text;
+  final void Function()? onPressed;
+  const CustomAuthButton({
     super.key,
+    required this.text,
+    this.onPressed,
   });
 
   @override
@@ -13,7 +16,7 @@ class CustomReplaceButton extends StatelessWidget {
     return SizedBox(
       height: 44,
       child: ElevatedButton(
-          onPressed: () {},
+          onPressed: onPressed,
           style: ElevatedButton.styleFrom(
             backgroundColor: Colors.white,
             shape: RoundedRectangleBorder(
@@ -26,7 +29,7 @@ class CustomReplaceButton extends StatelessWidget {
             elevation: 0,
           ),
           child: Text(
-            AppStrings.replace,
+            text,
             style: AppTextStyles.styleSemiBold16(context).copyWith(
               color: AppColors.primaryColor,
             ),

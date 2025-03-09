@@ -153,4 +153,8 @@ abstract class AppStrings {
   static const String xg = 'XG';
   static const String achievedChances = 'Achieved chances';
   static const String scanningNow = 'scaning now...';
+  static const String deleteAccount = 'Delete account';
+  static const String wantDelete = 'Do you want to delete the account?';
+  static const String logOut = 'log out';
+  static const String wantLogout = 'Do you want to logout ?';
 }
