@@ -1,11 +1,10 @@
 import 'package:evoluton_x/core/utils/app_colors.dart';
+import 'package:evoluton_x/core/utils/app_routes.dart';
 import 'package:evoluton_x/core/utils/app_strings.dart';
 import 'package:evoluton_x/core/utils/app_text_styles.dart';
 import 'package:evoluton_x/core/widgets/app_button.dart';
 import 'package:evoluton_x/features/details/presentation/widgets/player_card/statistic_row.dart';
-import 'package:evoluton_x/features/scaning/presentation/views/scaning_view.dart';
 import 'package:flutter/material.dart';
-import 'package:persistent_bottom_nav_bar/persistent_bottom_nav_bar.dart';
 
 class StatisticTabBarView extends StatelessWidget {
   const StatisticTabBarView({
@@ -87,11 +86,12 @@ class StatisticTabBarView extends StatelessWidget {
                 AppButton(
                   textButton: AppStrings.starScaning,
                   onPressed: () {
-                    PersistentNavBarNavigator.pushNewScreen(
-                      context,
-                      screen: const ScaningView(),
-                      withNavBar: true,
-                    );
+                    Navigator.pushNamed(context, AppRoutes.scaning);
+                    // PersistentNavBarNavigator.pushNewScreen(
+                    //   context,
+                    //   screen: const ScaningView(),
+                    //   withNavBar: true,
+                    // );
                   },
                   widthButton: double.infinity,
                 ),

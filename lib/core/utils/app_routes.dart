@@ -5,11 +5,21 @@ import 'package:evoluton_x/features/authentication/presentation/views/login_view
 import 'package:evoluton_x/features/authentication/presentation/views/register_view.dart';
 import 'package:evoluton_x/features/authentication/presentation/views/reset_password_view.dart';
 import 'package:evoluton_x/features/authentication/presentation/views/verify_password_view.dart';
+import 'package:evoluton_x/features/details/presentation/views/club_card_view.dart';
+import 'package:evoluton_x/features/details/presentation/views/details_view.dart';
+import 'package:evoluton_x/features/details/presentation/views/filter_clubs_view.dart';
+import 'package:evoluton_x/features/details/presentation/views/player_card_view.dart';
+import 'package:evoluton_x/features/details/presentation/views/result_club_filter_view.dart';
+import 'package:evoluton_x/features/favorite/presentation/views/favorite_view.dart';
 import 'package:evoluton_x/features/home/presentation/views/home_after_checked_view.dart';
 import 'package:evoluton_x/features/home/presentation/views/home_view.dart';
 import 'package:evoluton_x/features/layout/presentation/controller/layout_bloc/layout_bloc.dart';
 import 'package:evoluton_x/features/layout/presentation/views/main_layout_view.dart';
 import 'package:evoluton_x/features/onboarding/presentation/views/onboarding_view.dart';
+import 'package:evoluton_x/features/scaning/presentation/views/result_after_scaning_view.dart';
+import 'package:evoluton_x/features/scaning/presentation/views/scaning_view.dart';
+import 'package:evoluton_x/features/search/presentation/views/result_search_filter_view.dart';
+import 'package:evoluton_x/features/search/presentation/views/search_view.dart';
 import 'package:evoluton_x/features/splash/presentation/views/splash_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -25,7 +35,17 @@ abstract class AppRoutes {
   static const String resetPassword = '/resetPassword';
   static const String verifyPassword = '/verifyPassword';
   static const String mainLayout = '/mainLayout';
-  // static const String filterClubs = '/filterClubs';
+  static const String details = '/details';
+  static const String clubFilter = '/clubFilter';
+  static const String resultClubFilter = '/resultClubFilter';
+  static const String clubCard = '/clubCard';
+  static const String playerCard = '/playerCard';
+  static const String scaning = '/scaning';
+  static const String resultSearchFilter = '/resultSearchFilter';
+  static const String search = '/search';
+  static const String resultAfterScaning = '/resultAfterScaning';
+
+  static const String favorite = '/favorite';
 
   static Route<dynamic>? onGenerateRoute(RouteSettings settings) {
     switch (settings.name) {
@@ -54,10 +74,79 @@ abstract class AppRoutes {
             child: const MainLayoutView(),
           ),
         );
-      // case filterClubs:
-      //   return MaterialPageRoute(builder: (_) => const FilterClubsView());
+
+      case details:
+        return MaterialPageRoute(builder: (_) => const DetailsView());
+      case clubFilter:
+        return MaterialPageRoute(builder: (_) => const FilterClubsView());
+      case resultClubFilter:
+        return MaterialPageRoute(builder: (_) => const ResultClubFilterView());
+      case clubCard:
+        return MaterialPageRoute(builder: (_) => const ClubCardView());
+      case playerCard:
+        return MaterialPageRoute(builder: (_) => PlayerCardView());
+      case search:
+        return MaterialPageRoute(builder: (_) => const SearchView());
+      case favorite:
+        return MaterialPageRoute(builder: (_) => const FavoriteView());
+      case scaning:
+        return MaterialPageRoute(builder: (_) => const ScaningView());
+      case resultAfterScaning:
+        return MaterialPageRoute(
+            builder: (_) => const ResultAfterScaningView());
+      case resultSearchFilter:
+        return MaterialPageRoute(
+            builder: (_) => const ResultSearchFilterView());
+
       default:
         return MaterialPageRoute(builder: (_) => const ErrorRouteView());
     }
   }
 }
+
+// abstract class DetailsRoute {
+//   static const String details = '/details';
+//   static const String clubFilter = '$details/clubFilter';
+//   static const String resultClubFilter = '$clubFilter/resultClubFilter';
+
+//   static Route<dynamic>? onGenerateDetailsRoute(RouteSettings settings) {
+//     switch (settings.name) {
+//       case details:
+//         return MaterialPageRoute(builder: (_) => const DetailsView());
+//       case clubFilter:
+//         return MaterialPageRoute(builder: (_) => const FilterClubsView());
+//       case resultClubFilter:
+//         return MaterialPageRoute(builder: (_) => const ResultClubFilterView());
+
+//       default:
+//         return MaterialPageRoute(builder: (_) => const DetailsView());
+//     }
+//   }
+// }
+
+// abstract class SearchRoute {
+//   static const String search = '/search';
+//   static Route<dynamic>? onGenerateDetailsRoute(RouteSettings settings) {
+//     switch (settings.name) {
+//       case search:
+//         return MaterialPageRoute(builder: (_) => const SearchView());
+
+//       default:
+//         return MaterialPageRoute(builder: (_) => const ErrorRouteView());
+//     }
+//   }
+// }
+
+// abstract class FavoriteRoute {
+//   static const String favorite = '/favorite';
+
+//   static Route<dynamic>? onGenerateDetailsRoute(RouteSettings settings) {
+//     switch (settings.name) {
+//       case favorite:
+//         return MaterialPageRoute(builder: (_) => const FavoriteView());
+
+//       default:
+//         return MaterialPageRoute(builder: (_) => const ErrorRouteView());
+//     }
+//   }
+// }

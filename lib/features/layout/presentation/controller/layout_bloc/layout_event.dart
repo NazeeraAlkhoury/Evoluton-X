@@ -11,4 +11,7 @@ class NavBarItemTappedEvent extends LayoutEvent {
   final int index;
 
   const NavBarItemTappedEvent({required this.index});
+
+  @override
+  List<Object?> get props => [index];
 }

@@ -1,5 +1,6 @@
 import 'package:evoluton_x/core/functions/show_custom_filter_dialog.dart';
 import 'package:evoluton_x/core/utils/app_colors.dart';
+import 'package:evoluton_x/core/utils/app_routes.dart';
 import 'package:evoluton_x/core/utils/app_strings.dart';
 import 'package:evoluton_x/core/widgets/filter_widgets/custom_selectable_dialog.dart';
 import 'package:evoluton_x/features/details/presentation/controllers/club_filter_bloc/club_filter_bloc.dart';
@@ -8,10 +9,8 @@ import 'package:evoluton_x/features/details/presentation/controllers/club_filter
 import 'package:evoluton_x/core/widgets/filter_widgets/custom_filter_button.dart';
 import 'package:evoluton_x/core/widgets/filter_widgets/filter_selector_row.dart';
 import 'package:evoluton_x/core/widgets/filter_widgets/filter_sheet_header.dart';
-import 'package:evoluton_x/features/details/presentation/views/result_club_filter_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:persistent_bottom_nav_bar/persistent_bottom_nav_bar.dart';
 
 class FilterClubsSheet extends StatelessWidget {
   const FilterClubsSheet({
@@ -68,12 +67,18 @@ class FilterClubsSheet extends StatelessWidget {
                   color: AppColors.primaryColor,
                   onPressed: enableFilter
                       ? () {
-                          Navigator.pop(context);
-                          PersistentNavBarNavigator.pushNewScreen(
-                            context,
-                            screen: const ResultClubFilterView(),
-                            withNavBar: true,
-                          );
+                          //Navigator.pop(context);
+                          // PersistentNavBarNavigator.pushNewScreen(
+                          //   context,
+                          //   screen: const ResultClubFilterView(),
+                          //   withNavBar: true,
+                          // );
+                          // Navigator.pushReplacementNamed(
+                          //     context, DetailsRoute.resultClubFilter);
+                          Future.delayed(const Duration(milliseconds: 200), () {
+                            return Navigator.pushReplacementNamed(
+                                context, AppRoutes.resultClubFilter);
+                          });
                         }
                       : null,
                   isOpacity: enableFilter,

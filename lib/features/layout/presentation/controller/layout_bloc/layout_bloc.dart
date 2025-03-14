@@ -7,16 +7,15 @@ import 'package:evoluton_x/features/layout/presentation/controller/layout_bloc/l
 import 'package:evoluton_x/features/layout/presentation/controller/layout_bloc/layout_state.dart';
 import 'package:evoluton_x/features/search/presentation/views/search_view.dart';
 import 'package:flutter/material.dart';
-import 'package:persistent_bottom_nav_bar/persistent_bottom_nav_bar.dart';
 
 class LayoutBloc extends Bloc<LayoutEvent, LayoutState> {
-  final PersistentTabController persistentTabController =
-      PersistentTabController(initialIndex: 0);
+  // final PersistentTabController persistentTabController =
+  //     PersistentTabController(initialIndex: 0);
 
   final List<Widget> screens = const [
     DetailsView(),
     SearchView(),
-    FavoriteView()
+    FavoriteView(),
   ];
 
   LayoutBloc()
@@ -27,19 +26,20 @@ class LayoutBloc extends Bloc<LayoutEvent, LayoutState> {
   }
 
   FutureOr<void> onItemSelected(event, emit) {
-    persistentTabController.jumpToTab(event.index);
+    //  persistentTabController.jumpToTab(event.index);
+
     emit(
       state.copyWith(
-        newIndex: event.index,
+        selectedIndex: event.index,
         selectItemState: RequestStates.successState,
       ),
     );
   }
 
-  @override
-  Future<void> close() {
-    persistentTabController.dispose();
+  // @override
+  // Future<void> close() {
+  //   persistentTabController.dispose();
 
-    return super.close();
-  }
+  //   return super.close();
+  // }
 }

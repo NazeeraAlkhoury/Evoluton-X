@@ -1,5 +1,6 @@
 import 'package:evoluton_x/core/functions/show_custom_filter_dialog.dart';
 import 'package:evoluton_x/core/utils/app_colors.dart';
+import 'package:evoluton_x/core/utils/app_routes.dart';
 import 'package:evoluton_x/core/utils/app_strings.dart';
 import 'package:evoluton_x/core/widgets/filter_widgets/custom_filter_button.dart';
 import 'package:evoluton_x/core/widgets/filter_widgets/custom_selectable_dialog.dart';
@@ -8,10 +9,8 @@ import 'package:evoluton_x/core/widgets/filter_widgets/filter_sheet_header.dart'
 import 'package:evoluton_x/features/search/presentation/search_bloc/search_bloc.dart';
 import 'package:evoluton_x/features/search/presentation/search_bloc/search_event.dart';
 import 'package:evoluton_x/features/search/presentation/search_bloc/search_state.dart';
-import 'package:evoluton_x/features/search/presentation/views/result_search_filter_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:persistent_bottom_nav_bar/persistent_bottom_nav_bar.dart';
 
 class SearchFilterSheet extends StatelessWidget {
   const SearchFilterSheet({
@@ -100,9 +99,11 @@ class SearchFilterSheet extends StatelessWidget {
                   onPressed: enableFilter
                       ? () {
                           Navigator.pop(context);
-                          PersistentNavBarNavigator.pushNewScreen(context,
-                              screen: const ResultSearchFilterView(),
-                              withNavBar: true);
+                          Navigator.pushNamed(
+                              context, AppRoutes.resultSearchFilter);
+                          // PersistentNavBarNavigator.pushNewScreen(context,
+                          //     screen: const ResultSearchFilterView(),
+                          //     withNavBar: true);
                         }
                       : null,
                   isOpacity: enableFilter,

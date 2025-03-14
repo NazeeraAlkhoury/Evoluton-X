@@ -1,10 +1,9 @@
 import 'package:evoluton_x/core/utils/app_colors.dart';
+import 'package:evoluton_x/core/utils/app_routes.dart';
 import 'package:evoluton_x/core/utils/app_strings.dart';
 import 'package:evoluton_x/core/utils/app_text_styles.dart';
-import 'package:evoluton_x/features/details/presentation/views/player_card_view.dart';
 import 'package:evoluton_x/features/details/presentation/widgets/custom_player_attrbuite_item.dart';
 import 'package:flutter/material.dart';
-import 'package:persistent_bottom_nav_bar/persistent_bottom_nav_bar.dart';
 
 class CustomPlayerInfoCard extends StatelessWidget {
   const CustomPlayerInfoCard({
@@ -15,11 +14,12 @@ class CustomPlayerInfoCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        PersistentNavBarNavigator.pushNewScreen(
-          context,
-          screen: PlayerCardView(),
-          withNavBar: true,
-        );
+        Navigator.of(context).pushNamed(AppRoutes.playerCard);
+        // PersistentNavBarNavigator.pushNewScreen(
+        //   context,
+        //   screen: PlayerCardView(),
+        //   withNavBar: true,
+        // );
       },
       child: AspectRatio(
         aspectRatio: 1.01 / 1.06,

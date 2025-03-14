@@ -1,8 +1,7 @@
 import 'package:evoluton_x/core/utils/app_colors.dart';
+import 'package:evoluton_x/core/utils/app_routes.dart';
 import 'package:evoluton_x/core/utils/app_text_styles.dart';
-import 'package:evoluton_x/features/details/presentation/views/club_card_view.dart';
 import 'package:flutter/material.dart';
-import 'package:persistent_bottom_nav_bar/persistent_bottom_nav_bar.dart';
 
 class CustomClub extends StatelessWidget {
   const CustomClub({
@@ -13,11 +12,12 @@ class CustomClub extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        PersistentNavBarNavigator.pushNewScreen(
-          context,
-          screen: const ClubCardView(),
-          withNavBar: true,
-        );
+        Navigator.pushNamed(context, AppRoutes.clubCard);
+        // PersistentNavBarNavigator.pushNewScreen(
+        //   context,
+        //   screen: const ClubCardView(),
+        //   withNavBar: true,
+        // );
       },
       child: AspectRatio(
         aspectRatio: 1.12 / 1.03,
