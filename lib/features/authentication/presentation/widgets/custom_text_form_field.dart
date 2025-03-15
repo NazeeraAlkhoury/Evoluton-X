@@ -4,20 +4,24 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class CustomTextFormField extends StatelessWidget {
+  final TextEditingController? controller;
   final String hintText;
   final String prefixIcon;
   final bool? isObscureText;
   final String? suffixIcon;
   final void Function()? onSuffix;
   final TextInputType? keyboardType;
+  final String? Function(String?)? validator;
   const CustomTextFormField({
     super.key,
+    this.controller,
     required this.hintText,
     required this.prefixIcon,
     this.isObscureText = false,
     this.suffixIcon,
     this.onSuffix,
     this.keyboardType,
+    this.validator,
   });
 
   @override
@@ -25,10 +29,12 @@ class CustomTextFormField extends StatelessWidget {
     return SizedBox(
       height: 44.53,
       child: TextFormField(
+        controller: controller,
         style: AppTextStyles.styleRegular14(context),
         obscureText: isObscureText!,
         obscuringCharacter: '*',
         keyboardType: keyboardType,
+        validator: validator,
         decoration: InputDecoration(
           prefixIcon: Padding(
             padding: const EdgeInsets.all(10),

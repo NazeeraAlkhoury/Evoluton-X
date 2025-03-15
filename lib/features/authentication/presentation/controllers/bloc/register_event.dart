@@ -6,3 +6,13 @@ class RegisterEvent extends Equatable {
   @override
   List<Object> get props => [];
 }
+
+class TogglePasswordVisibilityEvent extends RegisterEvent {
+  @override
+  List<Object> get props => [];
+}
+
+class ToggleRepeatPasswordVisibilityEvent extends RegisterEvent {
+  @override
+  List<Object> get props => [];
+}

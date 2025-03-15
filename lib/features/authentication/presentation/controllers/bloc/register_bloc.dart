@@ -4,6 +4,20 @@ import 'package:evoluton_x/features/authentication/presentation/controllers/bloc
 
 class RegisterBloc extends Bloc<RegisterEvent, RegisterState> {
   RegisterBloc() : super(const RegisterState()) {
-    on<RegisterEvent>((event, emit) {});
+    on<TogglePasswordVisibilityEvent>((event, emit) {
+      emit(
+        state.copyWith(isObscurePass: !state.isObscurePass),
+      );
+    });
+    on<ToggleRepeatPasswordVisibilityEvent>((event, emit) {
+      emit(
+        state.copyWith(isObscureRepPass: !state.isObscureRepPass),
+      );
+    });
+  }
+
+  @override
+  Future<void> close() {
+    return super.close();
   }
 }
