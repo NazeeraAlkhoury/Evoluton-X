@@ -157,4 +157,10 @@ abstract class AppStrings {
   static const String wantDelete = 'Do you want to delete the account?';
   static const String logOut = 'log out';
   static const String wantLogout = 'Do you want to logout ?';
+//
+  static const String minPassword = 'The minimum password is 6 characters';
+  static const String passwordTerm =
+      'The password must contain upper and lower case letters and at least one symbol';
+  static const String passwordNotMatch = 'The password does not match';
+  static const String codeNotMatch = 'The verify code does not match';
 }
