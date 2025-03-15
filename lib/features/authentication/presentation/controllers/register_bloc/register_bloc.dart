@@ -1,6 +1,6 @@
 import 'package:bloc/bloc.dart';
-import 'package:evoluton_x/features/authentication/presentation/controllers/bloc/register_event.dart';
-import 'package:evoluton_x/features/authentication/presentation/controllers/bloc/register_state.dart';
+import 'package:evoluton_x/features/authentication/presentation/controllers/register_bloc/register_event.dart';
+import 'package:evoluton_x/features/authentication/presentation/controllers/register_bloc/register_state.dart';
 import 'package:flutter/material.dart';
 
 class RegisterBloc extends Bloc<RegisterEvent, RegisterState> {
