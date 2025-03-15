@@ -164,4 +164,6 @@ abstract class AppStrings {
   static const String passwordNotMatch = 'The password does not match';
   static const String codeNotMatch = 'The verify code does not match';
   static const String passwordNotEmpty = 'Password can\'t be empty';
+  static const String emailNotEmpty = 'Email can\'t be empty';
+  static const String notValidEmail = 'Not valid email';
 }
