@@ -163,4 +163,5 @@ abstract class AppStrings {
       'The password must contain upper and lower case letters and at least one symbol';
   static const String passwordNotMatch = 'The password does not match';
   static const String codeNotMatch = 'The verify code does not match';
+  static const String passwordNotEmpty = 'Password can\'t be empty';
 }
