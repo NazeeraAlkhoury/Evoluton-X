@@ -1,3 +1,5 @@
+import 'package:evoluton_x/core/functions/show_register_bottom_sheet.dart';
+import 'package:evoluton_x/core/functions/validate_input.dart';
 import 'package:evoluton_x/core/utils/app_colors.dart';
 import 'package:evoluton_x/core/utils/app_icons_assets.dart';
 import 'package:evoluton_x/core/utils/app_strings.dart';
@@ -11,17 +13,15 @@ import 'package:evoluton_x/features/authentication/presentation/widgets/register
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class RegisterForm extends StatefulWidget {
+class RegisterForm extends StatelessWidget {
   const RegisterForm({super.key});
 
   @override
-  State<RegisterForm> createState() => _RegisterFormState();
-}
-
-class _RegisterFormState extends State<RegisterForm> {
-  @override
   Widget build(BuildContext context) {
+    final bloc = context.read<RegisterBloc>();
+    final registerFormKey = GlobalKey<FormState>();
     return Form(
+      key: registerFormKey,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -31,9 +31,12 @@ class _RegisterFormState extends State<RegisterForm> {
                 .copyWith(color: AppColors.darkGreyColor),
           ),
           const SizedBox(height: 8),
-          const CustomTextFormField(
+          CustomTextFormField(
+            controller: bloc.firstNameController,
             hintText: AppStrings.firstName,
             prefixIcon: AppIconAssets.user,
+            keyboardType: TextInputType.name,
+            validator: (value) => validateInput(val: value!, type: 'firstname'),
           ),
           const SizedBox(height: 12),
           Text(
@@ -42,9 +45,12 @@ class _RegisterFormState extends State<RegisterForm> {
                 .copyWith(color: AppColors.darkGreyColor),
           ),
           const SizedBox(height: 8),
-          const CustomTextFormField(
+          CustomTextFormField(
+            controller: bloc.lastNameController,
             hintText: AppStrings.lastName,
             prefixIcon: AppIconAssets.user,
+            keyboardType: TextInputType.name,
+            validator: (value) => validateInput(val: value!, type: 'lastname'),
           ),
           const SizedBox(height: 12),
           Text(
@@ -52,9 +58,12 @@ class _RegisterFormState extends State<RegisterForm> {
             style: AppTextStyles.styleSemiBold18(context),
           ),
           const SizedBox(height: 8),
-          const CustomTextFormField(
+          CustomTextFormField(
+            controller: bloc.emailController,
             hintText: AppStrings.email,
             prefixIcon: AppIconAssets.mail,
+            keyboardType: TextInputType.emailAddress,
+            validator: (value) => validateInput(val: value!, type: 'email'),
           ),
           const SizedBox(height: 12),
           Text(
@@ -65,10 +74,11 @@ class _RegisterFormState extends State<RegisterForm> {
           const SizedBox(height: 8),
           BlocBuilder<RegisterBloc, RegisterState>(
             builder: (context, state) {
-              RegisterBloc bloc = context.read<RegisterBloc>();
               return CustomTextFormField(
+                controller: bloc.passwordController,
                 hintText: AppStrings.password,
                 prefixIcon: AppIconAssets.key,
+                keyboardType: TextInputType.visiblePassword,
                 isObscureText: state.isObscurePass,
                 suffixIcon: state.isObscurePass
                     ? AppIconAssets.visibilityOff
@@ -76,6 +86,8 @@ class _RegisterFormState extends State<RegisterForm> {
                 onSuffix: () => bloc.add(
                   TogglePasswordVisibilityEvent(),
                 ),
+                validator: (String? value) =>
+                    validateInput(val: value!, min: 6, type: 'password'),
               );
             },
           ),
@@ -89,15 +101,23 @@ class _RegisterFormState extends State<RegisterForm> {
           BlocBuilder<RegisterBloc, RegisterState>(
             builder: (context, state) {
               return CustomTextFormField(
+                controller: bloc.repeatPasswordController,
+                keyboardType: TextInputType.visiblePassword,
                 hintText: AppStrings.repeatPassword,
                 prefixIcon: AppIconAssets.key,
                 isObscureText: state.isObscureRepPass,
                 suffixIcon: state.isObscureRepPass
                     ? AppIconAssets.visibilityOff
                     : AppIconAssets.visibility,
-                onSuffix: () => context.read<RegisterBloc>().add(
-                      ToggleRepeatPasswordVisibilityEvent(),
-                    ),
+                onSuffix: () => bloc.add(
+                  ToggleRepeatPasswordVisibilityEvent(),
+                ),
+                validator: (String? value) => validateInput(
+                  val: value!,
+                  type: 'repeatPassword',
+                  repeatPassword: bloc.passwordController.text ==
+                      bloc.repeatPasswordController.text,
+                ),
               );
             },
           ),
@@ -106,30 +126,16 @@ class _RegisterFormState extends State<RegisterForm> {
             textButton: AppStrings.next,
             widthButton: double.infinity,
             onPressed: () {
-              showRegisterBottomSheet(
-                context: context,
-                widget: const RegisterwithProofSheet(),
-              );
+              if (registerFormKey.currentState!.validate()) {
+                showRegisterBottomSheet(
+                  context: context,
+                  widget: const RegisterwithProofSheet(),
+                );
+              }
             },
           ),
         ],
       ),
     );
   }
-}
-
-Future<dynamic> showRegisterBottomSheet(
-    {required BuildContext context, required Widget widget}) {
-  return showModalBottomSheet(
-      context: context,
-      isScrollControlled: true,
-      elevation: 0,
-      isDismissible: false,
-      enableDrag: false,
-      barrierColor: Colors.black.withOpacity(0.7),
-      shape: const LinearBorder(),
-      backgroundColor: AppColors.whiteColor,
-      builder: (context) {
-        return widget;
-      });
 }
