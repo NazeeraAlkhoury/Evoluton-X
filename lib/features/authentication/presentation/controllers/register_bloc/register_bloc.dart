@@ -1,7 +1,11 @@
+import 'dart:async';
 import 'package:bloc/bloc.dart';
+import 'package:evoluton_x/core/utils/enums.dart';
 import 'package:evoluton_x/features/authentication/presentation/controllers/register_bloc/register_event.dart';
 import 'package:evoluton_x/features/authentication/presentation/controllers/register_bloc/register_state.dart';
+import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 class RegisterBloc extends Bloc<RegisterEvent, RegisterState> {
   TextEditingController firstNameController = TextEditingController();
@@ -10,16 +14,35 @@ class RegisterBloc extends Bloc<RegisterEvent, RegisterState> {
   TextEditingController passwordController = TextEditingController();
   TextEditingController repeatPasswordController = TextEditingController();
   RegisterBloc() : super(const RegisterState()) {
-    on<TogglePasswordVisibilityEvent>((event, emit) {
-      emit(
-        state.copyWith(isObscurePass: !state.isObscurePass),
-      );
-    });
-    on<ToggleRepeatPasswordVisibilityEvent>((event, emit) {
-      emit(
-        state.copyWith(isObscureRepPass: !state.isObscureRepPass),
-      );
-    });
+    on<TogglePasswordVisibilityEvent>(_togglePassword);
+    on<ToggleRepeatPasswordVisibilityEvent>(_toggleRepeatPassword);
+    on<ChooseDocumentEvent>(
+      (event, emit) async {
+        FilePickerResult? result = await FilePicker.platform.pickFiles();
+
+        if (result != null &&
+            result.files.single.name != state.selectedFileName) {
+          emit(
+            state.copyWith(
+              selectedFileName: result.files.single.name,
+              chooseFileRequestState: RequestStates.successState,
+            ),
+          );
+        }
+      },
+    );
+  }
+
+  FutureOr<void> _toggleRepeatPassword(event, emit) {
+    emit(
+      state.copyWith(isObscureRepPass: !state.isObscureRepPass),
+    );
+  }
+
+  FutureOr<void> _togglePassword(event, emit) {
+    emit(
+      state.copyWith(isObscurePass: !state.isObscurePass),
+    );
   }
 
   @override
@@ -29,6 +52,7 @@ class RegisterBloc extends Bloc<RegisterEvent, RegisterState> {
     emailController.dispose();
     passwordController.dispose();
     repeatPasswordController.dispose();
+    print("Bloc is closed: ==============");
     return super.close();
   }
 }

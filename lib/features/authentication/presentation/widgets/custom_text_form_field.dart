@@ -14,6 +14,7 @@ class CustomTextFormField extends StatelessWidget {
   final String? Function(String?)? validator;
   final void Function(String)? onFieldSubmitted;
   final TextInputAction? textInputAction;
+  final bool isColorFilter;
   const CustomTextFormField({
     super.key,
     this.controller,
@@ -26,6 +27,7 @@ class CustomTextFormField extends StatelessWidget {
     this.validator,
     this.onFieldSubmitted,
     this.textInputAction,
+    this.isColorFilter = false,
   });
 
   @override

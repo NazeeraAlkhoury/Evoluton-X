@@ -1,4 +1,5 @@
 import 'package:evoluton_x/core/utils/app_routes.dart';
+import 'package:evoluton_x/features/authentication/presentation/controllers/register_bloc/register_bloc.dart';
 import 'package:evoluton_x/features/details/presentation/controllers/club_filter_bloc/club_filter_bloc.dart';
 import 'package:evoluton_x/core/services/bloc_observer.dart';
 import 'package:evoluton_x/core/services/service_locator.dart';
