@@ -1,5 +1,7 @@
 import 'package:evoluton_x/core/utils/app_routes.dart';
 import 'package:evoluton_x/features/authentication/presentation/controllers/register_bloc/register_bloc.dart';
+import 'package:evoluton_x/features/authentication/presentation/views/verify_password_view.dart';
+import 'package:evoluton_x/features/authentication/presentation/widgets/verify_password/verify_password_view_body.dart';
 import 'package:evoluton_x/features/details/presentation/controllers/club_filter_bloc/club_filter_bloc.dart';
 import 'package:evoluton_x/core/services/bloc_observer.dart';
 import 'package:evoluton_x/core/services/service_locator.dart';
@@ -45,6 +47,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       onGenerateRoute: AppRoutes.onGenerateRoute,
       initialRoute: AppRoutes.splash,
+      //  home: VerifyPasswordView(),
       // locale: DevicePreview.locale(context),
       // builder: DevicePreview.appBuilder,
     );
