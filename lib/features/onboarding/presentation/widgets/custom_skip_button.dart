@@ -4,8 +4,10 @@ import 'package:evoluton_x/core/utils/app_text_styles.dart';
 import 'package:flutter/material.dart';
 
 class CustomSkipButton extends StatelessWidget {
+  final void Function() onPressed;
   const CustomSkipButton({
     super.key,
+    required this.onPressed,
   });
 
   @override
@@ -25,7 +27,7 @@ class CustomSkipButton extends StatelessWidget {
               ),
             ),
           ),
-          onPressed: () {},
+          onPressed: onPressed,
           child: Text(
             AppStrings.skip,
             style: AppTextStyles.styleSemiBold10(context).copyWith(

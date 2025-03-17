@@ -1,4 +1,7 @@
+import 'package:evoluton_x/core/services/cach_services.dart';
+import 'package:evoluton_x/core/services/service_locator.dart';
 import 'package:evoluton_x/core/utils/app_colors.dart';
+import 'package:evoluton_x/core/utils/app_constants.dart';
 import 'package:evoluton_x/core/utils/app_image_assets.dart';
 import 'package:evoluton_x/core/utils/app_routes.dart';
 import 'package:evoluton_x/features/splash/presentation/widgets/custom_slide_text.dart';
@@ -15,6 +18,7 @@ class _SplashViewBodyState extends State<SplashViewBody>
     with SingleTickerProviderStateMixin {
   late AnimationController controller;
   late Animation<Offset> positionAnimation;
+  final CachServices cachServices = getIt<CachServices>();
 
   @override
   void initState() {
@@ -76,10 +80,17 @@ class _SplashViewBodyState extends State<SplashViewBody>
     controller.forward();
   }
 
-  Future<void> goToPage() {
+  Future<void> goToPage() async {
     return Future.delayed(const Duration(seconds: 3), () {
+      final bool hasSeenOnBoarding =
+          cachServices.getData(key: AppConstants.onBoardingSeen) ?? false;
+
       if (mounted) {
-        Navigator.pushReplacementNamed(context, AppRoutes.home);
+        if (hasSeenOnBoarding) {
+          Navigator.pushReplacementNamed(context, AppRoutes.home);
+        } else {
+          Navigator.pushReplacementNamed(context, AppRoutes.onBoarding);
+        }
       }
     });
   }

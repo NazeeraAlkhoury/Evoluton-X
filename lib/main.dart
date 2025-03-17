@@ -1,3 +1,5 @@
+import 'package:evoluton_x/core/services/cach_services.dart';
+import 'package:evoluton_x/core/utils/app_constants.dart';
 import 'package:evoluton_x/core/utils/app_routes.dart';
 import 'package:evoluton_x/features/authentication/presentation/controllers/register_bloc/register_bloc.dart';
 import 'package:evoluton_x/features/authentication/presentation/views/verify_password_view.dart';
@@ -15,6 +17,7 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await ServiceLocator().setupServiceLocator();
   Bloc.observer = MyBlocObserver();
+
   runApp(
       // DevicePreview(
       //   builder: (context) => MultiBlocProvider(providers: [
@@ -48,8 +51,8 @@ class MyApp extends StatelessWidget {
       onGenerateRoute: AppRoutes.onGenerateRoute,
       initialRoute: AppRoutes.splash,
       //  home: VerifyPasswordView(),
-      // locale: DevicePreview.locale(context),
-      // builder: DevicePreview.appBuilder,
+      locale: DevicePreview.locale(context),
+      builder: DevicePreview.appBuilder,
     );
   }
 }

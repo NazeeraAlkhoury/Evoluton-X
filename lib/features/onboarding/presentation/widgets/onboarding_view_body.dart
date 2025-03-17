@@ -1,3 +1,8 @@
+// ignore_for_file: use_build_context_synchronously
+
+import 'package:evoluton_x/core/services/cach_services.dart';
+import 'package:evoluton_x/core/services/service_locator.dart';
+import 'package:evoluton_x/core/utils/app_constants.dart';
 import 'package:evoluton_x/core/utils/app_image_assets.dart';
 import 'package:evoluton_x/core/utils/app_routes.dart';
 import 'package:evoluton_x/core/utils/app_strings.dart';
@@ -8,6 +13,8 @@ import 'package:evoluton_x/features/onboarding/presentation/widgets/custom_pagev
 import 'package:evoluton_x/features/onboarding/presentation/widgets/custom_skip_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:get_it/get_it.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class OnBoardingViewBody extends StatefulWidget {
   const OnBoardingViewBody({super.key});
@@ -17,7 +24,8 @@ class OnBoardingViewBody extends StatefulWidget {
 }
 
 class _OnBoardingViewBodyState extends State<OnBoardingViewBody> {
-  PageController pageController = PageController();
+  final CachServices cachServices = getIt<CachServices>();
+  final PageController pageController = PageController();
   int currentPage = 0;
   List<OnboardingItemModel> onBoarding = [
     OnboardingItemModel(
@@ -48,7 +56,11 @@ class _OnBoardingViewBodyState extends State<OnBoardingViewBody> {
                 const EdgeInsets.only(left: 24, right: 24, top: 14, bottom: 24),
             child: Column(
               children: [
-                const CustomSkipButton(),
+                CustomSkipButton(
+                  onPressed: () async {
+                    await _submit();
+                  },
+                ),
                 CustomPageView(
                   pageController: pageController,
                   onBoarding: onBoarding,
@@ -83,7 +95,12 @@ class _OnBoardingViewBodyState extends State<OnBoardingViewBody> {
         curve: Curves.easeInOut,
       );
     } else {
-      Navigator.popAndPushNamed(context, AppRoutes.home);
+      _submit();
     }
+  }
+
+  Future<void> _submit() async {
+    await cachServices.saveData(key: AppConstants.onBoardingSeen, value: true);
+    Navigator.popAndPushNamed(context, AppRoutes.home);
   }
 }
