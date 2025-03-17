@@ -8,7 +8,6 @@ class PasswordState extends Equatable {
   });
 
   PasswordState copyWith({
-    int? index,
     RequestStates? validateOTPState,
   }) =>
       PasswordState(
