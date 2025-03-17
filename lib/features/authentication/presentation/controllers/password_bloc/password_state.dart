@@ -1,8 +1,22 @@
 import 'package:equatable/equatable.dart';
+import 'package:evoluton_x/core/utils/enums.dart';
 
 class PasswordState extends Equatable {
-  const PasswordState();
+  final RequestStates validateOTPState;
+  const PasswordState({
+    this.validateOTPState = RequestStates.initialState,
+  });
+
+  PasswordState copyWith({
+    int? index,
+    RequestStates? validateOTPState,
+  }) =>
+      PasswordState(
+        validateOTPState: validateOTPState ?? this.validateOTPState,
+      );
 
   @override
-  List<Object> get props => [];
+  List<Object?> get props => [
+        validateOTPState,
+      ];
 }
