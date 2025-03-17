@@ -9,8 +9,8 @@ class VerifyPasswordView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => getIt<PasswordBloc>(),
+    return BlocProvider.value(
+      value: getIt<PasswordBloc>(),
       child: const Scaffold(
         body: VerifyPasswordViewBody(),
       ),

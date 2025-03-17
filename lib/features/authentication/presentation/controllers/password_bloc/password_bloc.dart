@@ -6,6 +6,10 @@ import 'package:evoluton_x/features/authentication/presentation/controllers/pass
 import 'package:flutter/material.dart';
 
 class PasswordBloc extends Bloc<PasswordEvent, PasswordState> {
+  TextEditingController emailController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
+  TextEditingController repeatPasswordController = TextEditingController();
+
   List<TextEditingController> controllers =
       List.generate(4, (_) => TextEditingController());
   List<FocusNode> focusNodes = List.generate(4, (_) => FocusNode());
@@ -15,6 +19,8 @@ class PasswordBloc extends Bloc<PasswordEvent, PasswordState> {
     on<OnOtpFieldTappedEvent>(_fieldTapped);
     on<OtpFieldChangedEvent>(_fieldChanged);
     on<ValidateOTPEvent>(_validateOtp);
+    on<TogglePasswordVisibilityEvent>(_togglePassword);
+    on<ToggleRepeatPasswordVisibilityEvent>(_toggleRepeatPassword);
   }
 
   FutureOr<void> _validateOtp(event, emit) {
@@ -56,8 +62,24 @@ class PasswordBloc extends Bloc<PasswordEvent, PasswordState> {
     );
   }
 
+  FutureOr<void> _toggleRepeatPassword(event, emit) {
+    emit(
+      state.copyWith(isObscureRepPass: !state.isObscureRepPass),
+    );
+  }
+
+  FutureOr<void> _togglePassword(event, emit) {
+    emit(
+      state.copyWith(isObscurePass: !state.isObscurePass),
+    );
+  }
+
   @override
   Future<void> close() {
+    emailController.dispose();
+    passwordController.dispose();
+    repeatPasswordController.dispose();
+
     for (var controller in controllers) {
       controller.dispose();
     }

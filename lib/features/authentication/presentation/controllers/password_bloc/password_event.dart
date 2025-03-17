@@ -1,6 +1,6 @@
 import 'package:equatable/equatable.dart';
 
-class PasswordEvent extends Equatable {
+abstract class PasswordEvent extends Equatable {
   const PasswordEvent();
 
   @override
@@ -33,6 +33,16 @@ class OtpFieldChangedEvent extends PasswordEvent {
 }
 
 class ValidateOTPEvent extends PasswordEvent {
+  @override
+  List<Object?> get props => [];
+}
+
+class TogglePasswordVisibilityEvent extends PasswordEvent {
+  @override
+  List<Object?> get props => [];
+}
+
+class ToggleRepeatPasswordVisibilityEvent extends PasswordEvent {
   @override
   List<Object?> get props => [];
 }
