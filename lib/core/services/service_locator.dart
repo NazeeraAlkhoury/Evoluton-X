@@ -1,3 +1,4 @@
+import 'package:evoluton_x/features/authentication/presentation/controllers/login_bloc/login_bloc.dart';
 import 'package:evoluton_x/features/authentication/presentation/controllers/password_bloc/password_bloc.dart';
 import 'package:evoluton_x/features/authentication/presentation/controllers/register_bloc/register_bloc.dart';
 import 'package:evoluton_x/features/details/presentation/controllers/club_filter_bloc/club_filter_bloc.dart';
@@ -23,6 +24,9 @@ class ServiceLocator {
     //Bloc
     getIt.registerFactory<RegisterBloc>(
       () => RegisterBloc(),
+    );
+    getIt.registerFactory<LoginBloc>(
+      () => LoginBloc(),
     );
     getIt.registerFactory<PasswordBloc>(
       () => PasswordBloc(),
