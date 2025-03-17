@@ -1,5 +1,4 @@
 import 'package:equatable/equatable.dart';
-import 'package:file_picker/file_picker.dart';
 
 class RegisterEvent extends Equatable {
   const RegisterEvent();

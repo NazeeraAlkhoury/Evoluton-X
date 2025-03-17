@@ -1,3 +1,4 @@
+import 'package:evoluton_x/core/functions/validate_input.dart';
 import 'package:evoluton_x/core/utils/app_colors.dart';
 import 'package:evoluton_x/core/utils/app_icons_assets.dart';
 import 'package:evoluton_x/core/utils/app_routes.dart';
@@ -14,7 +15,9 @@ class ForgetPassForm extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var formKey = GlobalKey<FormState>();
     return Form(
+      key: formKey,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -31,9 +34,11 @@ class ForgetPassForm extends StatelessWidget {
                 .copyWith(color: AppColors.darkGreyColor),
           ),
           const SizedBox(height: 8),
-          const CustomTextFormField(
+          CustomTextFormField(
             hintText: AppStrings.enterEmail,
             prefixIcon: AppIconAssets.mail,
+            keyboardType: TextInputType.emailAddress,
+            validator: (value) => validateInput(val: value!, type: 'email'),
           ),
           const SizedBox(height: 16),
           const SizedBox(height: 60),
@@ -41,7 +46,10 @@ class ForgetPassForm extends StatelessWidget {
             textButton: AppStrings.login,
             widthButton: double.infinity,
             onPressed: () {
-              Navigator.pushReplacementNamed(context, AppRoutes.resetPassword);
+              if (formKey.currentState!.validate()) {
+                Navigator.pushReplacementNamed(
+                    context, AppRoutes.verifyPassword);
+              }
             },
           ),
         ],
