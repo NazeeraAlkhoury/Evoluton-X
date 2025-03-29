@@ -13,6 +13,7 @@ class RegisterBloc extends Bloc<RegisterEvent, RegisterState> {
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
   TextEditingController repeatPasswordController = TextEditingController();
+
   RegisterBloc() : super(const RegisterState()) {
     on<TogglePasswordVisibilityEvent>(_togglePassword);
     on<ToggleRepeatPasswordVisibilityEvent>(_toggleRepeatPassword);
@@ -22,6 +23,8 @@ class RegisterBloc extends Bloc<RegisterEvent, RegisterState> {
 
         if (result != null &&
             result.files.single.name != state.selectedFileName) {
+          //    String filePath = result.files.single.path!;
+          //    String fileName = result.files.single.name;
           emit(
             state.copyWith(
               selectedFileName: result.files.single.name,
@@ -52,7 +55,7 @@ class RegisterBloc extends Bloc<RegisterEvent, RegisterState> {
     emailController.dispose();
     passwordController.dispose();
     repeatPasswordController.dispose();
-    print("Bloc is closed: ==============");
+
     return super.close();
   }
 }

@@ -1,3 +1,5 @@
+import 'package:dio/dio.dart';
+import 'package:evoluton_x/core/services/api_services.dart';
 import 'package:evoluton_x/core/services/cach_services.dart';
 import 'package:evoluton_x/features/authentication/presentation/controllers/login_bloc/login_bloc.dart';
 import 'package:evoluton_x/features/authentication/presentation/controllers/password_bloc/password_bloc.dart';
@@ -14,14 +16,14 @@ final GetIt getIt = GetIt.instance;
 class ServiceLocator {
   Future<void> setupServiceLocator() async {
     // Dio instance
-    // getIt.registerLazySingleton<Dio>(
-    //   () => Dio(),
-    // );
+    getIt.registerLazySingleton<Dio>(
+      () => Dio(),
+    );
 
-    // //Api Service
-    // getIt.registerLazySingleton<ApiService>(
-    //   () => ApiService(dio: getIt()),
-    // );
+    //Api Service
+    getIt.registerLazySingleton<ApiServices>(
+      () => ApiServices(dio: getIt()),
+    );
 
     //sharedPreferences
     final sharedPreferences = await SharedPreferences.getInstance();

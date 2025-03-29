@@ -13,8 +13,6 @@ import 'package:evoluton_x/features/onboarding/presentation/widgets/custom_pagev
 import 'package:evoluton_x/features/onboarding/presentation/widgets/custom_skip_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:get_it/get_it.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 class OnBoardingViewBody extends StatefulWidget {
   const OnBoardingViewBody({super.key});
