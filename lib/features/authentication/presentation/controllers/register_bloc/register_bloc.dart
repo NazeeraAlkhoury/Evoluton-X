@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:bloc/bloc.dart';
 import 'package:evoluton_x/core/utils/enums.dart';
+import 'package:evoluton_x/features/authentication/domain/usecases/register_usecase.dart';
 import 'package:evoluton_x/features/authentication/presentation/controllers/register_bloc/register_event.dart';
 import 'package:evoluton_x/features/authentication/presentation/controllers/register_bloc/register_state.dart';
 import 'package:file_picker/file_picker.dart';
@@ -13,8 +14,8 @@ class RegisterBloc extends Bloc<RegisterEvent, RegisterState> {
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
   TextEditingController repeatPasswordController = TextEditingController();
-
-  RegisterBloc() : super(const RegisterState()) {
+  final RegisterUseCase registerUseCase;
+  RegisterBloc(this.registerUseCase) : super(const RegisterState()) {
     on<TogglePasswordVisibilityEvent>(_togglePassword);
     on<ToggleRepeatPasswordVisibilityEvent>(_toggleRepeatPassword);
     on<ChooseDocumentEvent>(
@@ -23,15 +24,49 @@ class RegisterBloc extends Bloc<RegisterEvent, RegisterState> {
 
         if (result != null &&
             result.files.single.name != state.selectedFileName) {
-          //    String filePath = result.files.single.path!;
-          //    String fileName = result.files.single.name;
           emit(
             state.copyWith(
               selectedFileName: result.files.single.name,
+              selectedFilePath: result.files.single.path,
               chooseFileRequestState: RequestStates.successState,
             ),
           );
         }
+      },
+    );
+    on<RegisterWithUploadFileEvent>(
+      (event, emit) async {
+        emit(
+          state.copyWith(
+            registerState: RequestStates.loadingState,
+          ),
+        );
+
+        final result = await registerUseCase(
+          RegisterParams(
+            filePath: event.filePath,
+            fileName: event.fileName,
+            fname: firstNameController.text,
+            lname: lastNameController.text,
+            email: emailController.text,
+            password: passwordController.text,
+            passwordConfirmation: repeatPasswordController.text,
+          ),
+        );
+        result.fold(
+          (failure) => emit(
+            state.copyWith(
+              registerState: RequestStates.failureState,
+              registerErrMessage: failure.errorMessage,
+            ),
+          ),
+          (authResponse) => emit(
+            state.copyWith(
+              registerState: RequestStates.successState,
+              authResponse: authResponse,
+            ),
+          ),
+        );
       },
     );
   }

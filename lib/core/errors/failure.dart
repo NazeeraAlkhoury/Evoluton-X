@@ -45,7 +45,7 @@ class ServerFailure extends Failure {
     switch (statusCode) {
       case 400:
         return ServerFailure(
-            'Bad request: ${ErrorMessageModel.fromJson(response).message}');
+            'Bad request: ${ErrorMessageModel.fromJson(response).errors.toString()}');
       case 401:
         return const ServerFailure('Unauthorized: Please log in.');
       case 403:
@@ -53,7 +53,9 @@ class ServerFailure extends Failure {
       case 404:
         return const ServerFailure('Resource not found. Please check the URL.');
       case 422:
-        return ServerFailure(ErrorMessageModel.fromJson(response).message);
+        return ServerFailure(
+          ErrorMessageModel.fromJson(response).errors.toString(),
+        );
       case 429:
         return const ServerFailure(
             'Too many requests. Please try again later.');

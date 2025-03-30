@@ -24,3 +24,15 @@ class ChooseDocumentEvent extends RegisterEvent {
   @override
   List<Object?> get props => [];
 }
+
+class RegisterWithUploadFileEvent extends RegisterEvent {
+  final String filePath;
+  final String fileName;
+
+  const RegisterWithUploadFileEvent({
+    required this.filePath,
+    required this.fileName,
+  });
+  @override
+  List<Object?> get props => [filePath, fileName];
+}

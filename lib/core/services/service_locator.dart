@@ -1,6 +1,11 @@
 import 'package:dio/dio.dart';
 import 'package:evoluton_x/core/services/api_services.dart';
 import 'package:evoluton_x/core/services/cach_services.dart';
+import 'package:evoluton_x/features/authentication/data/data_source/remote/auth_remote_data_source.dart';
+import 'package:evoluton_x/features/authentication/data/data_source/remote/auth_remote_data_source_imp.dart';
+import 'package:evoluton_x/features/authentication/data/repository/auth_repository_imp.dart';
+import 'package:evoluton_x/features/authentication/domain/repository/auth_repository.dart';
+import 'package:evoluton_x/features/authentication/domain/usecases/register_usecase.dart';
 import 'package:evoluton_x/features/authentication/presentation/controllers/login_bloc/login_bloc.dart';
 import 'package:evoluton_x/features/authentication/presentation/controllers/password_bloc/password_bloc.dart';
 import 'package:evoluton_x/features/authentication/presentation/controllers/register_bloc/register_bloc.dart';
@@ -17,7 +22,12 @@ class ServiceLocator {
   Future<void> setupServiceLocator() async {
     // Dio instance
     getIt.registerLazySingleton<Dio>(
-      () => Dio(),
+      () => Dio(
+        BaseOptions(
+          baseUrl: 'https://bpr601.trainees-mad-s.com/api/',
+          receiveDataWhenStatusError: true,
+        ),
+      ),
     );
 
     //Api Service
@@ -34,7 +44,7 @@ class ServiceLocator {
 
     //Bloc
     getIt.registerFactory<RegisterBloc>(
-      () => RegisterBloc(),
+      () => RegisterBloc(getIt<RegisterUseCase>()),
     );
     getIt.registerFactory<LoginBloc>(
       () => LoginBloc(),
@@ -53,6 +63,19 @@ class ServiceLocator {
     );
     getIt.registerFactory<SearchBloc>(
       () => SearchBloc(),
+    );
+
+    //DataSource
+    getIt.registerLazySingleton<AuthRemoteDataSource>(
+        () => AuthRemoteDataSourceImp(apiServices: getIt<ApiServices>()));
+
+    //Repository
+    getIt.registerLazySingleton<AuthRepository>(() =>
+        AuthRepositoryImp(authRemoteDataSource: getIt<AuthRemoteDataSource>()));
+
+    //usecases
+    getIt.registerLazySingleton<RegisterUseCase>(
+      () => RegisterUseCase(authRepository: getIt<AuthRepository>()),
     );
   }
 }
