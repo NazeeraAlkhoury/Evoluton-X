@@ -45,6 +45,8 @@ class ServerFailure extends Failure {
     switch (statusCode) {
       case 400:
         return ServerFailure(
+            //   'Bad request: ${ErrorMessageModel.fromJson(response).errors.isNotEmpty ? ErrorMessageModel.fromJson(response).errors.join(', ') : 'No specific error message'}',
+            // );
             'Bad request: ${ErrorMessageModel.fromJson(response).errors.toString()}');
       case 401:
         return const ServerFailure('Unauthorized: Please log in.');
@@ -53,6 +55,10 @@ class ServerFailure extends Failure {
       case 404:
         return const ServerFailure('Resource not found. Please check the URL.');
       case 422:
+        // final errors = ErrorMessageModel.fromJson(response).errors;
+        // final errorMessage =
+        //     errors.isNotEmpty ? errors.join(', ') : 'Validation failed';
+        // return ServerFailure(errorMessage);
         return ServerFailure(
           ErrorMessageModel.fromJson(response).errors.toString(),
         );

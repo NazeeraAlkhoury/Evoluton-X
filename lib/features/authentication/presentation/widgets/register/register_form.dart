@@ -86,8 +86,8 @@ class RegisterForm extends StatelessWidget {
                 onSuffix: () => bloc.add(
                   TogglePasswordVisibilityEvent(),
                 ),
-                validator: (String? value) =>
-                    validateInput(val: value!, min: 6, type: 'password'),
+                validator: (String? value) => validateInput(
+                    val: value!, min: 8, max: 25, type: 'password'),
               );
             },
           ),

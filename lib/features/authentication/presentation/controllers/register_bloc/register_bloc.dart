@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:bloc/bloc.dart';
 import 'package:evoluton_x/core/utils/enums.dart';
+import 'package:evoluton_x/features/authentication/data/models/register_params.dart';
 import 'package:evoluton_x/features/authentication/domain/usecases/register_usecase.dart';
 import 'package:evoluton_x/features/authentication/presentation/controllers/register_bloc/register_event.dart';
 import 'package:evoluton_x/features/authentication/presentation/controllers/register_bloc/register_state.dart';
@@ -18,22 +19,7 @@ class RegisterBloc extends Bloc<RegisterEvent, RegisterState> {
   RegisterBloc(this.registerUseCase) : super(const RegisterState()) {
     on<TogglePasswordVisibilityEvent>(_togglePassword);
     on<ToggleRepeatPasswordVisibilityEvent>(_toggleRepeatPassword);
-    on<ChooseDocumentEvent>(
-      (event, emit) async {
-        FilePickerResult? result = await FilePicker.platform.pickFiles();
-
-        if (result != null &&
-            result.files.single.name != state.selectedFileName) {
-          emit(
-            state.copyWith(
-              selectedFileName: result.files.single.name,
-              selectedFilePath: result.files.single.path,
-              chooseFileRequestState: RequestStates.successState,
-            ),
-          );
-        }
-      },
-    );
+    on<ChooseDocumentEvent>(_chooseDocument);
     on<RegisterWithUploadFileEvent>(
       (event, emit) async {
         emit(
@@ -54,12 +40,16 @@ class RegisterBloc extends Bloc<RegisterEvent, RegisterState> {
           ),
         );
         result.fold(
-          (failure) => emit(
-            state.copyWith(
-              registerState: RequestStates.failureState,
-              registerErrMessage: failure.errorMessage,
-            ),
-          ),
+          (failure) {
+            emit(
+              state.copyWith(
+                registerState: RequestStates.failureState,
+                registerErrMessage: failure.errorMessage,
+              ),
+            );
+            print(
+                '========================================== ${state.registerState}');
+          },
           (authResponse) => emit(
             state.copyWith(
               registerState: RequestStates.successState,
@@ -69,6 +59,20 @@ class RegisterBloc extends Bloc<RegisterEvent, RegisterState> {
         );
       },
     );
+  }
+
+  FutureOr<void> _chooseDocument(event, emit) async {
+    FilePickerResult? result = await FilePicker.platform.pickFiles();
+
+    if (result != null && result.files.single.name != state.selectedFileName) {
+      emit(
+        state.copyWith(
+          selectedFileName: result.files.single.name,
+          selectedFilePath: result.files.single.path,
+          chooseFileRequestState: RequestStates.successState,
+        ),
+      );
+    }
   }
 
   FutureOr<void> _toggleRepeatPassword(event, emit) {

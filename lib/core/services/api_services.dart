@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:evoluton_x/features/authentication/data/models/register_params.dart';
 
 class ApiServices {
   final Dio dio;
@@ -7,23 +8,18 @@ class ApiServices {
 
   Future<Response> uploadFileWithData({
     required String endPoint,
-    required String fname,
-    required String lname,
-    required String email,
-    required String password,
-    required String passwordConfirmation,
-    required String verificationFilePath,
-    required String verificationFileName,
+    required RegisterParams registerParams,
   }) async {
     FormData formData = FormData.fromMap({
-      'fname': fname,
-      'lname': lname,
-      'email': email,
-      'password': password,
-      'password_confirmation': passwordConfirmation,
+      'fname': registerParams.fname,
+      'lname': registerParams.lname,
+      'email': registerParams.email,
+      'password': registerParams.password,
+      'password_confirmation': registerParams.passwordConfirmation,
       'verification_file_name': await MultipartFile.fromFile(
-          verificationFilePath,
-          filename: verificationFileName),
+        registerParams.filePath,
+        filename: registerParams.fname,
+      ),
     });
 
     Response response = await dio.post(
