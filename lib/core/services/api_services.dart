@@ -42,7 +42,9 @@ class ApiServices {
     Response response = await dio.get(
       path,
       queryParameters: queryParameters,
-      options: Options(headers: {}),
+      options: Options(headers: {
+        'Accept': 'application/json',
+      }),
     );
     return response;
   }

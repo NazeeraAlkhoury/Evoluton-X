@@ -44,6 +44,13 @@ class AuthRemoteDataSourceImp implements AuthRemoteDataSource {
   }
 
   @override
+  Future<AuthResponseModel> resendCode() async {
+    final response = await apiServices.fetchData(path: EndPoints.resendCode);
+
+    return AuthResponseModel.fromJson(response.data);
+  }
+
+  @override
   Future<AuthResponseModel> logOut({required String token}) async {
     final response = await apiServices.deleteData(
       path: EndPoints.logOut,

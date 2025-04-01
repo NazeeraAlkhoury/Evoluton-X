@@ -10,6 +10,7 @@ abstract class AuthRepository {
     required RegisterParams registerParams,
   });
   Future<Either<Failure, AuthResponse>> verifyEmail({required String code});
+  Future<Either<Failure, AuthResponse>> resendCode();
   Future<Either<Failure, AuthResponse>> login(
       {required LoginParams loginParams});
   Future<Either<Failure, AuthResponse>> logOut({required String token});

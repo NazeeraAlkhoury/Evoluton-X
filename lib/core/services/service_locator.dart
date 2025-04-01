@@ -10,6 +10,7 @@ import 'package:evoluton_x/features/authentication/domain/usecases/forget_passwo
 import 'package:evoluton_x/features/authentication/domain/usecases/login_usecase.dart';
 import 'package:evoluton_x/features/authentication/domain/usecases/logout_usecase.dart';
 import 'package:evoluton_x/features/authentication/domain/usecases/register_usecase.dart';
+import 'package:evoluton_x/features/authentication/domain/usecases/resend_code_usecase.dart';
 import 'package:evoluton_x/features/authentication/domain/usecases/reset_password_usecase.dart';
 import 'package:evoluton_x/features/authentication/domain/usecases/verify_email_usecase.dart';
 import 'package:evoluton_x/features/authentication/presentation/controllers/auth_bloc/auth_bloc.dart';
@@ -57,7 +58,9 @@ class ServiceLocator {
           loginUsecase: getIt<LoginUsecase>()),
     );
     getIt.registerFactory<VerifyEmailBloc>(
-      () => VerifyEmailBloc(verifyEmailUseCase: getIt<VerifyEmailUseCase>()),
+      () => VerifyEmailBloc(
+          verifyEmailUseCase: getIt<VerifyEmailUseCase>(),
+          resendCodeUseCase: getIt<ResendCodeUseCase>()),
     );
     getIt.registerFactory<LoginBloc>(
       () => LoginBloc(),
@@ -115,6 +118,9 @@ class ServiceLocator {
     );
     getIt.registerLazySingleton<ResetPasswordUsecase>(
       () => ResetPasswordUsecase(authRepository: getIt<AuthRepository>()),
+    );
+    getIt.registerLazySingleton<ResendCodeUseCase>(
+      () => ResendCodeUseCase(authRepository: getIt<AuthRepository>()),
     );
   }
 }

@@ -58,6 +58,26 @@ class AuthRepositoryImp implements AuthRepository {
   }
 
   @override
+  Future<Either<Failure, AuthResponse>> resendCode() async {
+    try {
+      var result = await authRemoteDataSource.resendCode();
+      return right(result);
+    } catch (e) {
+      if (e is DioException) {
+        return left(
+          ServerFailure.fromDioError(e),
+        );
+      } else {
+        return left(
+          ServerFailure(
+            e.toString(),
+          ),
+        );
+      }
+    }
+  }
+
+  @override
   Future<Either<Failure, AuthResponse>> login(
       {required LoginParams loginParams}) async {
     try {

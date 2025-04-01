@@ -39,3 +39,9 @@ class ValidateOTPEvent extends VerifyEmailEvent {
   @override
   List<Object?> get props => [code];
 }
+
+class ResendCodeEvent extends VerifyEmailEvent {
+  const ResendCodeEvent();
+  @override
+  List<Object?> get props => [];
+}

@@ -67,7 +67,7 @@ class ServerFailure extends Failure {
         );
       case 429:
         return const ServerFailure(
-            'Too many requests. Please try again later.');
+            'Too Many Attempts, Retry After One Minute.');
       case 500:
         return const ServerFailure('Internal server error. Please try later.');
       case 503:
