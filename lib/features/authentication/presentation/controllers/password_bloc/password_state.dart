@@ -10,6 +10,10 @@ class PasswordState extends Equatable {
   final RequestStates forgetPassState;
   final String forgetPassErrMessage;
   final AuthResponse? forgetPAssAuthResponse;
+
+  final RequestStates resetPassState;
+  final String resetPassErrMessage;
+  final AuthResponse? resetPassAuthResponse;
   const PasswordState({
     this.validateOTPState = RequestStates.initialState,
     this.isObscurePass = true,
@@ -17,6 +21,9 @@ class PasswordState extends Equatable {
     this.forgetPassState = RequestStates.initialState,
     this.forgetPassErrMessage = '',
     this.forgetPAssAuthResponse,
+    this.resetPassState = RequestStates.initialState,
+    this.resetPassErrMessage = '',
+    this.resetPassAuthResponse,
   });
 
   PasswordState copyWith({
@@ -26,6 +33,9 @@ class PasswordState extends Equatable {
     RequestStates? forgetPassState,
     String? forgetPassErrMessage,
     AuthResponse? forgetPAssAuthResponse,
+    RequestStates? resetPassState,
+    String? resetPassErrMessage,
+    AuthResponse? resetPassAuthResponse,
   }) =>
       PasswordState(
         validateOTPState: validateOTPState ?? this.validateOTPState,
@@ -35,6 +45,10 @@ class PasswordState extends Equatable {
         forgetPassErrMessage: forgetPassErrMessage ?? this.forgetPassErrMessage,
         forgetPAssAuthResponse:
             forgetPAssAuthResponse ?? this.forgetPAssAuthResponse,
+        resetPassState: resetPassState ?? this.resetPassState,
+        resetPassErrMessage: resetPassErrMessage ?? this.resetPassErrMessage,
+        resetPassAuthResponse:
+            resetPassAuthResponse ?? this.resetPassAuthResponse,
       );
 
   @override
@@ -45,5 +59,8 @@ class PasswordState extends Equatable {
         forgetPassState,
         forgetPassErrMessage,
         forgetPAssAuthResponse,
+        resetPassState,
+        resetPassErrMessage,
+        resetPassAuthResponse,
       ];
 }

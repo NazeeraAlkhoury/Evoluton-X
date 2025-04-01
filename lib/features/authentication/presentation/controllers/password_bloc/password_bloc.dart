@@ -1,7 +1,9 @@
 import 'dart:async';
 import 'package:bloc/bloc.dart';
 import 'package:evoluton_x/core/utils/enums.dart';
+import 'package:evoluton_x/features/authentication/data/models/reset_pass_params.dart';
 import 'package:evoluton_x/features/authentication/domain/usecases/forget_password_usecase.dart';
+import 'package:evoluton_x/features/authentication/domain/usecases/reset_password_usecase.dart';
 import 'package:evoluton_x/features/authentication/presentation/controllers/password_bloc/password_event.dart';
 import 'package:evoluton_x/features/authentication/presentation/controllers/password_bloc/password_state.dart';
 import 'package:flutter/material.dart';
@@ -17,8 +19,11 @@ class PasswordBloc extends Bloc<PasswordEvent, PasswordState> {
   List<bool> hasError = List.generate(4, (_) => false);
 
   final ForgetPasswordUsecase forgetPasswordUsecase;
-  PasswordBloc({required this.forgetPasswordUsecase})
-      : super(const PasswordState()) {
+  final ResetPasswordUsecase resetPasswordUsecase;
+  PasswordBloc({
+    required this.forgetPasswordUsecase,
+    required this.resetPasswordUsecase,
+  }) : super(const PasswordState()) {
     on<OnOtpFieldTappedEvent>(_fieldTapped);
     on<OtpFieldChangedEvent>(_fieldChanged);
     on<ValidateOTPEvent>(_validateOtp);
@@ -40,6 +45,31 @@ class PasswordBloc extends Bloc<PasswordEvent, PasswordState> {
             state.copyWith(
               forgetPassState: RequestStates.successState,
               forgetPAssAuthResponse: authResponse,
+            ),
+          ),
+        );
+      },
+    );
+    on<ResetPasswordEvent>(
+      (event, emit) async {
+        final result = await resetPasswordUsecase(ResetPassParams(
+          code: '123456',
+          password: passwordController.text,
+          passwordConfirmation: repeatPasswordController.text,
+        ));
+        result.fold(
+          (failure) {
+            emit(
+              state.copyWith(
+                resetPassState: RequestStates.failureState,
+                resetPassErrMessage: failure.errorMessage,
+              ),
+            );
+          },
+          (authResponse) => emit(
+            state.copyWith(
+              resetPassState: RequestStates.successState,
+              resetPassAuthResponse: authResponse,
             ),
           ),
         );

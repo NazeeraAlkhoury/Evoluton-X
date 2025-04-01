@@ -51,3 +51,8 @@ class ForgetPasswordEvent extends PasswordEvent {
   @override
   List<Object?> get props => [];
 }
+
+class ResetPasswordEvent extends PasswordEvent {
+  @override
+  List<Object?> get props => [];
+}

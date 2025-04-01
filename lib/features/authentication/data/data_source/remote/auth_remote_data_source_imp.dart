@@ -6,6 +6,7 @@ import 'package:evoluton_x/features/authentication/data/data_source/remote/auth_
 import 'package:evoluton_x/features/authentication/data/models/auth_response_model.dart';
 import 'package:evoluton_x/features/authentication/data/models/login_params.dart';
 import 'package:evoluton_x/features/authentication/data/models/register_params.dart';
+import 'package:evoluton_x/features/authentication/data/models/reset_pass_params.dart';
 
 class AuthRemoteDataSourceImp implements AuthRemoteDataSource {
   final ApiServices apiServices;
@@ -64,6 +65,17 @@ class AuthRemoteDataSourceImp implements AuthRemoteDataSource {
   Future<AuthResponseModel> forgetPassword({required String email}) async {
     final response = await apiServices
         .sendData(path: EndPoints.forgetPassword, data: {'email': email});
+    return AuthResponseModel.fromJson(response.data);
+  }
+
+  @override
+  Future<AuthResponseModel> resetPassword(
+      {required ResetPassParams resetPassParams}) async {
+    final response = await apiServices.updateData(
+      path: EndPoints.resetPassword,
+      data: resetPassParams.toJson(),
+    );
+
     return AuthResponseModel.fromJson(response.data);
   }
 }
