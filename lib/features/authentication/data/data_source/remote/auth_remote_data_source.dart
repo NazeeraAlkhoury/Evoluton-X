@@ -8,4 +8,5 @@ abstract class AuthRemoteDataSource {
   });
   Future<AuthResponseModel> verifyEmail({required String code});
   Future<AuthResponseModel> login({required LoginParams loginParams});
+  Future<AuthResponseModel> logOut({required String token});
 }

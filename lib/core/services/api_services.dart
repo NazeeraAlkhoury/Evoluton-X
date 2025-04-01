@@ -86,6 +86,7 @@ class ApiServices {
 
   Future<Response> deleteData({
     required String path,
+    String? token,
     Object? data,
     Map<String, dynamic>? queryParameters,
   }) async {
@@ -93,6 +94,12 @@ class ApiServices {
       path,
       data: data,
       queryParameters: queryParameters,
+      options: Options(
+        headers: {
+          if (token != null) 'Authorization': 'Bearer $token',
+          'Accept': 'application/json',
+        },
+      ),
     );
     return response;
   }

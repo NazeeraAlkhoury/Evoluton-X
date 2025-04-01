@@ -77,4 +77,24 @@ class AuthRepositoryImp implements AuthRepository {
       }
     }
   }
+
+  @override
+  Future<Either<Failure, AuthResponse>> logOut({required String token}) async {
+    try {
+      var result = await authRemoteDataSource.logOut(token: token);
+      return right(result);
+    } catch (e) {
+      if (e is DioException) {
+        return left(
+          ServerFailure.fromDioError(e),
+        );
+      } else {
+        return left(
+          ServerFailure(
+            e.toString(),
+          ),
+        );
+      }
+    }
+  }
 }
