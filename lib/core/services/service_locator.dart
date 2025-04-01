@@ -6,6 +6,7 @@ import 'package:evoluton_x/features/authentication/data/data_source/remote/auth_
 import 'package:evoluton_x/features/authentication/data/repository/auth_repository_imp.dart';
 import 'package:evoluton_x/features/authentication/domain/repository/auth_repository.dart';
 import 'package:evoluton_x/features/authentication/domain/usecases/delete_account_usecase.dart';
+import 'package:evoluton_x/features/authentication/domain/usecases/forget_password_usecase.dart';
 import 'package:evoluton_x/features/authentication/domain/usecases/login_usecase.dart';
 import 'package:evoluton_x/features/authentication/domain/usecases/logout_usecase.dart';
 import 'package:evoluton_x/features/authentication/domain/usecases/register_usecase.dart';
@@ -61,7 +62,7 @@ class ServiceLocator {
       () => LoginBloc(),
     );
     getIt.registerFactory<PasswordBloc>(
-      () => PasswordBloc(),
+      () => PasswordBloc(forgetPasswordUsecase: getIt<ForgetPasswordUsecase>()),
     );
     getIt.registerFactory<AuthBloc>(
       () => AuthBloc(
@@ -105,6 +106,9 @@ class ServiceLocator {
     );
     getIt.registerLazySingleton<DeleteAccountUsecase>(
       () => DeleteAccountUsecase(authRepository: getIt<AuthRepository>()),
+    );
+    getIt.registerLazySingleton<ForgetPasswordUsecase>(
+      () => ForgetPasswordUsecase(authRepository: getIt<AuthRepository>()),
     );
   }
 }
