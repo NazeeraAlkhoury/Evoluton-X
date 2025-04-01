@@ -2,7 +2,6 @@
 
 import 'package:evoluton_x/core/functions/show_register_bottom_sheet.dart';
 import 'package:evoluton_x/core/utils/app_colors.dart';
-import 'package:evoluton_x/core/utils/app_routes.dart';
 import 'package:evoluton_x/core/utils/app_strings.dart';
 import 'package:evoluton_x/core/utils/app_text_styles.dart';
 import 'package:evoluton_x/core/utils/enums.dart';

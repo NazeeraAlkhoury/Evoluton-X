@@ -63,7 +63,7 @@ class ServiceLocator {
           resendCodeUseCase: getIt<ResendCodeUseCase>()),
     );
     getIt.registerFactory<LoginBloc>(
-      () => LoginBloc(),
+      () => LoginBloc(loginUsecase: getIt<LoginUsecase>()),
     );
     getIt.registerFactory<PasswordBloc>(
       () => PasswordBloc(

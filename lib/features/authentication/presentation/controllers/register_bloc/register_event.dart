@@ -1,5 +1,4 @@
 import 'package:equatable/equatable.dart';
-import 'package:evoluton_x/features/authentication/data/models/login_params.dart';
 
 class RegisterEvent extends Equatable {
   const RegisterEvent();

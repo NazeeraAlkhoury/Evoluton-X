@@ -61,21 +61,27 @@ class LoginForm extends StatelessWidget {
                 onSuffix: () => bloc.add(TogglePasswordVisibilityEvent()),
                 validator: (value) =>
                     validateInput(val: value!, min: 6, type: 'password'),
+                textInputAction: TextInputAction.done,
               );
             },
           ),
           const CustomForgetPassButton(),
           const SizedBox(height: 60),
-          AppButton(
-            textButton: AppStrings.login,
-            widthButton: double.infinity,
-            onPressed: () {
-              if (key.currentState!.validate()) {
-                Navigator.pushReplacementNamed(
-                  context,
-                  AppRoutes.homeAfterChecked,
-                );
-              }
+          BlocBuilder<LoginBloc, LoginState>(
+            builder: (context, state) {
+              return AppButton(
+                textButton: AppStrings.login,
+                widthButton: double.infinity,
+                onPressed: () {
+                  if (key.currentState!.validate()) {
+                    bloc.add(UserLoginEvent());
+                    Navigator.pushReplacementNamed(
+                      context,
+                      AppRoutes.homeAfterChecked,
+                    );
+                  }
+                },
+              );
             },
           ),
         ],

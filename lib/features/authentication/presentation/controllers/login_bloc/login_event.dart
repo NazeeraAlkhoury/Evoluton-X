@@ -11,3 +11,8 @@ class TogglePasswordVisibilityEvent extends LoginEvent {
   @override
   List<Object?> get props => [];
 }
+
+class UserLoginEvent extends LoginEvent {
+  @override
+  List<Object?> get props => [];
+}
