@@ -12,3 +12,9 @@ class LogoutEvent extends AuthEvent {
 
   const LogoutEvent({required this.token});
 }
+
+class DeletAccountEvent extends AuthEvent {
+  final String token;
+
+  const DeletAccountEvent({required this.token});
+}

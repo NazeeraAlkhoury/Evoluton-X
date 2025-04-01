@@ -5,9 +5,12 @@ import 'package:evoluton_x/features/authentication/data/data_source/remote/auth_
 import 'package:evoluton_x/features/authentication/data/data_source/remote/auth_remote_data_source_imp.dart';
 import 'package:evoluton_x/features/authentication/data/repository/auth_repository_imp.dart';
 import 'package:evoluton_x/features/authentication/domain/repository/auth_repository.dart';
+import 'package:evoluton_x/features/authentication/domain/usecases/delete_account_usecase.dart';
 import 'package:evoluton_x/features/authentication/domain/usecases/login_usecase.dart';
+import 'package:evoluton_x/features/authentication/domain/usecases/logout_usecase.dart';
 import 'package:evoluton_x/features/authentication/domain/usecases/register_usecase.dart';
 import 'package:evoluton_x/features/authentication/domain/usecases/verify_email_usecase.dart';
+import 'package:evoluton_x/features/authentication/presentation/controllers/auth_bloc/auth_bloc.dart';
 import 'package:evoluton_x/features/authentication/presentation/controllers/login_bloc/login_bloc.dart';
 import 'package:evoluton_x/features/authentication/presentation/controllers/password_bloc/password_bloc.dart';
 import 'package:evoluton_x/features/authentication/presentation/controllers/register_bloc/register_bloc.dart';
@@ -60,6 +63,12 @@ class ServiceLocator {
     getIt.registerFactory<PasswordBloc>(
       () => PasswordBloc(),
     );
+    getIt.registerFactory<AuthBloc>(
+      () => AuthBloc(
+        logoutUsecase: getIt<LogoutUsecase>(),
+        deleteAccountUsecase: getIt<DeleteAccountUsecase>(),
+      ),
+    );
     getIt.registerFactory<LayoutBloc>(
       () => LayoutBloc(),
     );
@@ -90,6 +99,12 @@ class ServiceLocator {
     );
     getIt.registerLazySingleton<LoginUsecase>(
       () => LoginUsecase(authRepository: getIt<AuthRepository>()),
+    );
+    getIt.registerLazySingleton<LogoutUsecase>(
+      () => LogoutUsecase(authRepository: getIt<AuthRepository>()),
+    );
+    getIt.registerLazySingleton<DeleteAccountUsecase>(
+      () => DeleteAccountUsecase(authRepository: getIt<AuthRepository>()),
     );
   }
 }
