@@ -36,10 +36,7 @@ class AuthRemoteDataSourceImp implements AuthRemoteDataSource {
     print('=================== ');
     final response = await apiServices.sendData(
       path: EndPoints.login,
-      data: {
-        'email': loginParams.email,
-        'password': loginParams.password,
-      },
+      data: loginParams.toJson(),
     );
     print('=================== ${response.data}');
     return AuthResponseModel.fromJson(response.data);

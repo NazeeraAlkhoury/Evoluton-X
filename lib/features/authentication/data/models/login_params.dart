@@ -5,6 +5,12 @@ class LoginParams extends Equatable {
   final String password;
 
   const LoginParams({required this.email, required this.password});
+  Map<String, dynamic> toJson() {
+    return {
+      'email': email,
+      'password': password,
+    };
+  }
 
   @override
   List<Object?> get props => [
