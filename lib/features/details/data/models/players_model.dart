@@ -22,7 +22,10 @@ class PlayersModel extends Player {
         clubId: json['club_id'],
         age: json['age'],
         nation: json['nation'],
-        imageUrl: List<String>.from(json['image_url']),
+        imageUrl: json['image_url'] == null
+            ? []
+            : List<String>.from(
+                (json['image_url'] as List).map((e) => e.toString())),
         club: ClubModel.fromJson(json['club']),
       );
 }
