@@ -56,6 +56,12 @@ class ApiServices {
       path,
       data: data,
       queryParameters: queryParameters,
+      options: Options(
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json',
+        },
+      ),
     );
     return response;
   }
@@ -69,6 +75,11 @@ class ApiServices {
       path,
       data: data,
       queryParameters: queryParameters,
+      options: Options(
+        headers: {
+          'Accept': 'application/json',
+        },
+      ),
     );
     return response;
   }

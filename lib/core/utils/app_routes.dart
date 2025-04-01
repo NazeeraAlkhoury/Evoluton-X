@@ -4,6 +4,7 @@ import 'package:evoluton_x/features/authentication/presentation/views/forget_pas
 import 'package:evoluton_x/features/authentication/presentation/views/login_view.dart';
 import 'package:evoluton_x/features/authentication/presentation/views/register_view.dart';
 import 'package:evoluton_x/features/authentication/presentation/views/reset_password_view.dart';
+import 'package:evoluton_x/features/authentication/presentation/views/verify_email_view.dart';
 import 'package:evoluton_x/features/authentication/presentation/views/verify_password_view.dart';
 import 'package:evoluton_x/features/details/presentation/views/club_card_view.dart';
 import 'package:evoluton_x/features/details/presentation/views/details_view.dart';
@@ -44,6 +45,7 @@ abstract class AppRoutes {
   static const String resultSearchFilter = '/resultSearchFilter';
   static const String search = '/search';
   static const String resultAfterScaning = '/resultAfterScaning';
+  static const String verifyEmail = '/verifyEmail';
 
   static const String favorite = '/favorite';
 
@@ -67,6 +69,8 @@ abstract class AppRoutes {
         return MaterialPageRoute(builder: (_) => const ResetPasswordView());
       case verifyPassword:
         return MaterialPageRoute(builder: (_) => const VerifyPasswordView());
+      case verifyEmail:
+        return MaterialPageRoute(builder: (_) => const VerifyEmailView());
       case mainLayout:
         return MaterialPageRoute(
           builder: (context) => BlocProvider(

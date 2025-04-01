@@ -1,4 +1,5 @@
 import 'package:equatable/equatable.dart';
+import 'package:evoluton_x/features/authentication/data/models/login_params.dart';
 
 class RegisterEvent extends Equatable {
   const RegisterEvent();
@@ -35,4 +36,13 @@ class RegisterWithUploadFileEvent extends RegisterEvent {
   });
   @override
   List<Object?> get props => [filePath, fileName];
+}
+
+class LoginEvent extends RegisterEvent {
+  // final LoginParams loginParams;
+
+  // const LoginEvent({required this.loginParams});
+
+  @override
+  List<Object?> get props => [];
 }

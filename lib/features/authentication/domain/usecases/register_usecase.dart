@@ -1,5 +1,4 @@
 import 'package:dartz/dartz.dart';
-import 'package:equatable/equatable.dart';
 import 'package:evoluton_x/core/errors/failure.dart';
 import 'package:evoluton_x/core/usecases/base_usecase.dart';
 import 'package:evoluton_x/features/authentication/data/models/register_params.dart';

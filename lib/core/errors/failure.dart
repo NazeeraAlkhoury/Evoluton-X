@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:equatable/equatable.dart';
 import 'package:evoluton_x/core/network/error_message_model.dart';
+import 'package:evoluton_x/features/authentication/data/models/auth_response_model.dart';
 
 abstract class Failure extends Equatable {
   final String errorMessage;
@@ -49,9 +50,11 @@ class ServerFailure extends Failure {
             // );
             'Bad request: ${ErrorMessageModel.fromJson(response).errors.toString()}');
       case 401:
-        return const ServerFailure('Unauthorized: Please log in.');
+        return const ServerFailure('Unauthenticated.');
       case 403:
-        return const ServerFailure('Forbidden: Access denied.');
+        return ServerFailure(
+            AuthResponseModel.fromJson(response).message.toString() ??
+                'Forbidden: Access denied.');
       case 404:
         return const ServerFailure('Resource not found. Please check the URL.');
       case 422:

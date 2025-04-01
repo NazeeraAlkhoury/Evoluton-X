@@ -7,6 +7,7 @@ import 'package:evoluton_x/core/utils/app_text_styles.dart';
 import 'package:evoluton_x/core/utils/enums.dart';
 import 'package:evoluton_x/core/widgets/app_button.dart';
 import 'package:evoluton_x/features/authentication/presentation/controllers/password_bloc/password_bloc.dart';
+import 'package:evoluton_x/features/authentication/presentation/controllers/password_bloc/password_event.dart';
 import 'package:evoluton_x/features/authentication/presentation/controllers/password_bloc/password_state.dart';
 import 'package:evoluton_x/features/authentication/presentation/widgets/verify_password/otp_verification.dart';
 import 'package:evoluton_x/features/authentication/presentation/widgets/verify_password/resend_code_row.dart';
@@ -34,7 +35,21 @@ class VerifyPasswordViewBody extends StatelessWidget {
               const SizedBox(
                 height: 30,
               ),
-              const OtpVerification(),
+              BlocBuilder<PasswordBloc, PasswordState>(
+                  builder: (context, state) {
+                PasswordBloc bloc = context.read<PasswordBloc>();
+                return OtpVerification(
+                  controllers: bloc.controllers,
+                  focusNodes: bloc.focusNodes,
+                  onOtpFieldTapped: (index) {
+                    bloc.add(OnOtpFieldTappedEvent(index: index));
+                  },
+                  onOtpFieldChanged: (index, value) {
+                    bloc.add(OtpFieldChangedEvent(index: index, value: value));
+                  },
+                  hasError: bloc.hasError,
+                );
+              }),
               const SizedBox(
                 height: 10,
               ),

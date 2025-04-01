@@ -72,9 +72,6 @@ class RegisterwithProofSheet extends StatelessWidget {
                               );
 
                           /// context.read<RegisterBloc>().close();
-                          // showRegisterBottomSheet(
-                          //     context: context,
-                          //     widget: const LoginProofPendingSheet());
                         },
                       );
               }

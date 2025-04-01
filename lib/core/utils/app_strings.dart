@@ -166,4 +166,8 @@ abstract class AppStrings {
   static const String passwordNotEmpty = 'Password can\'t be empty';
   static const String emailNotEmpty = 'Email can\'t be empty';
   static const String notValidEmail = 'Not valid email';
+  //
+  static const String verifyEmail = 'Verify Email';
+  static const String verifyEmaildis =
+      'Please enter the verification code sent to your email:';
 }

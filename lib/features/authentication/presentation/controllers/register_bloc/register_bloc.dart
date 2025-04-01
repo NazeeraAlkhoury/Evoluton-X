@@ -1,7 +1,9 @@
 import 'dart:async';
 import 'package:bloc/bloc.dart';
 import 'package:evoluton_x/core/utils/enums.dart';
+import 'package:evoluton_x/features/authentication/data/models/login_params.dart';
 import 'package:evoluton_x/features/authentication/data/models/register_params.dart';
+import 'package:evoluton_x/features/authentication/domain/usecases/login_usecase.dart';
 import 'package:evoluton_x/features/authentication/domain/usecases/register_usecase.dart';
 import 'package:evoluton_x/features/authentication/presentation/controllers/register_bloc/register_event.dart';
 import 'package:evoluton_x/features/authentication/presentation/controllers/register_bloc/register_state.dart';
@@ -16,7 +18,10 @@ class RegisterBloc extends Bloc<RegisterEvent, RegisterState> {
   TextEditingController passwordController = TextEditingController();
   TextEditingController repeatPasswordController = TextEditingController();
   final RegisterUseCase registerUseCase;
-  RegisterBloc(this.registerUseCase) : super(const RegisterState()) {
+  final LoginUsecase loginUsecase;
+
+  RegisterBloc({required this.registerUseCase, required this.loginUsecase})
+      : super(const RegisterState()) {
     on<TogglePasswordVisibilityEvent>(_togglePassword);
     on<ToggleRepeatPasswordVisibilityEvent>(_toggleRepeatPassword);
     on<ChooseDocumentEvent>(_chooseDocument);
@@ -47,6 +52,7 @@ class RegisterBloc extends Bloc<RegisterEvent, RegisterState> {
                 registerErrMessage: failure.errorMessage,
               ),
             );
+            // ignore: avoid_print
             print(
                 '========================================== ${state.registerState}');
           },
@@ -54,6 +60,35 @@ class RegisterBloc extends Bloc<RegisterEvent, RegisterState> {
             state.copyWith(
               registerState: RequestStates.successState,
               authResponse: authResponse,
+            ),
+          ),
+        );
+      },
+    );
+
+    on<LoginEvent>(
+      (event, emit) async {
+        final result = await loginUsecase(
+          LoginParams(
+            email: 'nazeeramkhoury@gmail.com',
+            // emailController.text,
+            password: 'Nazeera@1234',
+            // passwordController.text,
+          ),
+        );
+        result.fold(
+          (failure) {
+            emit(
+              state.copyWith(
+                loginState: RequestStates.failureState,
+                loginErrMessage: failure.errorMessage,
+              ),
+            );
+          },
+          (authResponse) => emit(
+            state.copyWith(
+              loginState: RequestStates.successState,
+              loginAuthResponse: authResponse,
             ),
           ),
         );
