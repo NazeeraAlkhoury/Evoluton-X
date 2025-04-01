@@ -4,4 +4,5 @@ abstract class EndPoints {
   static const String login = 'auth/login';
   static const String logOut = 'auth/logout';
   static const String deleteAccount = 'auth/users';
+  static const String forgetPassword = 'auth/forgot-password';
 }

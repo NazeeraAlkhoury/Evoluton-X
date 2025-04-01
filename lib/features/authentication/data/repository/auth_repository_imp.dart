@@ -118,4 +118,25 @@ class AuthRepositoryImp implements AuthRepository {
       }
     }
   }
+
+  @override
+  Future<Either<Failure, AuthResponse>> forgetPassowrd(
+      {required String email}) async {
+    try {
+      var result = await authRemoteDataSource.forgetPassword(email: email);
+      return right(result);
+    } catch (e) {
+      if (e is DioException) {
+        return left(
+          ServerFailure.fromDioError(e),
+        );
+      } else {
+        return left(
+          ServerFailure(
+            e.toString(),
+          ),
+        );
+      }
+    }
+  }
 }

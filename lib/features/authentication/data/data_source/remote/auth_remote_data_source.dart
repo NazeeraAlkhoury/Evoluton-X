@@ -10,4 +10,5 @@ abstract class AuthRemoteDataSource {
   Future<AuthResponseModel> login({required LoginParams loginParams});
   Future<AuthResponseModel> logOut({required String token});
   Future<AuthResponseModel> deleteAccount({required String token});
+  Future<AuthResponseModel> forgetPassword({required String email});
 }

@@ -59,4 +59,11 @@ class AuthRemoteDataSourceImp implements AuthRemoteDataSource {
     );
     return AuthResponseModel.fromJson(response.data);
   }
+
+  @override
+  Future<AuthResponseModel> forgetPassword({required String email}) async {
+    final response = await apiServices
+        .sendData(path: EndPoints.forgetPassword, data: {'email': email});
+    return AuthResponseModel.fromJson(response.data);
+  }
 }

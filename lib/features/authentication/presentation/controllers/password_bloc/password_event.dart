@@ -46,3 +46,8 @@ class ToggleRepeatPasswordVisibilityEvent extends PasswordEvent {
   @override
   List<Object?> get props => [];
 }
+
+class ForgetPasswordEvent extends PasswordEvent {
+  @override
+  List<Object?> get props => [];
+}

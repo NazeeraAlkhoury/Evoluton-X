@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:bloc/bloc.dart';
 import 'package:evoluton_x/core/utils/enums.dart';
+import 'package:evoluton_x/features/authentication/domain/usecases/forget_password_usecase.dart';
 import 'package:evoluton_x/features/authentication/presentation/controllers/password_bloc/password_event.dart';
 import 'package:evoluton_x/features/authentication/presentation/controllers/password_bloc/password_state.dart';
 import 'package:flutter/material.dart';
@@ -15,12 +16,35 @@ class PasswordBloc extends Bloc<PasswordEvent, PasswordState> {
   List<FocusNode> focusNodes = List.generate(4, (_) => FocusNode());
   List<bool> hasError = List.generate(4, (_) => false);
 
-  PasswordBloc() : super(const PasswordState()) {
+  final ForgetPasswordUsecase forgetPasswordUsecase;
+  PasswordBloc({required this.forgetPasswordUsecase})
+      : super(const PasswordState()) {
     on<OnOtpFieldTappedEvent>(_fieldTapped);
     on<OtpFieldChangedEvent>(_fieldChanged);
     on<ValidateOTPEvent>(_validateOtp);
     on<TogglePasswordVisibilityEvent>(_togglePassword);
     on<ToggleRepeatPasswordVisibilityEvent>(_toggleRepeatPassword);
+    on<ForgetPasswordEvent>(
+      (event, emit) async {
+        final result = await forgetPasswordUsecase(emailController.text);
+        result.fold(
+          (failure) {
+            emit(
+              state.copyWith(
+                forgetPassState: RequestStates.failureState,
+                forgetPassErrMessage: failure.errorMessage,
+              ),
+            );
+          },
+          (authResponse) => emit(
+            state.copyWith(
+              forgetPassState: RequestStates.successState,
+              forgetPAssAuthResponse: authResponse,
+            ),
+          ),
+        );
+      },
+    );
   }
 
   FutureOr<void> _validateOtp(event, emit) {

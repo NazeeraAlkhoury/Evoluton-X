@@ -13,4 +13,5 @@ abstract class AuthRepository {
       {required LoginParams loginParams});
   Future<Either<Failure, AuthResponse>> logOut({required String token});
   Future<Either<Failure, AuthResponse>> deleteAccount({required String token});
+  Future<Either<Failure, AuthResponse>> forgetPassowrd({required String email});
 }
