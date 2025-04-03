@@ -15,7 +15,8 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
   final LoginUsecase loginUsecase;
   LoginBloc({required this.loginUsecase}) : super(const LoginState()) {
     on<TogglePasswordVisibilityEvent>(_togglePassword);
-    on<LoginEvent>(_useLogin);
+    on<UserLoginEvent>(_useLogin);
+    on<ResetLoginStateEvent>(_resetLoginState);
   }
 
   FutureOr<void> _useLogin(event, emit) async {
@@ -50,7 +51,15 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
 
   FutureOr<void> _togglePassword(event, emit) {
     emit(
-      state.copyWith(isObscurePass: !state.isObscurePass),
+      state.copyWith(
+          seenPassState: RequestStates.successState,
+          isObscurePass: !state.isObscurePass),
+    );
+  }
+
+  FutureOr<void> _resetLoginState(event, emit) {
+    emit(
+      state.copyWith(loginState: RequestStates.initialState),
     );
   }
 
