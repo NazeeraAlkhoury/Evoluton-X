@@ -28,10 +28,7 @@ void main() async {
 
       MultiBlocProvider(providers: [
     BlocProvider(
-      create: (context) => getIt<RegisterBloc>()
-        ..add(
-          LoginEvent(),
-        ),
+      create: (context) => getIt<RegisterBloc>(),
     ),
     BlocProvider(
       create: (context) => getIt<ClubFilterBloc>(),

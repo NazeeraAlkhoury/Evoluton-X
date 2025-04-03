@@ -13,9 +13,9 @@ class RegisterState extends Equatable {
   final String registerErrMessage;
   final AuthResponse? authResponse;
 
-  final RequestStates loginState;
-  final String loginErrMessage;
-  final AuthResponse? loginAuthResponse;
+  // final RequestStates loginState;
+  // final String loginErrMessage;
+  // final AuthResponse? loginAuthResponse;
 
   const RegisterState({
     this.isObscurePass = true,
@@ -26,9 +26,9 @@ class RegisterState extends Equatable {
     this.registerState = RequestStates.initialState,
     this.authResponse,
     this.registerErrMessage = '',
-    this.loginState = RequestStates.initialState,
-    this.loginAuthResponse,
-    this.loginErrMessage = '',
+    // this.loginState = RequestStates.initialState,
+    // this.loginAuthResponse,
+    // this.loginErrMessage = '',
   });
 
   RegisterState copyWith({
@@ -40,9 +40,9 @@ class RegisterState extends Equatable {
     RequestStates? registerState,
     String? registerErrMessage,
     AuthResponse? authResponse,
-    RequestStates? loginState,
-    String? loginErrMessage,
-    AuthResponse? loginAuthResponse,
+    // RequestStates? loginState,
+    // String? loginErrMessage,
+    // AuthResponse? loginAuthResponse,
   }) =>
       RegisterState(
         isObscurePass: isObscurePass ?? this.isObscurePass,
@@ -54,9 +54,9 @@ class RegisterState extends Equatable {
         registerState: registerState ?? this.registerState,
         authResponse: authResponse ?? this.authResponse,
         registerErrMessage: registerErrMessage ?? this.registerErrMessage,
-        loginState: loginState ?? this.loginState,
-        loginAuthResponse: loginAuthResponse ?? this.loginAuthResponse,
-        loginErrMessage: loginErrMessage ?? this.loginErrMessage,
+        // loginState: loginState ?? this.loginState,
+        // loginAuthResponse: loginAuthResponse ?? this.loginAuthResponse,
+        // loginErrMessage: loginErrMessage ?? this.loginErrMessage,
       );
   @override
   List<Object?> get props => [
@@ -68,8 +68,8 @@ class RegisterState extends Equatable {
         registerState,
         authResponse,
         registerErrMessage,
-        loginState,
-        loginAuthResponse,
-        loginErrMessage,
+        // loginState,
+        // loginAuthResponse,
+        // loginErrMessage,
       ];
 }

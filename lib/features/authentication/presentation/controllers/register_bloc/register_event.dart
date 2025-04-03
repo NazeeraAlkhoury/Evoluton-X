@@ -37,11 +37,11 @@ class RegisterWithUploadFileEvent extends RegisterEvent {
   List<Object?> get props => [filePath, fileName];
 }
 
-class LoginEvent extends RegisterEvent {
-  // final LoginParams loginParams;
+// class LoginEvent extends RegisterEvent {
+//   // final LoginParams loginParams;
 
-  // const LoginEvent({required this.loginParams});
+//   // const LoginEvent({required this.loginParams});
 
-  @override
-  List<Object?> get props => [];
-}
+//   @override
+//   List<Object?> get props => [];
+// }

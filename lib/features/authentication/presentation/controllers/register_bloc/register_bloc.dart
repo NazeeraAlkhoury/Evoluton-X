@@ -66,34 +66,34 @@ class RegisterBloc extends Bloc<RegisterEvent, RegisterState> {
       },
     );
 
-    on<LoginEvent>(
-      (event, emit) async {
-        final result = await loginUsecase(
-          LoginParams(
-            email: 'nazeeramkhoury@gmail.com',
-            // emailController.text,
-            password: 'Nazeera@1234',
-            // passwordController.text,
-          ),
-        );
-        result.fold(
-          (failure) {
-            emit(
-              state.copyWith(
-                loginState: RequestStates.failureState,
-                loginErrMessage: failure.errorMessage,
-              ),
-            );
-          },
-          (authResponse) => emit(
-            state.copyWith(
-              loginState: RequestStates.successState,
-              loginAuthResponse: authResponse,
-            ),
-          ),
-        );
-      },
-    );
+    //   on<LoginEvent>(
+    //     (event, emit) async {
+    //       final result = await loginUsecase(
+    //         LoginParams(
+    //           email: 'nazeeramkhoury@gmail.com',
+    //           // emailController.text,
+    //           password: 'Nazeera@1234',
+    //           // passwordController.text,
+    //         ),
+    //       );
+    //       result.fold(
+    //         (failure) {
+    //           emit(
+    //             state.copyWith(
+    //               loginState: RequestStates.failureState,
+    //               loginErrMessage: failure.errorMessage,
+    //             ),
+    //           );
+    //         },
+    //         (authResponse) => emit(
+    //           state.copyWith(
+    //             loginState: RequestStates.successState,
+    //             loginAuthResponse: authResponse,
+    //           ),
+    //         ),
+    //       );
+    //     },
+    //   );
   }
 
   FutureOr<void> _chooseDocument(event, emit) async {
