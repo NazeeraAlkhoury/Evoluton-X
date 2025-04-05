@@ -38,11 +38,13 @@ class ApiServices {
   Future<Response> fetchData({
     required String path,
     Map<String, dynamic>? queryParameters,
+    String? token,
   }) async {
     Response response = await dio.get(
       path,
       queryParameters: queryParameters,
       options: Options(headers: {
+        if (token != null) 'Authorization': 'Bearer $token',
         'Accept': 'application/json',
       }),
     );

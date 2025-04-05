@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print
+
 import 'package:evoluton_x/core/services/cach_services.dart';
 import 'package:evoluton_x/core/services/service_locator.dart';
 import 'package:evoluton_x/core/utils/app_colors.dart';
@@ -83,13 +85,14 @@ class _SplashViewBodyState extends State<SplashViewBody>
   Future<void> goToPage() async {
     final bool hasSeenOnBoarding =
         cachServices.getData(key: AppConstants.onBoardingSeen) ?? false;
-    String? tokenSaved;
-    tokenSaved = cachServices.getData(key: AppConstants.token);
+    // String? tokenSaved;
+    // tokenSaved = cachServices.getData(key: AppConstants.token);
 
     return Future.delayed(const Duration(seconds: 3), () {
       if (mounted) {
         if (hasSeenOnBoarding) {
-          if (tokenSaved != null) {
+          print(AppConstants.tokenSaved);
+          if (AppConstants.tokenSaved != null) {
             Navigator.pushReplacementNamed(context, AppRoutes.mainLayout);
           } else {
             Navigator.pushReplacementNamed(context, AppRoutes.home);

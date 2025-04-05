@@ -4,7 +4,7 @@ class Club extends Equatable {
   final int id;
   final String name;
   final String imageUrl;
-  final String nation;
+  final String? nation;
 
   const Club({
     required this.id,

@@ -18,6 +18,11 @@ import 'package:evoluton_x/features/authentication/presentation/controllers/logi
 import 'package:evoluton_x/features/authentication/presentation/controllers/password_bloc/password_bloc.dart';
 import 'package:evoluton_x/features/authentication/presentation/controllers/register_bloc/register_bloc.dart';
 import 'package:evoluton_x/features/authentication/presentation/controllers/verify_email_bloc/verify_email_bloc.dart';
+import 'package:evoluton_x/features/details/data/datasource/remote/details_remote_datasource.dart';
+import 'package:evoluton_x/features/details/data/datasource/remote/details_remote_datasource_imp.dart';
+import 'package:evoluton_x/features/details/data/repository/details_repository_imp.dart';
+import 'package:evoluton_x/features/details/domain/repository/details_repository.dart';
+import 'package:evoluton_x/features/details/domain/usecases/get_details_usecase.dart';
 import 'package:evoluton_x/features/details/presentation/controllers/club_filter_bloc/club_filter_bloc.dart';
 import 'package:evoluton_x/features/details/presentation/controllers/details_bloc/details_bloc.dart';
 import 'package:evoluton_x/features/layout/presentation/controller/layout_bloc/layout_bloc.dart';
@@ -83,7 +88,7 @@ class ServiceLocator {
       () => LayoutBloc(),
     );
     getIt.registerFactory<DetailsBloc>(
-      () => DetailsBloc(),
+      () => DetailsBloc(getDetailsUsecase: getIt<GetDetailsUsecase>()),
     );
     getIt.registerFactory<ClubFilterBloc>(
       () => ClubFilterBloc(),
@@ -95,10 +100,14 @@ class ServiceLocator {
     //DataSource
     getIt.registerLazySingleton<AuthRemoteDataSource>(
         () => AuthRemoteDataSourceImp(apiServices: getIt<ApiServices>()));
+    getIt.registerLazySingleton<DetailsRemoteDatasource>(
+        () => DetailsRemoteDatasourceImp(apiServices: getIt<ApiServices>()));
 
     //Repository
     getIt.registerLazySingleton<AuthRepository>(() =>
         AuthRepositoryImp(authRemoteDataSource: getIt<AuthRemoteDataSource>()));
+    getIt.registerLazySingleton<DetailsRepository>(() => DetailsRepositoryImp(
+        detailsRemoteDatasource: getIt<DetailsRemoteDatasource>()));
 
     //usecases
     getIt.registerLazySingleton<RegisterUseCase>(
@@ -124,6 +133,9 @@ class ServiceLocator {
     );
     getIt.registerLazySingleton<ResendCodeUseCase>(
       () => ResendCodeUseCase(authRepository: getIt<AuthRepository>()),
+    );
+    getIt.registerLazySingleton<GetDetailsUsecase>(
+      () => GetDetailsUsecase(detailsRepository: getIt<DetailsRepository>()),
     );
   }
 }

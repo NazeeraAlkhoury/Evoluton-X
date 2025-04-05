@@ -55,7 +55,7 @@ class ServerFailure extends Failure {
         return ServerFailure(
             AuthResponseModel.fromJson(response).message.toString());
       case 404:
-        return const ServerFailure('Resource not found. Please check the URL.');
+        return const ServerFailure('Record Not Found.');
       case 422:
         final errors = ErrorMessageModel.fromJson(response).errors;
         final errorMessage =

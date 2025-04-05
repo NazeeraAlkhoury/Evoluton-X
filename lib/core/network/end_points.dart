@@ -7,4 +7,5 @@ abstract class EndPoints {
   static const String deleteAccount = 'auth/users';
   static const String forgetPassword = 'auth/forgot-password';
   static const String resetPassword = 'auth/reset-password';
+  static const String detailsScreen = 'players/details-screen';
 }

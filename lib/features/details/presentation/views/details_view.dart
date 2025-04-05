@@ -1,5 +1,6 @@
 import 'package:evoluton_x/core/services/service_locator.dart';
 import 'package:evoluton_x/features/details/presentation/controllers/details_bloc/details_bloc.dart';
+import 'package:evoluton_x/features/details/presentation/controllers/details_bloc/details_event.dart';
 import 'package:evoluton_x/features/details/presentation/widgets/custom_appbar.dart';
 import 'package:evoluton_x/features/details/presentation/widgets/details/details_view_body.dart';
 import 'package:flutter/material.dart';
@@ -11,7 +12,7 @@ class DetailsView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => getIt<DetailsBloc>(),
+      create: (context) => getIt<DetailsBloc>()..add(const GetDetailsEvent()),
       child: const Scaffold(
         body: SafeArea(
           child: CustomScrollView(
