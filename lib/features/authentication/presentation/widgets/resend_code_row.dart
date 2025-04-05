@@ -3,8 +3,10 @@ import 'package:evoluton_x/core/utils/app_text_styles.dart';
 import 'package:flutter/material.dart';
 
 class ResndCodeRow extends StatelessWidget {
+  final void Function()? onPressed;
   const ResndCodeRow({
     super.key,
+    this.onPressed,
   });
 
   @override
@@ -17,7 +19,7 @@ class ResndCodeRow extends StatelessWidget {
           style: AppTextStyles.styleRegular14(context),
         ),
         TextButton(
-          onPressed: () {},
+          onPressed: onPressed,
           child: Text(
             AppStrings.resendCode,
             style: AppTextStyles.styleRegular12(context).copyWith(

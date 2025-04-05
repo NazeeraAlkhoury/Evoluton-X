@@ -92,7 +92,7 @@ class HomeAfterCheckedViewBody extends StatelessWidget {
               child: AppButton(
                 textButton: AppStrings.beginJourney,
                 onPressed: () {
-                  Navigator.pushReplacementNamed(context, AppRoutes.login);
+                  Navigator.pushReplacementNamed(context, AppRoutes.mainLayout);
                 },
                 widthButton: double.infinity,
               ),

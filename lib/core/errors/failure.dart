@@ -53,18 +53,17 @@ class ServerFailure extends Failure {
         return const ServerFailure('Unauthenticated.');
       case 403:
         return ServerFailure(
-            AuthResponseModel.fromJson(response).message.toString() ??
-                'Forbidden: Access denied.');
+            AuthResponseModel.fromJson(response).message.toString());
       case 404:
         return const ServerFailure('Resource not found. Please check the URL.');
       case 422:
-        // final errors = ErrorMessageModel.fromJson(response).errors;
-        // final errorMessage =
-        //     errors.isNotEmpty ? errors.join(', ') : 'Validation failed';
-        // return ServerFailure(errorMessage);
-        return ServerFailure(
-          ErrorMessageModel.fromJson(response).errors.toString(),
-        );
+        final errors = ErrorMessageModel.fromJson(response).errors;
+        final errorMessage =
+            errors.isNotEmpty ? errors.join(', ') : 'Validation failed';
+        return ServerFailure(errorMessage);
+      // return ServerFailure(
+      //   ErrorMessageModel.fromJson(response).errors.toString(),
+      //);
       case 429:
         return const ServerFailure(
             'Too Many Attempts, Retry After One Minute.');

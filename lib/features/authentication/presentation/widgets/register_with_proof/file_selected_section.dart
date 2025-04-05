@@ -42,7 +42,6 @@ class FileSelectedSection extends StatelessWidget {
               onPressed: replaceDoc,
             ),
             AppButton(
-              //  widthButton: 118,
               textButton: AppStrings.continu,
               onPressed: continu,
             ),

@@ -25,36 +25,38 @@ class VerifyEmailBloc extends Bloc<VerifyEmailEvent, VerifyEmailState> {
     on<OnOtpFieldTappedEvent>(_fieldTapped);
     on<OtpFieldChangedEvent>(_fieldChanged);
     on<ValidateOTPEvent>(_validateOtp);
-    on<ResendCodeEvent>(
-      (event, emit) async {
-        emit(state.copyWith(validateOTPState: RequestStates.loadingState));
-        final result = await resendCodeUseCase(const NoParameters());
-        result.fold(
-          (failure) {
-            emit(
-              state.copyWith(
-                resendCodeState: RequestStates.failureState,
-                resendCodeErrMessage: failure.errorMessage,
-              ),
-            );
-          },
-          (authResponse) {
-            emit(
-              state.copyWith(
-                resendCodeState: RequestStates.successState,
-                resendCodeauthResponse: authResponse,
-              ),
-            );
-          },
+    on<ResendCodeEvent>(_resendCode);
+  }
+
+  FutureOr<void> _resendCode(event, emit) async {
+    emit(state.copyWith(validateOTPState: RequestStates.loadingState));
+    final result = await resendCodeUseCase(const NoParameters());
+    result.fold(
+      (failure) {
+        emit(
+          state.copyWith(
+            resendCodeState: RequestStates.failureState,
+            resendCodeErrMessage: failure.errorMessage,
+          ),
+        );
+      },
+      (authResponse) {
+        emit(
+          state.copyWith(
+            resendCodeState: RequestStates.successState,
+            resendCodeauthResponse: authResponse,
+          ),
         );
       },
     );
   }
+
   FutureOr<void> _validateOtp(event, emit) async {
     emit(state.copyWith(validateOTPState: RequestStates.loadingState));
     final result = await verifyEmailUseCase(event.code);
     result.fold(
       (failure) {
+        hasError = List.generate(6, (_) => true);
         emit(
           state.copyWith(
             validateOTPState: RequestStates.failureState,
@@ -63,6 +65,9 @@ class VerifyEmailBloc extends Bloc<VerifyEmailEvent, VerifyEmailState> {
         );
       },
       (authResponse) {
+        bool shouldShowError = authResponse.message ==
+            'Please check the code again or request another one.';
+        hasError = List.generate(6, (_) => shouldShowError);
         emit(
           state.copyWith(
             validateOTPState: RequestStates.successState,
@@ -81,6 +86,7 @@ class VerifyEmailBloc extends Bloc<VerifyEmailEvent, VerifyEmailState> {
         focusNodes[event.index].unfocus();
         String enteredCode =
             controllers.map((controller) => controller.text).join();
+        emit(state.copyWith(resendCodeState: RequestStates.initialState));
         add(
           ValidateOTPEvent(code: enteredCode),
         );
@@ -94,5 +100,16 @@ class VerifyEmailBloc extends Bloc<VerifyEmailEvent, VerifyEmailState> {
     controllers[event.index].selection = TextSelection.fromPosition(
       TextPosition(offset: controllers[event.index].text.length),
     );
+  }
+
+  @override
+  Future<void> close() {
+    for (var controller in controllers) {
+      controller.dispose();
+    }
+    for (var node in focusNodes) {
+      node.dispose();
+    }
+    return super.close();
   }
 }

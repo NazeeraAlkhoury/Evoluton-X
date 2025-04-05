@@ -1,8 +1,8 @@
 import 'package:evoluton_x/core/functions/show_custom_bottom_sheet.dart';
 import 'package:evoluton_x/core/utils/app_strings.dart';
 import 'package:evoluton_x/core/utils/app_text_styles.dart';
-import 'package:evoluton_x/features/authentication/presentation/widgets/delet_account_sheet.dart';
-import 'package:evoluton_x/features/authentication/presentation/widgets/logout_account_sheet.dart';
+import 'package:evoluton_x/features/authentication/presentation/widgets/delete_account/delet_account_sheet.dart';
+import 'package:evoluton_x/features/authentication/presentation/widgets/logout/logout_account_sheet.dart';
 import 'package:flutter/material.dart';
 
 class PopupOptionsButton extends StatelessWidget {

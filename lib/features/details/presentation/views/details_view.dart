@@ -12,13 +12,17 @@ class DetailsView extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => getIt<DetailsBloc>(),
-      child: const CustomScrollView(
-        slivers: [
-          CustomAppBar(),
-          SliverToBoxAdapter(
-            child: DetailsViewBody(),
-          )
-        ],
+      child: const Scaffold(
+        body: SafeArea(
+          child: CustomScrollView(
+            slivers: [
+              CustomAppBar(),
+              SliverToBoxAdapter(
+                child: DetailsViewBody(),
+              )
+            ],
+          ),
+        ),
       ),
     );
   }

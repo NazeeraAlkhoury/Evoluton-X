@@ -1,4 +1,8 @@
+import 'package:evoluton_x/core/services/cach_services.dart';
+import 'package:evoluton_x/core/services/service_locator.dart';
+import 'package:evoluton_x/core/utils/app_constants.dart';
 import 'package:evoluton_x/core/utils/app_text_styles.dart';
+import 'package:evoluton_x/features/details/presentation/widgets/pop_options_button.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -9,6 +13,7 @@ class CustomLeadingAppbar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    String? name = getIt<CachServices>().getData(key: AppConstants.name);
     return FittedBox(
       fit: BoxFit.scaleDown,
       child: Row(
@@ -17,7 +22,7 @@ class CustomLeadingAppbar extends StatelessWidget {
             width: 16,
           ),
           Text(
-            'zak marbilon',
+            name ?? 'Account settings',
             style: AppTextStyles.styleSemiBold16(context).copyWith(
               fontStyle: FontStyle.italic,
               fontFamily: GoogleFonts.inter().fontFamily,
@@ -26,23 +31,7 @@ class CustomLeadingAppbar extends StatelessWidget {
           const SizedBox(
             width: 5,
           ),
-          Container(
-            width: 21,
-            height: 18,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(5.14),
-              color: const Color(0xffE0E0E0),
-            ),
-            child: FittedBox(
-              fit: BoxFit.scaleDown,
-              child: Transform.rotate(
-                  angle: -1.5708,
-                  child: const Icon(
-                    Icons.arrow_back_ios_outlined,
-                    size: 15,
-                  )),
-            ),
-          ),
+          const PopupOptionsButton(),
         ],
       ),
     );

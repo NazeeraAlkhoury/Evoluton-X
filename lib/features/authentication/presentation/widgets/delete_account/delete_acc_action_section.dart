@@ -13,8 +13,8 @@ import 'package:evoluton_x/features/authentication/presentation/widgets/register
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class LogoutActionSection extends StatelessWidget {
-  const LogoutActionSection({
+class DeleteAccountActionsSection extends StatelessWidget {
+  const DeleteAccountActionsSection({
     super.key,
   });
 
@@ -24,26 +24,25 @@ class LogoutActionSection extends StatelessWidget {
       children: [
         BlocConsumer<AuthBloc, AuthState>(
           listener: (context, state) {
-            _handleLogoutSuccessState(state, context);
+            _handleDeleteAccSuccess(state, context);
           },
           builder: (context, state) {
-            if (state.logoutState == RequestStates.loadingState) {
+            if (state.deleteAccountState == RequestStates.loadingState) {
               return const Center(
                 child: CircularProgressIndicator(),
               );
             } else {
               return AppButton(
-                textButton: AppStrings.logOut,
-                onPressed: () {
-                  final token =
-                      getIt<CachServices>().getData(key: AppConstants.token);
-                  if (token != null) {
-                    context.read<AuthBloc>().add(
-                          LogoutEvent(token: token),
-                        );
-                  }
-                },
-              );
+                  textButton: AppStrings.deleteAccount,
+                  onPressed: () {
+                    final token =
+                        getIt<CachServices>().getData(key: AppConstants.token);
+                    if (token != null) {
+                      context.read<AuthBloc>().add(
+                            DeletAccountEvent(token: token),
+                          );
+                    }
+                  });
             }
           },
         ),
@@ -54,7 +53,7 @@ class LogoutActionSection extends StatelessWidget {
           child: CustomAuthButton(
             text: AppStrings.back,
             onPressed: () {
-              Navigator.pop(context);
+              Navigator.of(context).pop();
             },
           ),
         ),
@@ -62,13 +61,15 @@ class LogoutActionSection extends StatelessWidget {
     );
   }
 
-  void _handleLogoutSuccessState(AuthState state, BuildContext context) {
-    if (state.logoutState == RequestStates.successState) {
+  void _handleDeleteAccSuccess(AuthState state, BuildContext context) {
+    if (state.deleteAccountState == RequestStates.successState) {
       Navigator.of(context).pop();
       getIt<CachServices>().removeData(key: AppConstants.token);
-
+      getIt<CachServices>().removeData(key: AppConstants.name);
       showCustomSuccessSnackBar(
-          context: context, successMessage: state.logoutAuthResponse!.message);
+          context: context,
+          successMessage: state.deleteAccountAuthResponse!.message);
+
       Navigator.pushReplacementNamed(context, AppRoutes.home);
     }
   }

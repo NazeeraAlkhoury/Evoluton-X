@@ -21,4 +21,10 @@ class CachServices {
   }) {
     return sharedPreferences.get(key);
   }
+
+  Future<bool> removeData({
+    required String key,
+  }) {
+    return sharedPreferences.remove(key);
+  }
 }

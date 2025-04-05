@@ -81,13 +81,19 @@ class _SplashViewBodyState extends State<SplashViewBody>
   }
 
   Future<void> goToPage() async {
-    return Future.delayed(const Duration(seconds: 3), () {
-      final bool hasSeenOnBoarding =
-          cachServices.getData(key: AppConstants.onBoardingSeen) ?? false;
+    final bool hasSeenOnBoarding =
+        cachServices.getData(key: AppConstants.onBoardingSeen) ?? false;
+    String? tokenSaved;
+    tokenSaved = cachServices.getData(key: AppConstants.token);
 
+    return Future.delayed(const Duration(seconds: 3), () {
       if (mounted) {
         if (hasSeenOnBoarding) {
-          Navigator.pushReplacementNamed(context, AppRoutes.home);
+          if (tokenSaved != null) {
+            Navigator.pushReplacementNamed(context, AppRoutes.mainLayout);
+          } else {
+            Navigator.pushReplacementNamed(context, AppRoutes.home);
+          }
         } else {
           Navigator.pushReplacementNamed(context, AppRoutes.onBoarding);
         }

@@ -10,7 +10,7 @@ class CustomAppBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SliverAppBar(
-      //      backgroundColor: Colors.transparent,
+      // backgroundColor: Colors.transparent,
       elevation: 0,
       leadingWidth: 140,
       leading: const CustomLeadingAppbar(),

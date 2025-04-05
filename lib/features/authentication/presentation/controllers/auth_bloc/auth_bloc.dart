@@ -14,10 +14,15 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     required this.deleteAccountUsecase,
   }) : super(const AuthState()) {
     on<LogoutEvent>(_logout);
-    on<LogoutEvent>(_deleteAccount);
+    on<DeletAccountEvent>(_deleteAccount);
   }
 
   FutureOr<void> _deleteAccount(event, emit) async {
+    emit(
+      state.copyWith(
+        deleteAccountState: RequestStates.loadingState,
+      ),
+    );
     final result = await deleteAccountUsecase(event.token);
 
     result.fold(
@@ -39,6 +44,10 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
   }
 
   FutureOr<void> _logout(event, emit) async {
+    emit(state.copyWith(
+      logoutState: RequestStates.loadingState,
+    ));
+
     final result = await logoutUsecase(event.token);
 
     result.fold(

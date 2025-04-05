@@ -67,8 +67,11 @@ class ServiceLocator {
     );
     getIt.registerFactory<PasswordBloc>(
       () => PasswordBloc(
-          forgetPasswordUsecase: getIt<ForgetPasswordUsecase>(),
-          resetPasswordUsecase: getIt<ResetPasswordUsecase>()),
+        forgetPasswordUsecase: getIt<ForgetPasswordUsecase>(),
+        resetPasswordUsecase: getIt<ResetPasswordUsecase>(),
+        verifyEmailUseCase: getIt<VerifyEmailUseCase>(),
+        resendCodeUseCase: getIt<ResendCodeUseCase>(),
+      ),
     );
     getIt.registerFactory<AuthBloc>(
       () => AuthBloc(

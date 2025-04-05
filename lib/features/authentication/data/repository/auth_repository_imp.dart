@@ -82,7 +82,7 @@ class AuthRepositoryImp implements AuthRepository {
       {required LoginParams loginParams}) async {
     try {
       var result = await authRemoteDataSource.login(loginParams: loginParams);
-      print('=================== ${result}');
+
       return right(result);
     } catch (e) {
       if (e is DioException) {

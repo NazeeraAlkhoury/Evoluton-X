@@ -73,6 +73,8 @@ class RegisterForm extends StatelessWidget {
           ),
           const SizedBox(height: 8),
           BlocBuilder<RegisterBloc, RegisterState>(
+            buildWhen: (previous, current) =>
+                previous.isObscurePass != current.isObscurePass,
             builder: (context, state) {
               return CustomTextFormField(
                 controller: bloc.passwordController,
@@ -99,6 +101,8 @@ class RegisterForm extends StatelessWidget {
           ),
           const SizedBox(height: 8),
           BlocBuilder<RegisterBloc, RegisterState>(
+            buildWhen: (previous, current) =>
+                previous.isObscureRepPass != current.isObscureRepPass,
             builder: (context, state) {
               return CustomTextFormField(
                 controller: bloc.repeatPasswordController,
@@ -118,6 +122,7 @@ class RegisterForm extends StatelessWidget {
                   repeatPassword: bloc.passwordController.text ==
                       bloc.repeatPasswordController.text,
                 ),
+                textInputAction: TextInputAction.done,
               );
             },
           ),

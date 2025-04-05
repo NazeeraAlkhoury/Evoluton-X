@@ -3,7 +3,6 @@ import 'package:evoluton_x/core/utils/enums.dart';
 import 'package:evoluton_x/features/authentication/domain/entities/auth_response.dart';
 
 class PasswordState extends Equatable {
-  final RequestStates validateOTPState;
   final bool isObscurePass;
   final bool isObscureRepPass;
 
@@ -14,8 +13,11 @@ class PasswordState extends Equatable {
   final RequestStates resetPassState;
   final String resetPassErrMessage;
   final AuthResponse? resetPassAuthResponse;
+
+  final RequestStates resendCodeState;
+  final String resendCodeErrMessage;
+  final AuthResponse? resendCodeauthResponse;
   const PasswordState({
-    this.validateOTPState = RequestStates.initialState,
     this.isObscurePass = true,
     this.isObscureRepPass = true,
     this.forgetPassState = RequestStates.initialState,
@@ -24,10 +26,12 @@ class PasswordState extends Equatable {
     this.resetPassState = RequestStates.initialState,
     this.resetPassErrMessage = '',
     this.resetPassAuthResponse,
+    this.resendCodeState = RequestStates.initialState,
+    this.resendCodeErrMessage = '',
+    this.resendCodeauthResponse,
   });
 
   PasswordState copyWith({
-    RequestStates? validateOTPState,
     bool? isObscurePass,
     bool? isObscureRepPass,
     RequestStates? forgetPassState,
@@ -36,9 +40,11 @@ class PasswordState extends Equatable {
     RequestStates? resetPassState,
     String? resetPassErrMessage,
     AuthResponse? resetPassAuthResponse,
+    RequestStates? resendCodeState,
+    String? resendCodeErrMessage,
+    AuthResponse? resendCodeauthResponse,
   }) =>
       PasswordState(
-        validateOTPState: validateOTPState ?? this.validateOTPState,
         isObscurePass: isObscurePass ?? this.isObscurePass,
         isObscureRepPass: isObscureRepPass ?? this.isObscureRepPass,
         forgetPassState: forgetPassState ?? this.forgetPassState,
@@ -49,11 +55,14 @@ class PasswordState extends Equatable {
         resetPassErrMessage: resetPassErrMessage ?? this.resetPassErrMessage,
         resetPassAuthResponse:
             resetPassAuthResponse ?? this.resetPassAuthResponse,
+        resendCodeState: resendCodeState ?? this.resendCodeState,
+        resendCodeErrMessage: resendCodeErrMessage ?? this.resendCodeErrMessage,
+        resendCodeauthResponse:
+            resendCodeauthResponse ?? this.resendCodeauthResponse,
       );
 
   @override
   List<Object?> get props => [
-        validateOTPState,
         isObscurePass,
         isObscureRepPass,
         forgetPassState,
@@ -62,5 +71,8 @@ class PasswordState extends Equatable {
         resetPassState,
         resetPassErrMessage,
         resetPassAuthResponse,
+        resendCodeState,
+        resendCodeErrMessage,
+        resendCodeauthResponse,
       ];
 }

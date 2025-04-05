@@ -30,7 +30,8 @@ class ResendCodeSection extends StatelessWidget {
         }
       },
       buildWhen: (previous, current) =>
-          previous.forgetPassState != current.forgetPassState,
+          previous.forgetPassState != current.forgetPassState ||
+          previous.resendCodeState != current.resendCodeState,
       builder: (context, state) {
         return ResndCodeRow(
           onPressed: () => bloc.add(ForgetPasswordEvent()),

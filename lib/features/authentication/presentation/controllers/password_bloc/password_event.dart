@@ -32,11 +32,6 @@ class OtpFieldChangedEvent extends PasswordEvent {
       ];
 }
 
-class ValidateOTPEvent extends PasswordEvent {
-  @override
-  List<Object?> get props => [];
-}
-
 class TogglePasswordVisibilityEvent extends PasswordEvent {
   @override
   List<Object?> get props => [];
@@ -53,6 +48,17 @@ class ForgetPasswordEvent extends PasswordEvent {
 }
 
 class ResetPasswordEvent extends PasswordEvent {
+  @override
+  List<Object?> get props => [];
+}
+
+class ResendCodeEvent extends PasswordEvent {
+  const ResendCodeEvent();
+  @override
+  List<Object?> get props => [];
+}
+
+class ResetPasswordValueEvent extends PasswordEvent {
   @override
   List<Object?> get props => [];
 }

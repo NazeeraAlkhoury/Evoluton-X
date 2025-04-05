@@ -1,6 +1,7 @@
 import 'package:evoluton_x/core/utils/app_routes.dart';
+import 'package:evoluton_x/features/authentication/presentation/controllers/auth_bloc/auth_bloc.dart';
+import 'package:evoluton_x/features/authentication/presentation/controllers/password_bloc/password_bloc.dart';
 import 'package:evoluton_x/features/authentication/presentation/controllers/register_bloc/register_bloc.dart';
-import 'package:evoluton_x/features/authentication/presentation/controllers/register_bloc/register_event.dart';
 import 'package:evoluton_x/features/details/presentation/controllers/club_filter_bloc/club_filter_bloc.dart';
 import 'package:evoluton_x/core/services/bloc_observer.dart';
 import 'package:evoluton_x/core/services/service_locator.dart';
@@ -34,6 +35,12 @@ void main() async {
       create: (context) => getIt<ClubFilterBloc>(),
     ),
     BlocProvider(
+      create: (context) => getIt<PasswordBloc>(),
+    ),
+    BlocProvider(
+      create: (context) => getIt<AuthBloc>(),
+    ),
+    BlocProvider(
       create: (context) => getIt<SearchBloc>(),
     ),
   ], child: const MyApp()));
@@ -50,7 +57,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       onGenerateRoute: AppRoutes.onGenerateRoute,
       initialRoute: AppRoutes.splash,
-      //  home: VerifyPasswordView(),
+      // home: LoginView(),
       locale: DevicePreview.locale(context),
       builder: DevicePreview.appBuilder,
     );

@@ -18,9 +18,6 @@ class ToggleRepeatPasswordVisibilityEvent extends RegisterEvent {
 }
 
 class ChooseDocumentEvent extends RegisterEvent {
-  // final FilePickerResult? result;
-
-  // const ChooseDocumentEvent({required this.result});
   @override
   List<Object?> get props => [];
 }
@@ -37,11 +34,7 @@ class RegisterWithUploadFileEvent extends RegisterEvent {
   List<Object?> get props => [filePath, fileName];
 }
 
-// class LoginEvent extends RegisterEvent {
-//   // final LoginParams loginParams;
-
-//   // const LoginEvent({required this.loginParams});
-
-//   @override
-//   List<Object?> get props => [];
-// }
+class ResetRegisterEvent extends RegisterEvent {
+  @override
+  List<Object?> get props => [];
+}

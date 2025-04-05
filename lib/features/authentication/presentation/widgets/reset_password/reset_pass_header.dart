@@ -15,7 +15,7 @@ class ResetPassHeader extends StatelessWidget {
       children: [
         CustomBackButton(
           onTap: () =>
-              Navigator.pushReplacementNamed(context, AppRoutes.forgetPassword),
+              Navigator.pushReplacementNamed(context, AppRoutes.verifyPassword),
         ),
         const SizedBox(
           height: 12,

@@ -1,5 +1,3 @@
-// ignore_for_file: avoid_print
-
 import 'package:evoluton_x/core/network/end_points.dart';
 import 'package:evoluton_x/core/services/api_services.dart';
 import 'package:evoluton_x/features/authentication/data/data_source/remote/auth_remote_data_source.dart';
@@ -34,12 +32,11 @@ class AuthRemoteDataSourceImp implements AuthRemoteDataSource {
 
   @override
   Future<AuthResponseModel> login({required LoginParams loginParams}) async {
-    print('=================== ');
     final response = await apiServices.sendData(
       path: EndPoints.login,
       data: loginParams.toJson(),
     );
-    print('=================== ${response.data}');
+
     return AuthResponseModel.fromJson(response.data);
   }
 
