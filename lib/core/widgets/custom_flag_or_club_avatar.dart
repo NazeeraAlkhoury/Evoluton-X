@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
 class CustomFlagOrClubAvatar extends StatelessWidget {
@@ -12,12 +13,21 @@ class CustomFlagOrClubAvatar extends StatelessWidget {
     return CircleAvatar(
       radius: radius ?? 8,
       child: ClipOval(
-        child: Image.asset(
-          imagePath,
+        child: CachedNetworkImage(
+          imageUrl: imagePath,
           fit: BoxFit.cover,
+
           width: double.infinity,
           height: double.infinity,
+          //  placeholder: (context, url) => const CircularProgressIndicator(),
+          errorWidget: (context, url, error) => const Icon(Icons.error),
         ),
+        // Image.asset(
+        //   imagePath,
+        //   fit: BoxFit.cover,
+        //   width: double.infinity,
+        //   height: double.infinity,
+        // ),
       ),
     );
   }

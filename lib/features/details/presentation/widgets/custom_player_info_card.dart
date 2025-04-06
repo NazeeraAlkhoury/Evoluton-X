@@ -1,13 +1,17 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:evoluton_x/core/utils/app_colors.dart';
 import 'package:evoluton_x/core/utils/app_routes.dart';
 import 'package:evoluton_x/core/utils/app_strings.dart';
 import 'package:evoluton_x/core/utils/app_text_styles.dart';
+import 'package:evoluton_x/features/details/domain/entities/player.dart';
 import 'package:evoluton_x/features/details/presentation/widgets/custom_player_attrbuite_item.dart';
 import 'package:flutter/material.dart';
 
 class CustomPlayerInfoCard extends StatelessWidget {
+  final Player player;
   const CustomPlayerInfoCard({
     super.key,
+    required this.player,
   });
 
   @override
@@ -39,23 +43,34 @@ class CustomPlayerInfoCard extends StatelessWidget {
                     topLeft: Radius.circular(10),
                     topRight: Radius.circular(10),
                   ),
-                  child: Image.asset(
-                    'assets/images/player.png',
+                  child: CachedNetworkImage(
+                    imageUrl:
+                        player.imageUrl.isNotEmpty ? player.imageUrl[0] : '',
                     fit: BoxFit.cover,
                     width: double.infinity,
-                    //height: 67,
+                    // placeholder: (context, url) =>
+                    //     Center(child: CircularProgressIndicator()),
+                    errorWidget: (context, url, error) =>
+                        const Icon(Icons.error),
                   ),
+                  //  Image.asset(
+
+                  // 'assets/images/player.png',
+                  //   fit: BoxFit.cover,
+                  //   width: double.infinity,
+                  //   //height: 67,
+                  // ),
                 ),
               ),
               Text(
-                'club name',
+                player.club.name,
                 style: AppTextStyles.styleRegular9(context),
               ),
               const SizedBox(
                 height: 5,
               ),
               Text(
-                'Player name',
+                player.name,
                 style: AppTextStyles.styleSemiBold10(context),
               ),
               const Divider(
@@ -63,35 +78,41 @@ class CustomPlayerInfoCard extends StatelessWidget {
                 color: AppColors.darkGreyColor,
                 height: 9,
               ),
-              const Row(
+              Row(
                 children: [
                   Expanded(
                     child: Padding(
-                      padding: EdgeInsetsDirectional.only(end: 2),
+                      padding: const EdgeInsetsDirectional.only(end: 2),
                       child: CustomPlayerAttributeItem(
-                          label: AppStrings.pos, value: 'ST'),
+                        label: AppStrings.pos,
+                        value: player.positions.toString(),
+                      ),
                     ),
                   ),
                   Expanded(
                     child: Padding(
-                      padding: EdgeInsetsDirectional.only(end: 2),
+                      padding: const EdgeInsetsDirectional.only(end: 2),
                       child: CustomPlayerAttributeItem(
-                          label: AppStrings.age, value: '23'),
+                        label: AppStrings.age,
+                        value: player.age.toString(),
+                      ),
                     ),
                   ),
                   Expanded(
                     child: Padding(
-                      padding: EdgeInsetsDirectional.only(end: 2),
+                      padding: const EdgeInsetsDirectional.only(end: 2),
                       child: CustomPlayerAttributeItem(
-                          label: AppStrings.height, value: '183'),
+                          label: AppStrings.power,
+                          value: player.power.toString()),
                     ),
                   ),
                   Expanded(
                     child: Padding(
-                      padding: EdgeInsetsDirectional.only(end: 2),
+                      padding: const EdgeInsetsDirectional.only(end: 2),
                       child: CustomPlayerAttributeItem(
                         label: AppStrings.nation,
-                        value: 'assets/images/flag.png',
+                        value: player.nation,
+                        //'assets/images/flag.png',
                       ),
                     ),
                   ),

@@ -2,11 +2,15 @@ import 'package:evoluton_x/core/utils/app_colors.dart';
 import 'package:evoluton_x/core/utils/app_routes.dart';
 import 'package:evoluton_x/core/utils/app_strings.dart';
 import 'package:evoluton_x/core/utils/app_text_styles.dart';
+import 'package:evoluton_x/core/widgets/request_state_handle_widget.dart';
+import 'package:evoluton_x/features/details/presentation/controllers/details_bloc/details_bloc.dart';
+import 'package:evoluton_x/features/details/presentation/controllers/details_bloc/details_state.dart';
 import 'package:evoluton_x/features/details/presentation/widgets/details/best_club_listview.dart';
 import 'package:evoluton_x/core/widgets/custom_show_row.dart';
 import 'package:evoluton_x/features/details/presentation/widgets/details/players_card_listview.dart';
 import 'package:evoluton_x/features/details/presentation/widgets/details/slider_section.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class DetailsViewBody extends StatelessWidget {
   const DetailsViewBody({
@@ -36,9 +40,19 @@ class DetailsViewBody extends StatelessWidget {
         const SizedBox(
           height: 5,
         ),
-        const Padding(
-          padding: EdgeInsetsDirectional.only(start: 16),
-          child: PlayerCardsListView(),
+        Padding(
+          padding: const EdgeInsetsDirectional.only(start: 16),
+          child: BlocBuilder<DetailsBloc, DetailsState>(
+            builder: (context, state) {
+              return RequestStateHandleWidget(
+                requestState: state.getDetailsState,
+                errorMessage: state.getDetailsErrMessage,
+                successWidget: (context) => PlayerCardsListView(
+                  suggestedPlayers: state.getDetailsResponse!.data.suggested,
+                ),
+              );
+            },
+          ),
         ),
         Padding(
           padding: const EdgeInsetsDirectional.only(start: 16),
@@ -55,9 +69,19 @@ class DetailsViewBody extends StatelessWidget {
             },
           ),
         ),
-        const Padding(
-          padding: EdgeInsetsDirectional.only(start: 16),
-          child: BestClubsListView(),
+        Padding(
+          padding: const EdgeInsetsDirectional.only(start: 16),
+          child: BlocBuilder<DetailsBloc, DetailsState>(
+            builder: (context, state) {
+              return RequestStateHandleWidget(
+                requestState: state.getDetailsState,
+                errorMessage: state.getDetailsErrMessage,
+                successWidget: (context) => BestClubsListView(
+                  bestClubs: state.getDetailsResponse!.data.bestClubs,
+                ),
+              );
+            },
+          ),
         ),
         const SizedBox(
           height: 70,

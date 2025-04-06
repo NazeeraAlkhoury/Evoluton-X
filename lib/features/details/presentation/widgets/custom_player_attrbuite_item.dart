@@ -1,6 +1,7 @@
 import 'package:evoluton_x/core/utils/app_colors.dart';
 import 'package:evoluton_x/core/utils/app_strings.dart';
 import 'package:evoluton_x/core/utils/app_text_styles.dart';
+import 'package:evoluton_x/core/widgets/custom_flag_or_club_avatar.dart';
 import 'package:flutter/material.dart';
 
 class CustomPlayerAttributeItem extends StatelessWidget {
@@ -39,14 +40,18 @@ class CustomPlayerAttributeItem extends StatelessWidget {
           ),
         ] else ...[
           Flexible(
-            child: CircleAvatar(
-              radius: 6.5,
-              child: Image.asset(
-                value,
-                fit: BoxFit.scaleDown,
-              ),
-            ),
+              child: CustomFlagOrClubAvatar(
+            imagePath: value,
+            radius: 6.5,
           )
+              //  CircleAvatar(
+              //   radius: 6.5,
+              //   child: Image.asset(
+              //     value,
+              //     fit: BoxFit.scaleDown,
+              //   ),
+              // ),
+              )
         ]
       ],
     );

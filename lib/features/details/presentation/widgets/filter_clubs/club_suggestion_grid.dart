@@ -1,4 +1,3 @@
-import 'package:evoluton_x/features/details/presentation/widgets/custom_club.dart';
 import 'package:flutter/material.dart';
 
 class ClubSuggestionsGrid extends StatelessWidget {
@@ -16,7 +15,8 @@ class ClubSuggestionsGrid extends StatelessWidget {
         crossAxisSpacing: 15,
         mainAxisSpacing: 6,
       ),
-      itemBuilder: (context, index) => const CustomClub(),
+      itemBuilder: (context, index) => const SizedBox(),
+      // const CustomClub(),
     );
   }
 }

@@ -1,9 +1,12 @@
+import 'package:evoluton_x/features/details/domain/entities/club.dart';
 import 'package:evoluton_x/features/details/presentation/widgets/custom_club.dart';
 import 'package:flutter/material.dart';
 
 class BestClubsListView extends StatelessWidget {
+  final List<Club> bestClubs;
   const BestClubsListView({
     super.key,
+    required this.bestClubs,
   });
 
   @override
@@ -12,8 +15,10 @@ class BestClubsListView extends StatelessWidget {
       height: 136,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
-        itemCount: 20,
-        itemBuilder: (context, index) => const CustomClub(),
+        itemCount: bestClubs.length,
+        itemBuilder: (context, index) => CustomClub(
+          club: bestClubs[index],
+        ),
       ),
     );
   }

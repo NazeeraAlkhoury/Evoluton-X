@@ -85,7 +85,7 @@ abstract class AppStrings {
   //Details
   static const String pos = 'Pos';
   static const String age = 'Age';
-  static const String height = 'Height';
+  static const String power = 'Power';
   static const String nation = 'Nation';
   static const String suggest = 'Suggested for you';
   static const String bestclubs = 'Best clubs';
