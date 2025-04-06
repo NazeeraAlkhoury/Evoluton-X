@@ -1,7 +1,10 @@
 // ignore_for_file: use_key_in_widget_constructors, library_private_types_in_public_api
 import 'package:evoluton_x/features/details/domain/entities/player.dart';
+import 'package:evoluton_x/features/details/presentation/controllers/details_bloc/details_bloc.dart';
+import 'package:evoluton_x/features/details/presentation/controllers/details_bloc/details_event.dart';
 import 'package:evoluton_x/features/details/presentation/widgets/player_card/player_card_view_body.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class PlayerCardView extends StatefulWidget {
   final Player player;
@@ -18,17 +21,17 @@ class _PlayerCardView extends State<PlayerCardView>
   @override
   void initState() {
     _tabController = TabController(length: 2, vsync: this);
-    //    _tabController.addListener(() {
-    //   if (_tabController.indexIsChanging) return; // تجاهل التغيير أثناء السحب
+    final bloc = context.read<DetailsBloc>();
+    bloc.add(GetPlayerDetailsEvent(playerId: widget.player.id));
+    _tabController.addListener(() {
+      if (_tabController.indexIsChanging) return;
 
-    //   if (_tabController.index == 0) {
-    //     context.read<DetailsBloc>().add(GetDetailsEvent());
-    //   } else if (_tabController.index == 1) {
-    //     context
-    //         .read<StatisticsBloc>()
-    //         .add(GetPlayerStatisticsEvent(widget.player.id));
-    //   }
-    // });
+      if (_tabController.index == 0) {
+        bloc.add(GetPlayerDetailsEvent(playerId: widget.player.id));
+      } else if (_tabController.index == 1) {
+        bloc.add(GetPlayerStatisticsEvent(playerId: widget.player.id));
+      }
+    });
     super.initState();
   }
 
@@ -50,31 +53,3 @@ class _PlayerCardView extends State<PlayerCardView>
     );
   }
 }
-  // Scaffold(
-  //   body: SafeArea(
-  //     child: Padding(
-  //       padding: const EdgeInsets.all(8.0),
-  //       child: Column(
-  //         children: [
-  //           CustomTabBar(
-  //             tabController: _tabController,
-  //             firstTab: AppStrings.details,
-  //             secondTab: AppStrings.statistics,
-  //           ),
-  //           Expanded(
-  //             child: TabBarView(
-  //               controller: _tabController,
-  //               children: const [
-  // DetailsTapBarView(),
-
-  // // second tab bar view widget
-  // StatisticTabBarView(),
-  //               ],
-  //             ),
-  //           ),
-  //         ],
-  //       ),
-  //     ),
-  //   ),
-  // );
-

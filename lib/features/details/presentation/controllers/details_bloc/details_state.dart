@@ -1,6 +1,8 @@
 import 'package:equatable/equatable.dart';
 import 'package:evoluton_x/core/utils/enums.dart';
 import 'package:evoluton_x/features/details/domain/entities/details.dart';
+import 'package:evoluton_x/features/details/domain/entities/player_details.dart';
+import 'package:evoluton_x/features/details/domain/entities/player_statistics.dart';
 
 class DetailsState extends Equatable {
   final RequestStates changeSliderState;
@@ -10,12 +12,26 @@ class DetailsState extends Equatable {
   final Details? getDetailsResponse;
   final String getDetailsErrMessage;
 
+  final RequestStates playerDetailsState;
+  final PlayerDetails? playerDetailsResponse;
+  final String playertDetailsErrMessage;
+
+  final RequestStates playerStatisticsState;
+  final PlayerStatistics? playerStatisticsResponse;
+  final String playertStatisticsErrMessage;
+
   const DetailsState({
     this.changeSliderState = RequestStates.initialState,
     this.index = 0,
     this.getDetailsState = RequestStates.loadingState,
     this.getDetailsResponse,
     this.getDetailsErrMessage = '',
+    this.playerDetailsState = RequestStates.loadingState,
+    this.playerDetailsResponse,
+    this.playertDetailsErrMessage = '',
+    this.playerStatisticsState = RequestStates.loadingState,
+    this.playerStatisticsResponse,
+    this.playertStatisticsErrMessage = '',
   });
 
   DetailsState copyWith({
@@ -24,6 +40,12 @@ class DetailsState extends Equatable {
     RequestStates? getDetailsState,
     Details? getDetailsResponse,
     String? getDetailsErrMessage,
+    RequestStates? playerDetailsState,
+    PlayerDetails? playerDetailsResponse,
+    String? playertDetailsErrMessage,
+    RequestStates? playerStatisticsState,
+    PlayerStatistics? playerStatisticsResponse,
+    String? playertStatisticsErrMessage,
   }) =>
       DetailsState(
         changeSliderState: changeSliderState ?? this.changeSliderState,
@@ -31,6 +53,17 @@ class DetailsState extends Equatable {
         getDetailsState: getDetailsState ?? this.getDetailsState,
         getDetailsResponse: getDetailsResponse ?? this.getDetailsResponse,
         getDetailsErrMessage: getDetailsErrMessage ?? this.getDetailsErrMessage,
+        playerDetailsState: playerDetailsState ?? this.playerDetailsState,
+        playerDetailsResponse:
+            playerDetailsResponse ?? this.playerDetailsResponse,
+        playertDetailsErrMessage:
+            playertDetailsErrMessage ?? this.playertDetailsErrMessage,
+        playerStatisticsState:
+            playerStatisticsState ?? this.playerStatisticsState,
+        playerStatisticsResponse:
+            playerStatisticsResponse ?? this.playerStatisticsResponse,
+        playertStatisticsErrMessage:
+            playertStatisticsErrMessage ?? this.playertStatisticsErrMessage,
       );
 
   @override
@@ -40,5 +73,11 @@ class DetailsState extends Equatable {
         getDetailsState,
         getDetailsResponse,
         getDetailsErrMessage,
+        playerDetailsState,
+        playerDetailsResponse,
+        playertDetailsErrMessage,
+        playerStatisticsState,
+        playerStatisticsResponse,
+        playertStatisticsErrMessage,
       ];
 }

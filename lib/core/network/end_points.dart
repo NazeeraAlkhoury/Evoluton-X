@@ -8,4 +8,6 @@ abstract class EndPoints {
   static const String forgetPassword = 'auth/forgot-password';
   static const String resetPassword = 'auth/reset-password';
   static const String detailsScreen = 'players/details-screen';
+  static String playerDetails({required int id}) => 'players/details/$id';
+  static String playerStatistics({required int id}) => 'players/statistics/$id';
 }

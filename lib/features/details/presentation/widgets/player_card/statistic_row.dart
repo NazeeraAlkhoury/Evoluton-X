@@ -1,14 +1,13 @@
 import 'package:evoluton_x/core/utils/app_colors.dart';
 import 'package:evoluton_x/core/utils/app_text_styles.dart';
+import 'package:evoluton_x/features/details/domain/entities/player_item_input.dart';
 import 'package:flutter/material.dart';
 
 class StatisticRow extends StatelessWidget {
-  final String name;
-  final String value;
+  final PlayerItemInput item;
   const StatisticRow({
     super.key,
-    required this.name,
-    required this.value,
+    required this.item,
   });
 
   @override
@@ -16,7 +15,7 @@ class StatisticRow extends StatelessWidget {
     return Row(
       children: [
         Text(
-          name,
+          item.title,
           style: AppTextStyles.styleSemiBold18(context)
               .copyWith(color: AppColors.blackColor),
         ),
@@ -24,7 +23,7 @@ class StatisticRow extends StatelessWidget {
           width: 20,
         ),
         Text(
-          value,
+          item.value,
           style: AppTextStyles.styleRegular16(context),
         ),
       ],

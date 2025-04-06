@@ -16,7 +16,29 @@ class CarouselItemSelectedEvent extends DetailsEvent {
 }
 
 class GetDetailsEvent extends DetailsEvent {
+  const GetDetailsEvent();
   @override
   List<Object?> get props => [];
-  const GetDetailsEvent();
+}
+
+class GetPlayerDetailsEvent extends DetailsEvent {
+  final int playerId;
+
+  const GetPlayerDetailsEvent({required this.playerId});
+  @override
+  List<Object?> get props => [playerId];
+}
+
+class GetPlayerStatisticsEvent extends DetailsEvent {
+  final int playerId;
+
+  const GetPlayerStatisticsEvent({required this.playerId});
+  @override
+  List<Object?> get props => [playerId];
+}
+
+class ResetPlayerEvent extends DetailsEvent {
+  const ResetPlayerEvent();
+  @override
+  List<Object?> get props => [];
 }

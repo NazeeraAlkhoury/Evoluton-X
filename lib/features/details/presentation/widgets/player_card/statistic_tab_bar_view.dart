@@ -3,8 +3,13 @@ import 'package:evoluton_x/core/utils/app_routes.dart';
 import 'package:evoluton_x/core/utils/app_strings.dart';
 import 'package:evoluton_x/core/utils/app_text_styles.dart';
 import 'package:evoluton_x/core/widgets/app_button.dart';
+import 'package:evoluton_x/core/widgets/request_state_handle_widget.dart';
+import 'package:evoluton_x/features/details/domain/entities/player_item_input.dart';
+import 'package:evoluton_x/features/details/presentation/controllers/details_bloc/details_bloc.dart';
+import 'package:evoluton_x/features/details/presentation/controllers/details_bloc/details_state.dart';
 import 'package:evoluton_x/features/details/presentation/widgets/player_card/statistic_row.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class StatisticTabBarView extends StatelessWidget {
   const StatisticTabBarView({
@@ -13,22 +18,6 @@ class StatisticTabBarView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    List<String> statisticNames = [
-      AppStrings.finshing,
-      AppStrings.crossing,
-      AppStrings.headingAccuracy,
-      AppStrings.shortPassing,
-      AppStrings.volleys,
-      AppStrings.dribbling,
-      AppStrings.curve,
-      AppStrings.freekickAccuracy,
-      AppStrings.ballControl,
-      AppStrings.acceleration,
-      AppStrings.sprinSpeed,
-      AppStrings.shotPower,
-      AppStrings.marking,
-      AppStrings.strength,
-    ];
     return Padding(
       padding: const EdgeInsets.all(20.0),
       child: CustomScrollView(
@@ -40,31 +29,50 @@ class StatisticTabBarView extends StatelessWidget {
                 const SizedBox(
                   height: 15,
                 ),
-                Column(
-                  children: statisticNames
-                      .map(
-                        (e) => Padding(
-                          padding: const EdgeInsets.only(bottom: 10),
-                          child: StatisticRow(
-                            name: e,
-                            value: '85/100',
-                          ),
-                        ),
-                      )
-                      .toList(),
+                BlocBuilder<DetailsBloc, DetailsState>(
+                  buildWhen: (previous, current) =>
+                      previous.playerStatisticsState !=
+                      current.playerStatisticsState,
+                  builder: (context, state) {
+                    return RequestStateHandleWidget(
+                      requestState: state.playerStatisticsState,
+                      errorMessage: state.playertStatisticsErrMessage,
+                      successWidget: (context) {
+                        final data = state.playerStatisticsResponse!.data;
+                        final items = [
+                          PlayerItemInput(
+                              title: AppStrings.finshing,
+                              value: data.finishing.toString()),
+                          PlayerItemInput(
+                              title: AppStrings.agility,
+                              value: data.agility.toString()),
+                          PlayerItemInput(
+                              title: AppStrings.jumping,
+                              value: data.jumping.toString()),
+                          PlayerItemInput(
+                              title: AppStrings.headingAccuracy,
+                              value: data.headingAccuracy.toString()),
+                          PlayerItemInput(
+                              title: AppStrings.freekickAccuracy,
+                              value: data.freekickAccuracy.toString()),
+                        ];
+
+                        return Column(
+                          children: items
+                              .map(
+                                (item) => Padding(
+                                  padding: const EdgeInsets.only(bottom: 10),
+                                  child: StatisticRow(
+                                    item: item,
+                                  ),
+                                ),
+                              )
+                              .toList(),
+                        );
+                      },
+                    );
+                  },
                 ),
-                // ListView.builder(
-                //   shrinkWrap: true,
-                //   physics: const NeverScrollableScrollPhysics(),
-                // itemBuilder: (context, index) => Padding(
-                //   padding: const EdgeInsets.only(bottom: 10),
-                //   child: StatisticRow(
-                //     name: statisticNames[index],
-                //     value: '85/100',
-                //   ),
-                //   ),
-                //   itemCount: statisticNames.length,
-                // ),
                 const SizedBox(
                   height: 20,
                 ),
@@ -87,11 +95,6 @@ class StatisticTabBarView extends StatelessWidget {
                   textButton: AppStrings.starScaning,
                   onPressed: () {
                     Navigator.pushNamed(context, AppRoutes.scaning);
-                    // PersistentNavBarNavigator.pushNewScreen(
-                    //   context,
-                    //   screen: const ScaningView(),
-                    //   withNavBar: true,
-                    // );
                   },
                   widthButton: double.infinity,
                 ),
@@ -106,3 +109,8 @@ class StatisticTabBarView extends StatelessWidget {
     );
   }
 }
+      // PersistentNavBarNavigator.pushNewScreen(
+                    //   context,
+                    //   screen: const ScaningView(),
+                    //   withNavBar: true,
+                    // );

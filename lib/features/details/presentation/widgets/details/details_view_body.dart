@@ -43,6 +43,8 @@ class DetailsViewBody extends StatelessWidget {
         Padding(
           padding: const EdgeInsetsDirectional.only(start: 16),
           child: BlocBuilder<DetailsBloc, DetailsState>(
+            buildWhen: (previous, current) =>
+                previous.getDetailsState != current.getDetailsState,
             builder: (context, state) {
               return RequestStateHandleWidget(
                 requestState: state.getDetailsState,
@@ -59,12 +61,6 @@ class DetailsViewBody extends StatelessWidget {
           child: CustomShowRow(
             text: AppStrings.bestclubs,
             onPressed: () {
-              // PersistentNavBarNavigator.pushNewScreen(
-              //   context,
-              //   screen: const FilterClubsView(),
-              //   withNavBar: true,
-              //   pageTransitionAnimation: PageTransitionAnimation.cupertino,
-              // );
               Navigator.of(context).pushNamed(AppRoutes.clubFilter);
             },
           ),
@@ -90,3 +86,9 @@ class DetailsViewBody extends StatelessWidget {
     );
   }
 }
+ // PersistentNavBarNavigator.pushNewScreen(
+              //   context,
+              //   screen: const FilterClubsView(),
+              //   withNavBar: true,
+              //   pageTransitionAnimation: PageTransitionAnimation.cupertino,
+              // );

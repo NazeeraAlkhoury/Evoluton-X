@@ -1,11 +1,13 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:evoluton_x/core/utils/app_colors.dart';
 import 'package:evoluton_x/core/utils/app_routes.dart';
-import 'package:evoluton_x/core/utils/app_strings.dart';
 import 'package:evoluton_x/core/utils/app_text_styles.dart';
 import 'package:evoluton_x/features/details/domain/entities/player.dart';
-import 'package:evoluton_x/features/details/presentation/widgets/custom_player_attrbuite_item.dart';
+import 'package:evoluton_x/features/details/presentation/controllers/details_bloc/details_bloc.dart';
+import 'package:evoluton_x/features/details/presentation/controllers/details_bloc/details_event.dart';
+import 'package:evoluton_x/features/details/presentation/widgets/custom_player_info_row.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class CustomPlayerInfoCard extends StatelessWidget {
   final Player player;
@@ -18,15 +20,11 @@ class CustomPlayerInfoCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
+        context.read<DetailsBloc>().add(const ResetPlayerEvent());
         Navigator.of(context).pushNamed(
           AppRoutes.playerCard,
           arguments: player,
         );
-        // PersistentNavBarNavigator.pushNewScreen(
-        //   context,
-        //   screen: PlayerCardView(),
-        //   withNavBar: true,
-        // );
       },
       child: AspectRatio(
         aspectRatio: 1.01 / 1.06,
@@ -51,18 +49,9 @@ class CustomPlayerInfoCard extends StatelessWidget {
                         player.imageUrl.isNotEmpty ? player.imageUrl[0] : '',
                     fit: BoxFit.cover,
                     width: double.infinity,
-                    // placeholder: (context, url) =>
-                    //     Center(child: CircularProgressIndicator()),
                     errorWidget: (context, url, error) =>
                         const Icon(Icons.error),
                   ),
-                  //  Image.asset(
-
-                  // 'assets/images/player.png',
-                  //   fit: BoxFit.cover,
-                  //   width: double.infinity,
-                  //   //height: 67,
-                  // ),
                 ),
               ),
               Text(
@@ -81,45 +70,8 @@ class CustomPlayerInfoCard extends StatelessWidget {
                 color: AppColors.darkGreyColor,
                 height: 9,
               ),
-              Row(
-                children: [
-                  Expanded(
-                    child: Padding(
-                      padding: const EdgeInsetsDirectional.only(end: 2),
-                      child: CustomPlayerAttributeItem(
-                        label: AppStrings.pos,
-                        value: player.positions.toString(),
-                      ),
-                    ),
-                  ),
-                  Expanded(
-                    child: Padding(
-                      padding: const EdgeInsetsDirectional.only(end: 2),
-                      child: CustomPlayerAttributeItem(
-                        label: AppStrings.age,
-                        value: player.age.toString(),
-                      ),
-                    ),
-                  ),
-                  Expanded(
-                    child: Padding(
-                      padding: const EdgeInsetsDirectional.only(end: 2),
-                      child: CustomPlayerAttributeItem(
-                          label: AppStrings.power,
-                          value: player.power.toString()),
-                    ),
-                  ),
-                  Expanded(
-                    child: Padding(
-                      padding: const EdgeInsetsDirectional.only(end: 2),
-                      child: CustomPlayerAttributeItem(
-                        label: AppStrings.nation,
-                        value: player.nation,
-                        //'assets/images/flag.png',
-                      ),
-                    ),
-                  ),
-                ],
+              CustomPlayerInfoRow(
+                player: player,
               ),
               const SizedBox(
                 height: 3,
@@ -131,3 +83,10 @@ class CustomPlayerInfoCard extends StatelessWidget {
     );
   }
 }
+// PersistentNavBarNavigator.pushNewScreen(
+//   context,
+//   screen: PlayerCardView(),
+//   withNavBar: true,
+// );
+
+

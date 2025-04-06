@@ -6,6 +6,7 @@ import 'package:evoluton_x/features/authentication/presentation/views/register_v
 import 'package:evoluton_x/features/authentication/presentation/views/reset_password_view.dart';
 import 'package:evoluton_x/features/authentication/presentation/views/verify_email_view.dart';
 import 'package:evoluton_x/features/authentication/presentation/views/verify_password_view.dart';
+import 'package:evoluton_x/features/details/domain/entities/player.dart';
 import 'package:evoluton_x/features/details/presentation/views/club_card_view.dart';
 import 'package:evoluton_x/features/details/presentation/views/details_view.dart';
 import 'package:evoluton_x/features/details/presentation/views/filter_clubs_view.dart';
@@ -86,9 +87,16 @@ abstract class AppRoutes {
       case resultClubFilter:
         return MaterialPageRoute(builder: (_) => const ResultClubFilterView());
       case clubCard:
-        return MaterialPageRoute(builder: (_) => const ClubCardView());
+        return MaterialPageRoute(builder: (_) {
+          return const ClubCardView();
+        });
       case playerCard:
-        return MaterialPageRoute(builder: (_) => PlayerCardView());
+        return MaterialPageRoute(builder: (_) {
+          final player = settings.arguments as Player;
+          return PlayerCardView(
+            player: player,
+          );
+        });
       case search:
         return MaterialPageRoute(builder: (_) => const SearchView());
       case favorite:

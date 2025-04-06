@@ -170,4 +170,8 @@ abstract class AppStrings {
   static const String verifyEmail = 'Verify Email';
   static const String verifyEmaildis =
       'Please enter the verification code sent to your email:';
+
+  static const String rating = 'rating';
+  static const String jumping = 'Jumping :';
+  static const String agility = 'Agility :';
 }

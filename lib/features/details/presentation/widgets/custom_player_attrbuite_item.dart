@@ -43,15 +43,7 @@ class CustomPlayerAttributeItem extends StatelessWidget {
               child: CustomFlagOrClubAvatar(
             imagePath: value,
             radius: 6.5,
-          )
-              //  CircleAvatar(
-              //   radius: 6.5,
-              //   child: Image.asset(
-              //     value,
-              //     fit: BoxFit.scaleDown,
-              //   ),
-              // ),
-              )
+          ))
         ]
       ],
     );
