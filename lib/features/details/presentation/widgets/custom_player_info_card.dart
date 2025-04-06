@@ -18,7 +18,10 @@ class CustomPlayerInfoCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Navigator.of(context).pushNamed(AppRoutes.playerCard);
+        Navigator.of(context).pushNamed(
+          AppRoutes.playerCard,
+          arguments: player,
+        );
         // PersistentNavBarNavigator.pushNewScreen(
         //   context,
         //   screen: PlayerCardView(),

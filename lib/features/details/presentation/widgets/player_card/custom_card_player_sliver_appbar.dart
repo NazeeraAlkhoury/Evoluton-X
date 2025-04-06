@@ -1,10 +1,15 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:evoluton_x/core/utils/app_text_styles.dart';
 import 'package:evoluton_x/core/widgets/custom_back_button.dart';
+import 'package:evoluton_x/core/widgets/custom_flag_or_club_avatar.dart';
+import 'package:evoluton_x/features/details/domain/entities/player.dart';
 import 'package:flutter/material.dart';
 
 class CustomCardPlayerSliverAppBar extends StatelessWidget {
+  final Player player;
   const CustomCardPlayerSliverAppBar({
     super.key,
+    required this.player,
   });
 
   @override
@@ -23,30 +28,22 @@ class CustomCardPlayerSliverAppBar extends StatelessWidget {
                 width: 80,
               ),
               Text(
-                'Player Name',
+                player.name,
                 style: AppTextStyles.styleSemiBold20(context),
               ),
               const SizedBox(
                 width: 50,
               ),
-              CircleAvatar(
+              CustomFlagOrClubAvatar(
+                imagePath: player.nation,
                 radius: 10,
-                child: Image.asset(
-                  'assets/images/flag.png',
-                  width: double.infinity,
-                  fit: BoxFit.fill,
-                ),
               ),
               const SizedBox(
                 width: 10,
               ),
-              CircleAvatar(
+              CustomFlagOrClubAvatar(
+                imagePath: player.club.imageUrl,
                 radius: 10,
-                child: Image.asset(
-                  'assets/images/flag.png',
-                  width: double.infinity,
-                  fit: BoxFit.fill,
-                ),
               ),
               const SizedBox(
                 width: 10,
@@ -56,17 +53,17 @@ class CustomCardPlayerSliverAppBar extends StatelessWidget {
         ),
         centerTitle: true,
         background: ClipRRect(
-          borderRadius: const BorderRadius.only(
-            bottomLeft: Radius.circular(30),
-            bottomRight: Radius.circular(30),
-          ),
-          child: Image.asset(
-            'assets/images/slider_image.png',
-            width: double.infinity,
-            height: 280,
-            fit: BoxFit.cover,
-          ),
-        ),
+            borderRadius: const BorderRadius.only(
+              bottomLeft: Radius.circular(30),
+              bottomRight: Radius.circular(30),
+            ),
+            child: CachedNetworkImage(
+              imageUrl: player.imageUrl[0],
+              fit: BoxFit.cover,
+              height: 280,
+              width: double.infinity,
+              errorWidget: (context, url, error) => const Icon(Icons.error),
+            )),
       ),
       elevation: 0,
       leadingWidth: 100,
@@ -75,7 +72,7 @@ class CustomCardPlayerSliverAppBar extends StatelessWidget {
         child: FittedBox(
           fit: BoxFit.scaleDown,
           child: CustomBackButton(
-            onTap: () {},
+            onTap: () => Navigator.of(context).pop(),
           ),
         ),
       ),
