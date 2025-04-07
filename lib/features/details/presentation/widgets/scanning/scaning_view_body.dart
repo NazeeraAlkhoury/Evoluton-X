@@ -8,11 +8,11 @@ import 'package:evoluton_x/core/utils/enums.dart';
 import 'package:evoluton_x/core/widgets/app_button.dart';
 import 'package:evoluton_x/features/details/presentation/controllers/details_bloc/details_bloc.dart';
 import 'package:evoluton_x/features/details/presentation/controllers/details_bloc/details_state.dart';
-import 'package:evoluton_x/features/scaning/presentation/widgets/custom_linear_indicator.dart';
+import 'package:evoluton_x/features/details/presentation/widgets/scanning/custom_linear_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../details/presentation/controllers/details_bloc/details_event.dart';
+import '../../controllers/details_bloc/details_event.dart';
 
 class ScaningViewBody extends StatelessWidget {
   final int playerId;
@@ -52,7 +52,6 @@ class ScaningViewBody extends StatelessWidget {
             const SizedBox(height: 40),
             BlocBuilder<DetailsBloc, DetailsState>(
               builder: (context, state) {
-                print('=================');
                 return CustomLinearIndicator(
                   percent: state.progress!.clamp(0.0, 1.0),
                 );

@@ -1,5 +1,5 @@
-import 'package:evoluton_x/features/scaning/presentation/widgets/scaning_view_body.dart';
-import 'package:evoluton_x/features/scaning/presentation/widgets/scanning_appbar.dart';
+import 'package:evoluton_x/features/details/presentation/widgets/scanning/scaning_view_body.dart';
+import 'package:evoluton_x/features/details/presentation/widgets/scanning/scanning_appbar.dart';
 import 'package:flutter/material.dart';
 
 class ScaningView extends StatelessWidget {

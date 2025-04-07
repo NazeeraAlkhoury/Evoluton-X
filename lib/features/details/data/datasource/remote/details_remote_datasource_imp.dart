@@ -6,7 +6,6 @@ import 'package:evoluton_x/features/details/data/models/details_model.dart';
 import 'package:evoluton_x/features/details/data/models/player_details_model.dart';
 import 'package:evoluton_x/features/details/data/models/player_statistics.dart';
 import 'package:evoluton_x/features/details/data/models/prediction_result_model.dart';
-import 'package:evoluton_x/features/details/domain/entities/player_statistics.dart';
 
 class DetailsRemoteDatasourceImp implements DetailsRemoteDatasource {
   final ApiServices apiServices;
