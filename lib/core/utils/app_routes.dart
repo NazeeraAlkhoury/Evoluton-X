@@ -7,6 +7,7 @@ import 'package:evoluton_x/features/authentication/presentation/views/reset_pass
 import 'package:evoluton_x/features/authentication/presentation/views/verify_email_view.dart';
 import 'package:evoluton_x/features/authentication/presentation/views/verify_password_view.dart';
 import 'package:evoluton_x/features/details/domain/entities/player.dart';
+import 'package:evoluton_x/features/details/domain/entities/prediction_result.dart';
 import 'package:evoluton_x/features/details/presentation/views/club_card_view.dart';
 import 'package:evoluton_x/features/details/presentation/views/details_view.dart';
 import 'package:evoluton_x/features/details/presentation/views/filter_clubs_view.dart';
@@ -109,8 +110,12 @@ abstract class AppRoutes {
           );
         });
       case resultAfterScaning:
-        return MaterialPageRoute(
-            builder: (_) => const ResultAfterScaningView());
+        return MaterialPageRoute(builder: (_) {
+          final result = settings.arguments as PredictionResult;
+          return ResultAfterScaningView(
+            result: result,
+          );
+        });
       case resultSearchFilter:
         return MaterialPageRoute(
             builder: (_) => const ResultSearchFilterView());

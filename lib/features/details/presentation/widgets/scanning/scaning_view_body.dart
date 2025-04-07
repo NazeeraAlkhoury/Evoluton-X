@@ -85,7 +85,8 @@ class ScaningViewBody extends StatelessWidget {
                               RequestStates.successState)
                           ? () {
                               Navigator.pushNamed(
-                                  context, AppRoutes.resultAfterScaning);
+                                  context, AppRoutes.resultAfterScaning,
+                                  arguments: state.predictionResult);
                             }
                           : null,
                 );
