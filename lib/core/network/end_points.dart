@@ -12,4 +12,6 @@ abstract class EndPoints {
   static String playerStatistics({required int id}) => 'players/statistics/$id';
   static String playersPrediction({required int id}) =>
       'players/prediction/$id';
+  static const String favorites = 'favorites';
+  static String removeFav({required int id}) => 'favorites/$id';
 }
