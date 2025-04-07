@@ -3,6 +3,7 @@ import 'package:evoluton_x/core/utils/enums.dart';
 import 'package:evoluton_x/features/details/domain/entities/details.dart';
 import 'package:evoluton_x/features/details/domain/entities/player_details.dart';
 import 'package:evoluton_x/features/details/domain/entities/player_statistics.dart';
+import 'package:evoluton_x/features/details/domain/entities/prediction_result.dart';
 
 class DetailsState extends Equatable {
   final RequestStates changeSliderState;
@@ -20,6 +21,11 @@ class DetailsState extends Equatable {
   final PlayerStatistics? playerStatisticsResponse;
   final String playertStatisticsErrMessage;
 
+  final double? progress;
+  final RequestStates predictionResultState;
+  final PredictionResult? predictionResult;
+  final String predictionResultErrMessage;
+
   const DetailsState({
     this.changeSliderState = RequestStates.initialState,
     this.index = 0,
@@ -32,6 +38,10 @@ class DetailsState extends Equatable {
     this.playerStatisticsState = RequestStates.loadingState,
     this.playerStatisticsResponse,
     this.playertStatisticsErrMessage = '',
+    this.progress,
+    this.predictionResultState = RequestStates.initialState,
+    this.predictionResult,
+    this.predictionResultErrMessage = '',
   });
 
   DetailsState copyWith({
@@ -46,6 +56,10 @@ class DetailsState extends Equatable {
     RequestStates? playerStatisticsState,
     PlayerStatistics? playerStatisticsResponse,
     String? playertStatisticsErrMessage,
+    double? progress,
+    RequestStates? predictionResultState,
+    PredictionResult? predictionResult,
+    String? predictionResultErrMessage,
   }) =>
       DetailsState(
         changeSliderState: changeSliderState ?? this.changeSliderState,
@@ -64,6 +78,12 @@ class DetailsState extends Equatable {
             playerStatisticsResponse ?? this.playerStatisticsResponse,
         playertStatisticsErrMessage:
             playertStatisticsErrMessage ?? this.playertStatisticsErrMessage,
+        progress: progress ?? this.progress,
+        predictionResultState:
+            predictionResultState ?? this.predictionResultState,
+        predictionResult: predictionResult ?? this.predictionResult,
+        predictionResultErrMessage:
+            predictionResultErrMessage ?? this.predictionResultErrMessage,
       );
 
   @override
@@ -79,5 +99,9 @@ class DetailsState extends Equatable {
         playerStatisticsState,
         playerStatisticsResponse,
         playertStatisticsErrMessage,
+        progress,
+        predictionResultState,
+        predictionResult,
+        predictionResultErrMessage,
       ];
 }

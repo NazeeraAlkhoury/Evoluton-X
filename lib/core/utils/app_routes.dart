@@ -102,7 +102,12 @@ abstract class AppRoutes {
       case favorite:
         return MaterialPageRoute(builder: (_) => const FavoriteView());
       case scaning:
-        return MaterialPageRoute(builder: (_) => const ScaningView());
+        return MaterialPageRoute(builder: (_) {
+          final playerId = settings.arguments as int;
+          return ScaningView(
+            playerId: playerId,
+          );
+        });
       case resultAfterScaning:
         return MaterialPageRoute(
             builder: (_) => const ResultAfterScaningView());

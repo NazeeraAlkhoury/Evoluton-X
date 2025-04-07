@@ -3,34 +3,17 @@ import 'package:evoluton_x/features/scaning/presentation/widgets/scanning_appbar
 import 'package:flutter/material.dart';
 
 class ScaningView extends StatelessWidget {
-  const ScaningView({super.key});
+  final int playerId;
+  const ScaningView({super.key, required this.playerId});
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       backgroundColor: Colors.white,
-      appBar: ScaningAppBar(),
-      body: ScaningViewBody(),
+      appBar: const ScaningAppBar(),
+      body: ScaningViewBody(
+        playerId: playerId,
+      ),
     );
   }
 }
-
-
-
-
-
-// Container(
-//         width: double.infinity,
-//         decoration: BoxDecoration(
-//             borderRadius: BorderRadius.circular(5),
-//             gradient: LinearGradient(colors: const [
-//               Color(0xFF2607E7),
-//               Color(0xFF57C0EF),
-//               Colors.grey,
-//             ], stops: [
-//               progress / 2,
-//               progress,
-//               progress,
-//             ])),
-//         child: const SizedBox(height: 10),
-//       ),

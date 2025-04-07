@@ -10,4 +10,6 @@ abstract class EndPoints {
   static const String detailsScreen = 'players/details-screen';
   static String playerDetails({required int id}) => 'players/details/$id';
   static String playerStatistics({required int id}) => 'players/statistics/$id';
+  static String playersPrediction({required int id}) =>
+      'players/prediction/$id';
 }

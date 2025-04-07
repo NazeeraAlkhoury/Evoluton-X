@@ -5,6 +5,7 @@ import 'package:evoluton_x/features/details/data/datasource/remote/details_remot
 import 'package:evoluton_x/features/details/domain/entities/details.dart';
 import 'package:evoluton_x/features/details/domain/entities/player_details.dart';
 import 'package:evoluton_x/features/details/domain/entities/player_statistics.dart';
+import 'package:evoluton_x/features/details/domain/entities/prediction_result.dart';
 import 'package:evoluton_x/features/details/domain/repository/details_repository.dart';
 
 class DetailsRepositoryImp implements DetailsRepository {
@@ -74,4 +75,27 @@ class DetailsRepositoryImp implements DetailsRepository {
       }
     }
   }
+
+  @override
+  Future<Either<Failure, PredictionResult>> getPredictionResult(
+      {required int playerId}) async {
+    try {
+      final result =
+          await detailsRemoteDatasource.getPredictionResult(playerId: playerId);
+      return Right(result);
+    } catch (e) {
+      if (e is DioException) {
+        return left(
+          ServerFailure.fromDioError(e),
+        );
+      } else {
+        return left(
+          ServerFailure(
+            e.toString(),
+          ),
+        );
+      }
+    }
+  }
 }
+//GetPredictionResult

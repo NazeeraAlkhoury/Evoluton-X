@@ -3,8 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
 
 class CustomLinearIndicator extends StatelessWidget {
+  final double percent;
   const CustomLinearIndicator({
     super.key,
+    required this.percent,
   });
 
   @override
@@ -18,7 +20,7 @@ class CustomLinearIndicator extends StatelessWidget {
         begin: Alignment.centerLeft,
         end: Alignment.centerRight,
       ),
-      percent: 0.5,
+      percent: percent,
     );
   }
 }

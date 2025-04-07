@@ -37,6 +37,14 @@ class GetPlayerStatisticsEvent extends DetailsEvent {
   List<Object?> get props => [playerId];
 }
 
+class GetPredictionResultEvent extends DetailsEvent {
+  final int playerId;
+
+  const GetPredictionResultEvent({required this.playerId});
+  @override
+  List<Object?> get props => [playerId];
+}
+
 class ResetPlayerEvent extends DetailsEvent {
   const ResetPlayerEvent();
   @override

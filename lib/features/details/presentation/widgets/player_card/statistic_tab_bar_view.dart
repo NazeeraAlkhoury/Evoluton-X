@@ -6,14 +6,17 @@ import 'package:evoluton_x/core/widgets/app_button.dart';
 import 'package:evoluton_x/core/widgets/request_state_handle_widget.dart';
 import 'package:evoluton_x/features/details/domain/entities/player_item_input.dart';
 import 'package:evoluton_x/features/details/presentation/controllers/details_bloc/details_bloc.dart';
+import 'package:evoluton_x/features/details/presentation/controllers/details_bloc/details_event.dart';
 import 'package:evoluton_x/features/details/presentation/controllers/details_bloc/details_state.dart';
 import 'package:evoluton_x/features/details/presentation/widgets/player_card/statistic_row.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class StatisticTabBarView extends StatelessWidget {
+  final int playerId;
   const StatisticTabBarView({
     super.key,
+    required this.playerId,
   });
 
   @override
@@ -94,7 +97,12 @@ class StatisticTabBarView extends StatelessWidget {
                 AppButton(
                   textButton: AppStrings.starScaning,
                   onPressed: () {
-                    Navigator.pushNamed(context, AppRoutes.scaning);
+                    Navigator.pushNamed(context, AppRoutes.scaning,
+                        arguments: playerId);
+
+                    context
+                        .read<DetailsBloc>()
+                        .add(GetPredictionResultEvent(playerId: playerId));
                   },
                   widthButton: double.infinity,
                 ),

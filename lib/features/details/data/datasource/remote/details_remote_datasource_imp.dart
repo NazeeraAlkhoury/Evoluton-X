@@ -5,6 +5,8 @@ import 'package:evoluton_x/features/details/data/datasource/remote/details_remot
 import 'package:evoluton_x/features/details/data/models/details_model.dart';
 import 'package:evoluton_x/features/details/data/models/player_details_model.dart';
 import 'package:evoluton_x/features/details/data/models/player_statistics.dart';
+import 'package:evoluton_x/features/details/data/models/prediction_result_model.dart';
+import 'package:evoluton_x/features/details/domain/entities/player_statistics.dart';
 
 class DetailsRemoteDatasourceImp implements DetailsRemoteDatasource {
   final ApiServices apiServices;
@@ -38,5 +40,15 @@ class DetailsRemoteDatasourceImp implements DetailsRemoteDatasource {
       token: AppConstants.tokenSaved!,
     );
     return PlayerStatisticsModel.fromJson(response.data);
+  }
+
+  @override
+  Future<PredictionResultModel> getPredictionResult(
+      {required int playerId}) async {
+    final response = await apiServices.fetchData(
+      path: EndPoints.playersPrediction(id: playerId),
+      token: AppConstants.tokenSaved!,
+    );
+    return PredictionResultModel.fromJson(response.data);
   }
 }

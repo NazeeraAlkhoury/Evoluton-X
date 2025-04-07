@@ -35,7 +35,12 @@ class PlayerCardViewBody extends StatelessWidget {
       ],
       body: TabBarView(
         controller: tabController,
-        children: const [DetailsTapBarView(), StatisticTabBarView()],
+        children: [
+          const DetailsTapBarView(),
+          StatisticTabBarView(
+            playerId: player.id,
+          )
+        ],
       ),
     );
   }

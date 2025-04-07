@@ -18,7 +18,9 @@ class ScaningAppBar extends StatelessWidget implements PreferredSizeWidget {
         child: FittedBox(
           fit: BoxFit.scaleDown,
           child: CustomBackButton(
-            onTap: () {},
+            onTap: () {
+              Navigator.of(context).pop();
+            },
           ),
         ),
       ),
