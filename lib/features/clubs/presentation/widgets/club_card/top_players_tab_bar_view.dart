@@ -1,9 +1,9 @@
-import 'package:evoluton_x/features/players/presentation/widgets/club_card/achieved_chances_section.dart';
-import 'package:evoluton_x/features/players/presentation/widgets/club_card/assists_section.dart';
-import 'package:evoluton_x/features/players/presentation/widgets/club_card/goales_section.dart';
-import 'package:evoluton_x/features/players/presentation/widgets/club_card/top_midfield_section.dart';
-import 'package:evoluton_x/features/players/presentation/widgets/club_card/top_strikers_section.dart';
-import 'package:evoluton_x/features/players/presentation/widgets/club_card/xg_section.dart';
+import 'package:evoluton_x/features/clubs/presentation/widgets/club_card/achieved_chances_section.dart';
+import 'package:evoluton_x/features/clubs/presentation/widgets/club_card/assists_section.dart';
+import 'package:evoluton_x/features/clubs/presentation/widgets/club_card/goales_section.dart';
+import 'package:evoluton_x/features/clubs/presentation/widgets/club_card/top_midfield_section.dart';
+import 'package:evoluton_x/features/clubs/presentation/widgets/club_card/top_strikers_section.dart';
+import 'package:evoluton_x/features/clubs/presentation/widgets/club_card/xg_section.dart';
 import 'package:flutter/material.dart';
 
 class TopPlayersTapBarView extends StatelessWidget {

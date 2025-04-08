@@ -1,4 +1,4 @@
-import 'package:evoluton_x/features/players/presentation/widgets/result_club_filter/result_club_filter_view_body.dart';
+import 'package:evoluton_x/features/clubs/presentation/widgets/result_club_filter/result_club_filter_view_body.dart';
 import 'package:flutter/material.dart';
 
 class ResultClubFilterView extends StatelessWidget {

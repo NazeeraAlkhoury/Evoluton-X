@@ -1,11 +1,11 @@
 import 'package:evoluton_x/core/utils/app_colors.dart';
 import 'package:evoluton_x/core/utils/app_strings.dart';
 import 'package:evoluton_x/core/utils/app_text_styles.dart';
-import 'package:evoluton_x/features/players/presentation/widgets/club_card/custom_player_profile_row.dart';
+import 'package:evoluton_x/features/clubs/presentation/widgets/club_card/custom_player_profile_row.dart';
 import 'package:flutter/material.dart';
 
-class TeamPlayersSection extends StatelessWidget {
-  const TeamPlayersSection({
+class CoachSection extends StatelessWidget {
+  const CoachSection({
     super.key,
   });
 
@@ -15,22 +15,14 @@ class TeamPlayersSection extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          AppStrings.teamPlayers,
+          AppStrings.coach,
           style: AppTextStyles.styleSemiBold18(context)
               .copyWith(color: AppColors.blackColor),
         ),
         const SizedBox(
           height: 20,
         ),
-        ListView.builder(
-          shrinkWrap: true,
-          physics: const NeverScrollableScrollPhysics(),
-          itemBuilder: (context, index) => const Padding(
-            padding: EdgeInsets.only(bottom: 10),
-            child: CustomPlayerProfileRow(),
-          ),
-          itemCount: 7,
-        ),
+        const CustomPlayerProfileRow(),
       ],
     );
   }

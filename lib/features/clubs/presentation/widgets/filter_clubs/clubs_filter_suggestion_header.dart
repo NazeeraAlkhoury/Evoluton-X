@@ -1,7 +1,7 @@
 import 'package:evoluton_x/core/utils/app_colors.dart';
 import 'package:evoluton_x/core/utils/app_strings.dart';
 import 'package:evoluton_x/core/utils/app_text_styles.dart';
-import 'package:evoluton_x/features/players/presentation/widgets/filter_clubs/custom_filter_row.dart';
+import 'package:evoluton_x/features/clubs/presentation/widgets/filter_clubs/custom_filter_row.dart';
 import 'package:flutter/material.dart';
 
 class ClubsfilterAndSuggestionHeader extends StatelessWidget {

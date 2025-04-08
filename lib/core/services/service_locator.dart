@@ -26,7 +26,7 @@ import 'package:evoluton_x/features/players/domain/usecases/get_details_usecase.
 import 'package:evoluton_x/features/players/domain/usecases/get_player_details_usecase.dart';
 import 'package:evoluton_x/features/players/domain/usecases/get_player_statistics_usecase.dart';
 import 'package:evoluton_x/features/players/domain/usecases/get_prediction_result_usecase.dart';
-import 'package:evoluton_x/features/players/presentation/controllers/club_filter_bloc/club_filter_bloc.dart';
+import 'package:evoluton_x/features/clubs/presentation/controllers/club_filter_bloc/club_filter_bloc.dart';
 import 'package:evoluton_x/features/players/presentation/controllers/player_bloc/player_bloc.dart';
 import 'package:evoluton_x/features/favorite/data/datasource/remote/favorite_remote_datasource.dart';
 import 'package:evoluton_x/features/favorite/data/datasource/remote/favorite_remote_datasource_imp.dart';

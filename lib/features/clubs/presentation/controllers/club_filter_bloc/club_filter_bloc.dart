@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'package:bloc/bloc.dart';
-import 'package:evoluton_x/features/players/presentation/controllers/club_filter_bloc/club_filter_event.dart';
-import 'package:evoluton_x/features/players/presentation/controllers/club_filter_bloc/club_filter_state.dart';
+import 'package:evoluton_x/features/clubs/presentation/controllers/club_filter_bloc/club_filter_event.dart';
+import 'package:evoluton_x/features/clubs/presentation/controllers/club_filter_bloc/club_filter_state.dart';
 
 class ClubFilterBloc extends Bloc<ClubFilterEvent, ClubFilterState> {
   List<String> nations = ["England", "Spain", "Italy", "Germany"];

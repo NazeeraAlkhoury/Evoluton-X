@@ -1,7 +1,8 @@
 import 'package:evoluton_x/core/utils/app_colors.dart';
 import 'package:evoluton_x/core/utils/app_strings.dart';
 import 'package:evoluton_x/core/utils/app_text_styles.dart';
-import 'package:evoluton_x/features/details/presentation/widgets/custom_appbar.dart';
+import 'package:evoluton_x/features/players/presentation/widgets/custom_appbar.dart';
+
 import 'package:evoluton_x/features/search/presentation/widgets/result_search_filter/result_search_filter_grid_view.dart';
 import 'package:flutter/material.dart';
 

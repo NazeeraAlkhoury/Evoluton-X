@@ -1,5 +1,5 @@
 import 'package:evoluton_x/core/utils/app_text_styles.dart';
-import 'package:evoluton_x/features/players/presentation/widgets/club_card/custom_player_profile_row.dart';
+import 'package:evoluton_x/features/clubs/presentation/widgets/club_card/custom_player_profile_row.dart';
 import 'package:flutter/material.dart';
 
 class CustomPlayersXg extends StatelessWidget {

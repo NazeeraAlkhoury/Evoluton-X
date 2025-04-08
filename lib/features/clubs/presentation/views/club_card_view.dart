@@ -1,4 +1,4 @@
-import 'package:evoluton_x/features/players/presentation/widgets/club_card/club_card_view_body.dart';
+import 'package:evoluton_x/features/clubs/presentation/widgets/club_card/club_card_view_body.dart';
 import 'package:flutter/material.dart';
 
 class ClubCardView extends StatefulWidget {

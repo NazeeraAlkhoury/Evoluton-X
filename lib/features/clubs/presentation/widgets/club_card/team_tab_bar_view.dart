@@ -1,5 +1,5 @@
-import 'package:evoluton_x/features/players/presentation/widgets/club_card/coach_section.dart';
-import 'package:evoluton_x/features/players/presentation/widgets/club_card/team_players_section.dart';
+import 'package:evoluton_x/features/clubs/presentation/widgets/club_card/coach_section.dart';
+import 'package:evoluton_x/features/clubs/presentation/widgets/club_card/team_players_section.dart';
 import 'package:flutter/material.dart';
 
 class TeamTabBarView extends StatelessWidget {

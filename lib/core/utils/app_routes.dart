@@ -8,11 +8,11 @@ import 'package:evoluton_x/features/authentication/presentation/views/verify_ema
 import 'package:evoluton_x/features/authentication/presentation/views/verify_password_view.dart';
 import 'package:evoluton_x/features/players/domain/entities/player.dart';
 import 'package:evoluton_x/features/players/domain/entities/prediction_result.dart';
-import 'package:evoluton_x/features/players/presentation/views/club_card_view.dart';
+import 'package:evoluton_x/features/clubs/presentation/views/club_card_view.dart';
 import 'package:evoluton_x/features/players/presentation/views/details_view.dart';
-import 'package:evoluton_x/features/players/presentation/views/filter_clubs_view.dart';
+import 'package:evoluton_x/features/clubs/presentation/views/filter_clubs_view.dart';
 import 'package:evoluton_x/features/players/presentation/views/player_card_view.dart';
-import 'package:evoluton_x/features/players/presentation/views/result_club_filter_view.dart';
+import 'package:evoluton_x/features/clubs/presentation/views/result_club_filter_view.dart';
 import 'package:evoluton_x/features/favorite/presentation/views/favorite_view.dart';
 import 'package:evoluton_x/features/home/presentation/views/home_after_checked_view.dart';
 import 'package:evoluton_x/features/home/presentation/views/home_view.dart';

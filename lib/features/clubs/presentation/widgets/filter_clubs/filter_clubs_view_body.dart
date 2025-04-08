@@ -1,6 +1,6 @@
 import 'package:evoluton_x/features/players/presentation/widgets/custom_appbar.dart';
-import 'package:evoluton_x/features/players/presentation/widgets/filter_clubs/club_suggestion_grid.dart';
-import 'package:evoluton_x/features/players/presentation/widgets/filter_clubs/clubs_filter_suggestion_header.dart';
+import 'package:evoluton_x/features/clubs/presentation/widgets/filter_clubs/club_suggestion_grid.dart';
+import 'package:evoluton_x/features/clubs/presentation/widgets/filter_clubs/clubs_filter_suggestion_header.dart';
 import 'package:flutter/material.dart';
 
 class FilterClubsViewBody extends StatelessWidget {

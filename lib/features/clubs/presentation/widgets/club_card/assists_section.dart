@@ -1,10 +1,10 @@
 import 'package:evoluton_x/core/utils/app_strings.dart';
 import 'package:evoluton_x/core/widgets/custom_show_row.dart';
-import 'package:evoluton_x/features/players/presentation/widgets/club_card/custom_goal_states.dart';
+import 'package:evoluton_x/features/clubs/presentation/widgets/club_card/custom_goal_states.dart';
 import 'package:flutter/material.dart';
 
-class GoalsSection extends StatelessWidget {
-  const GoalsSection({
+class AssistsSection extends StatelessWidget {
+  const AssistsSection({
     super.key,
   });
 
@@ -14,20 +14,20 @@ class GoalsSection extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         CustomShowRow(
-          text: AppStrings.goals,
+          text: AppStrings.assists,
           onPressed: () {},
         ),
         const SizedBox(
           height: 20,
         ),
-        const GoalsListView(),
+        const AssistsListView(),
       ],
     );
   }
 }
 
-class GoalsListView extends StatelessWidget {
-  const GoalsListView({
+class AssistsListView extends StatelessWidget {
+  const AssistsListView({
     super.key,
   });
 

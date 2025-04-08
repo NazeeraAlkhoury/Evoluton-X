@@ -1,4 +1,3 @@
-import 'package:evoluton_x/features/details/presentation/widgets/custom_player_info_card.dart';
 import 'package:flutter/material.dart';
 
 class ResultSearchFilterGridView extends StatelessWidget {
@@ -16,7 +15,8 @@ class ResultSearchFilterGridView extends StatelessWidget {
         crossAxisSpacing: 10,
         mainAxisSpacing: 6,
       ),
-      itemBuilder: (context, index) => const CustomPlayerInfoCard(),
+      itemBuilder: (context, index) => const SizedBox(),
+      //const CustomPlayerInfoCard(),
     );
   }
 }

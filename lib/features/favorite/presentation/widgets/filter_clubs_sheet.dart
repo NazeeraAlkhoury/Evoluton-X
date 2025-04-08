@@ -3,9 +3,9 @@ import 'package:evoluton_x/core/utils/app_colors.dart';
 import 'package:evoluton_x/core/utils/app_routes.dart';
 import 'package:evoluton_x/core/utils/app_strings.dart';
 import 'package:evoluton_x/core/widgets/filter_widgets/custom_selectable_dialog.dart';
-import 'package:evoluton_x/features/players/presentation/controllers/club_filter_bloc/club_filter_bloc.dart';
-import 'package:evoluton_x/features/players/presentation/controllers/club_filter_bloc/club_filter_event.dart';
-import 'package:evoluton_x/features/players/presentation/controllers/club_filter_bloc/club_filter_state.dart';
+import 'package:evoluton_x/features/clubs/presentation/controllers/club_filter_bloc/club_filter_bloc.dart';
+import 'package:evoluton_x/features/clubs/presentation/controllers/club_filter_bloc/club_filter_event.dart';
+import 'package:evoluton_x/features/clubs/presentation/controllers/club_filter_bloc/club_filter_state.dart';
 import 'package:evoluton_x/core/widgets/filter_widgets/custom_filter_button.dart';
 import 'package:evoluton_x/core/widgets/filter_widgets/filter_selector_row.dart';
 import 'package:evoluton_x/core/widgets/filter_widgets/filter_sheet_header.dart';
@@ -67,14 +67,6 @@ class FilterClubsSheet extends StatelessWidget {
                   color: AppColors.primaryColor,
                   onPressed: enableFilter
                       ? () {
-                          //Navigator.pop(context);
-                          // PersistentNavBarNavigator.pushNewScreen(
-                          //   context,
-                          //   screen: const ResultClubFilterView(),
-                          //   withNavBar: true,
-                          // );
-                          // Navigator.pushReplacementNamed(
-                          //     context, DetailsRoute.resultClubFilter);
                           Future.delayed(const Duration(milliseconds: 200), () {
                             return Navigator.pushReplacementNamed(
                                 context, AppRoutes.resultClubFilter);

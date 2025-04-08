@@ -1,8 +1,8 @@
 import 'package:evoluton_x/core/utils/app_strings.dart';
 import 'package:evoluton_x/core/widgets/custom_tab_bar.dart';
-import 'package:evoluton_x/features/players/presentation/widgets/club_card/custom_card_club_sliver_appbar.dart';
-import 'package:evoluton_x/features/players/presentation/widgets/club_card/team_tab_bar_view.dart';
-import 'package:evoluton_x/features/players/presentation/widgets/club_card/top_players_tab_bar_view.dart';
+import 'package:evoluton_x/features/clubs/presentation/widgets/club_card/custom_card_club_sliver_appbar.dart';
+import 'package:evoluton_x/features/clubs/presentation/widgets/club_card/team_tab_bar_view.dart';
+import 'package:evoluton_x/features/clubs/presentation/widgets/club_card/top_players_tab_bar_view.dart';
 import 'package:evoluton_x/features/players/presentation/widgets/player_card/sliver_appbar_delegate.dart';
 import 'package:flutter/material.dart';
 
