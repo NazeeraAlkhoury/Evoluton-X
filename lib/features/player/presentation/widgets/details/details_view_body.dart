@@ -86,9 +86,3 @@ class DetailsViewBody extends StatelessWidget {
     );
   }
 }
- // PersistentNavBarNavigator.pushNewScreen(
-              //   context,
-              //   screen: const FilterClubsView(),
-              //   withNavBar: true,
-              //   pageTransitionAnimation: PageTransitionAnimation.cupertino,
-              // );
