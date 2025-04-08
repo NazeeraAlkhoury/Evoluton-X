@@ -5,6 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 abstract class AppThemes {
   static ThemeData lightThemeData = ThemeData(
     brightness: Brightness.light,
+    scaffoldBackgroundColor: AppColors.whiteColor,
     appBarTheme: const AppBarTheme(
       centerTitle: true,
       color: Colors.white,
@@ -13,16 +14,16 @@ abstract class AppThemes {
     colorScheme: ColorScheme.fromSeed(seedColor: AppColors.primaryColor),
     useMaterial3: true,
     textTheme: GoogleFonts.poppinsTextTheme(),
-    // bottomNavigationBarTheme: const BottomNavigationBarThemeData(
-    //   backgroundColor: AppColors.primaryColor,
-    //   selectedItemColor: AppColors.whiteColor,
-    //   unselectedItemColor: AppColors.blackColor,
-    //   type: BottomNavigationBarType.fixed,
-    //   elevation: 0,
-    //   selectedLabelStyle: TextStyle(fontSize: 0),
-    //   unselectedLabelStyle: TextStyle(fontSize: 0),
-    //   showSelectedLabels: false,
-    //   showUnselectedLabels: false,
-    // ),
+    bottomNavigationBarTheme: const BottomNavigationBarThemeData(
+      backgroundColor: AppColors.whiteColor,
+      //   selectedItemColor: AppColors.whiteColor,
+      //   unselectedItemColor: AppColors.blackColor,
+      //   type: BottomNavigationBarType.fixed,
+      elevation: 0,
+      //   selectedLabelStyle: TextStyle(fontSize: 0),
+      //   unselectedLabelStyle: TextStyle(fontSize: 0),
+      //   showSelectedLabels: false,
+      //   showUnselectedLabels: false,
+    ),
   );
 }
