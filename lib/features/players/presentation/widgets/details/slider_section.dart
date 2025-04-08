@@ -1,5 +1,4 @@
-import 'package:evoluton_x/core/utils/enums.dart';
-import 'package:evoluton_x/core/widgets/custom_err_message.dart';
+import 'package:evoluton_x/core/widgets/request_state_handle_widget.dart';
 import 'package:evoluton_x/features/players/presentation/controllers/player_bloc/player_bloc.dart';
 import 'package:evoluton_x/features/players/presentation/controllers/player_bloc/player_event.dart';
 import 'package:evoluton_x/features/players/presentation/controllers/player_bloc/player_state.dart';
@@ -18,17 +17,10 @@ class SliderSection extends StatelessWidget {
     return BlocBuilder<PlayerBloc, PlayerState>(
       builder: (context, state) {
         final bloc = context.read<PlayerBloc>();
-        if (state.getDetailsState == RequestStates.loadingState) {
-          return const SizedBox(
-            height: 200,
-            child: Center(
-              child: CircularProgressIndicator(),
-            ),
-          );
-        } else if (state.getDetailsState == RequestStates.failureState) {
-          return CustomErrorMessage(errMessage: state.playertDetailsErrMessage);
-        } else {
-          return Column(
+        return RequestStateHandleWidget(
+          requestState: state.getDetailsState,
+          errorMessage: state.playertDetailsErrMessage,
+          successWidget: (context) => Column(
             children: [
               CustomPlayersCarousel(
                 onChanged: (index, reason) => bloc.add(
@@ -45,8 +37,8 @@ class SliderSection extends StatelessWidget {
               ),
               DotsIndicitor(currentIndex: state.index),
             ],
-          );
-        }
+          ),
+        );
       },
     );
   }
