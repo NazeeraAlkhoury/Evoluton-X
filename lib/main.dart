@@ -8,6 +8,7 @@ import 'package:evoluton_x/core/services/service_locator.dart';
 import 'package:evoluton_x/core/utils/app_themes.dart';
 import 'package:evoluton_x/features/details/presentation/controllers/details_bloc/details_bloc.dart';
 import 'package:evoluton_x/features/details/presentation/controllers/details_bloc/details_event.dart';
+import 'package:evoluton_x/features/favorite/presentation/controller/favorite%20_bloc/favorite_bloc.dart';
 import 'package:evoluton_x/features/search/presentation/search_bloc/search_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -44,6 +45,9 @@ void main() async {
     ),
     BlocProvider(
       create: (context) => getIt<DetailsBloc>()..add(const GetDetailsEvent()),
+    ),
+    BlocProvider(
+      create: (context) => getIt<FavoriteBloc>(),
     ),
     BlocProvider(
       create: (context) => getIt<SearchBloc>(),

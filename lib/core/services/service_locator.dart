@@ -28,6 +28,13 @@ import 'package:evoluton_x/features/details/domain/usecases/get_player_statistic
 import 'package:evoluton_x/features/details/domain/usecases/get_prediction_result_usecase.dart';
 import 'package:evoluton_x/features/details/presentation/controllers/club_filter_bloc/club_filter_bloc.dart';
 import 'package:evoluton_x/features/details/presentation/controllers/details_bloc/details_bloc.dart';
+import 'package:evoluton_x/features/favorite/data/datasource/remote/favorite_remote_datasource.dart';
+import 'package:evoluton_x/features/favorite/data/datasource/remote/favorite_remote_datasource_imp.dart';
+import 'package:evoluton_x/features/favorite/data/repository/favorite_repository_imp.dart';
+import 'package:evoluton_x/features/favorite/domain/repository/favorite_repository.dart';
+import 'package:evoluton_x/features/favorite/domain/usecase/add_player_to_favorite_usecase.dart';
+import 'package:evoluton_x/features/favorite/domain/usecase/remove_player_from_favorite_usecase.dart';
+import 'package:evoluton_x/features/favorite/presentation/controller/favorite%20_bloc/favorite_bloc.dart';
 import 'package:evoluton_x/features/layout/presentation/controller/layout_bloc/layout_bloc.dart';
 import 'package:evoluton_x/features/search/presentation/search_bloc/search_bloc.dart';
 import 'package:get_it/get_it.dart';
@@ -101,6 +108,14 @@ class ServiceLocator {
     getIt.registerFactory<ClubFilterBloc>(
       () => ClubFilterBloc(),
     );
+
+    getIt.registerFactory<FavoriteBloc>(
+      () => FavoriteBloc(
+        addPlayerToFavoriteUsecase: getIt<AddPlayerToFavoriteUsecase>(),
+        removePlayerFromFavoriteUsecase:
+            getIt<RemovePlayerFromFavoriteUsecase>(),
+      ),
+    );
     getIt.registerFactory<SearchBloc>(
       () => SearchBloc(),
     );
@@ -110,12 +125,16 @@ class ServiceLocator {
         () => AuthRemoteDataSourceImp(apiServices: getIt<ApiServices>()));
     getIt.registerLazySingleton<DetailsRemoteDatasource>(
         () => DetailsRemoteDatasourceImp(apiServices: getIt<ApiServices>()));
+    getIt.registerLazySingleton<FavoriteRemoteDatasource>(
+        () => FavoriteRemoteDatasourceImp(apiServices: getIt<ApiServices>()));
 
     //Repository
     getIt.registerLazySingleton<AuthRepository>(() =>
         AuthRepositoryImp(authRemoteDataSource: getIt<AuthRemoteDataSource>()));
     getIt.registerLazySingleton<DetailsRepository>(() => DetailsRepositoryImp(
         detailsRemoteDatasource: getIt<DetailsRemoteDatasource>()));
+    getIt.registerLazySingleton<FavoriteRepository>(() => FavoriteRepositoryImp(
+        favoritRemoteDatasource: getIt<FavoriteRemoteDatasource>()));
 
     //usecases
     getIt.registerLazySingleton<RegisterUseCase>(
@@ -156,6 +175,14 @@ class ServiceLocator {
     getIt.registerLazySingleton<GetPredictionResultUseCase>(
       () => GetPredictionResultUseCase(
           detailsRepository: getIt<DetailsRepository>()),
+    );
+    getIt.registerLazySingleton<AddPlayerToFavoriteUsecase>(
+      () => AddPlayerToFavoriteUsecase(
+          favoriteRepository: getIt<FavoriteRepository>()),
+    );
+    getIt.registerLazySingleton<RemovePlayerFromFavoriteUsecase>(
+      () => RemovePlayerFromFavoriteUsecase(
+          favoriteRepository: getIt<FavoriteRepository>()),
     );
   }
 }

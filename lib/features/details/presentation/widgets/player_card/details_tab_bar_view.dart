@@ -6,7 +6,7 @@ import 'package:evoluton_x/features/details/presentation/controllers/details_blo
 import 'package:evoluton_x/features/details/presentation/controllers/details_bloc/details_state.dart';
 import 'package:evoluton_x/features/details/presentation/widgets/player_card/player_details_item_gridview.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class DetailsTapBarView extends StatelessWidget {

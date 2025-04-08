@@ -18,7 +18,7 @@ class FavoriteRemoteDatasourceImp implements FavoriteRemoteDatasource {
 
   @override
   Future<AddRemoveFavoriteModel> removePlayersToFavorite(
-      {required int playerId}) async {
+      {required num playerId}) async {
     final response = await apiServices.deleteData(
       path: EndPoints.removeFav(id: playerId),
     );
