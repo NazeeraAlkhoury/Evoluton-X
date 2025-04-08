@@ -1,13 +1,6 @@
-import 'package:cached_network_image/cached_network_image.dart';
-import 'package:evoluton_x/core/utils/app_colors.dart';
-import 'package:evoluton_x/core/utils/app_routes.dart';
 import 'package:evoluton_x/core/utils/app_text_styles.dart';
-import 'package:evoluton_x/features/details/presentation/controllers/details_bloc/details_bloc.dart';
-import 'package:evoluton_x/features/details/presentation/controllers/details_bloc/details_event.dart';
-import 'package:evoluton_x/features/details/presentation/widgets/custom_appbar.dart';
-import 'package:evoluton_x/features/details/presentation/widgets/custom_player_info_row.dart';
+import 'package:evoluton_x/features/player/presentation/widgets/custom_appbar.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
 class FavoriteView extends StatelessWidget {
   const FavoriteView({super.key});

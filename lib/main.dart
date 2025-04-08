@@ -2,12 +2,12 @@ import 'package:evoluton_x/core/utils/app_routes.dart';
 import 'package:evoluton_x/features/authentication/presentation/controllers/auth_bloc/auth_bloc.dart';
 import 'package:evoluton_x/features/authentication/presentation/controllers/password_bloc/password_bloc.dart';
 import 'package:evoluton_x/features/authentication/presentation/controllers/register_bloc/register_bloc.dart';
-import 'package:evoluton_x/features/details/presentation/controllers/club_filter_bloc/club_filter_bloc.dart';
+import 'package:evoluton_x/features/player/presentation/controllers/club_filter_bloc/club_filter_bloc.dart';
 import 'package:evoluton_x/core/services/bloc_observer.dart';
 import 'package:evoluton_x/core/services/service_locator.dart';
 import 'package:evoluton_x/core/utils/app_themes.dart';
-import 'package:evoluton_x/features/details/presentation/controllers/details_bloc/details_bloc.dart';
-import 'package:evoluton_x/features/details/presentation/controllers/details_bloc/details_event.dart';
+import 'package:evoluton_x/features/player/presentation/controllers/player_bloc/player_bloc.dart';
+import 'package:evoluton_x/features/player/presentation/controllers/player_bloc/player_event.dart';
 import 'package:evoluton_x/features/favorite/presentation/controller/favorite%20_bloc/favorite_bloc.dart';
 import 'package:evoluton_x/features/search/presentation/search_bloc/search_bloc.dart';
 import 'package:flutter/material.dart';
@@ -44,7 +44,7 @@ void main() async {
       create: (context) => getIt<AuthBloc>(),
     ),
     BlocProvider(
-      create: (context) => getIt<DetailsBloc>()..add(const GetDetailsEvent()),
+      create: (context) => getIt<PlayerBloc>()..add(const GetDetailsEvent()),
     ),
     BlocProvider(
       create: (context) => getIt<FavoriteBloc>(),

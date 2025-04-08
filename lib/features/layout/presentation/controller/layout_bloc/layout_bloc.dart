@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'package:bloc/bloc.dart';
 import 'package:evoluton_x/core/utils/enums.dart';
-import 'package:evoluton_x/features/details/presentation/views/details_view.dart';
+import 'package:evoluton_x/features/player/presentation/views/details_view.dart';
 import 'package:evoluton_x/features/favorite/presentation/views/favorite_view.dart';
 import 'package:evoluton_x/features/layout/presentation/controller/layout_bloc/layout_event.dart';
 import 'package:evoluton_x/features/layout/presentation/controller/layout_bloc/layout_state.dart';

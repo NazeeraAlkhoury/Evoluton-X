@@ -1,4 +1,4 @@
-import 'package:evoluton_x/features/details/presentation/widgets/custom_appbar.dart';
+import 'package:evoluton_x/features/player/presentation/widgets/custom_appbar.dart';
 import 'package:evoluton_x/features/search/presentation/widgets/search_view_body.dart';
 import 'package:flutter/material.dart';
 

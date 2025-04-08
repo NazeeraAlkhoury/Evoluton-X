@@ -18,16 +18,16 @@ import 'package:evoluton_x/features/authentication/presentation/controllers/logi
 import 'package:evoluton_x/features/authentication/presentation/controllers/password_bloc/password_bloc.dart';
 import 'package:evoluton_x/features/authentication/presentation/controllers/register_bloc/register_bloc.dart';
 import 'package:evoluton_x/features/authentication/presentation/controllers/verify_email_bloc/verify_email_bloc.dart';
-import 'package:evoluton_x/features/details/data/datasource/remote/details_remote_datasource.dart';
-import 'package:evoluton_x/features/details/data/datasource/remote/details_remote_datasource_imp.dart';
-import 'package:evoluton_x/features/details/data/repository/details_repository_imp.dart';
-import 'package:evoluton_x/features/details/domain/repository/details_repository.dart';
-import 'package:evoluton_x/features/details/domain/usecases/get_details_usecase.dart';
-import 'package:evoluton_x/features/details/domain/usecases/get_player_details_usecase.dart';
-import 'package:evoluton_x/features/details/domain/usecases/get_player_statistics_usecase.dart';
-import 'package:evoluton_x/features/details/domain/usecases/get_prediction_result_usecase.dart';
-import 'package:evoluton_x/features/details/presentation/controllers/club_filter_bloc/club_filter_bloc.dart';
-import 'package:evoluton_x/features/details/presentation/controllers/details_bloc/details_bloc.dart';
+import 'package:evoluton_x/features/player/data/datasource/remote/player_remote_datasource.dart';
+import 'package:evoluton_x/features/player/data/datasource/remote/player_remote_datasource_imp.dart';
+import 'package:evoluton_x/features/player/data/repository/player_repository_imp.dart';
+import 'package:evoluton_x/features/player/domain/repository/player_repository.dart';
+import 'package:evoluton_x/features/player/domain/usecases/get_details_usecase.dart';
+import 'package:evoluton_x/features/player/domain/usecases/get_player_details_usecase.dart';
+import 'package:evoluton_x/features/player/domain/usecases/get_player_statistics_usecase.dart';
+import 'package:evoluton_x/features/player/domain/usecases/get_prediction_result_usecase.dart';
+import 'package:evoluton_x/features/player/presentation/controllers/club_filter_bloc/club_filter_bloc.dart';
+import 'package:evoluton_x/features/player/presentation/controllers/player_bloc/player_bloc.dart';
 import 'package:evoluton_x/features/favorite/data/datasource/remote/favorite_remote_datasource.dart';
 import 'package:evoluton_x/features/favorite/data/datasource/remote/favorite_remote_datasource_imp.dart';
 import 'package:evoluton_x/features/favorite/data/repository/favorite_repository_imp.dart';
@@ -97,8 +97,8 @@ class ServiceLocator {
     getIt.registerFactory<LayoutBloc>(
       () => LayoutBloc(),
     );
-    getIt.registerFactory<DetailsBloc>(
-      () => DetailsBloc(
+    getIt.registerFactory<PlayerBloc>(
+      () => PlayerBloc(
         getDetailsUsecase: getIt<GetDetailsUsecase>(),
         getPlayerDetailsUsecase: getIt<GetPlayerDetailsUsecase>(),
         getPlayerStatisticsUsecase: getIt<GetPlayerStatisticsUsecase>(),
@@ -123,16 +123,16 @@ class ServiceLocator {
     //DataSource
     getIt.registerLazySingleton<AuthRemoteDataSource>(
         () => AuthRemoteDataSourceImp(apiServices: getIt<ApiServices>()));
-    getIt.registerLazySingleton<DetailsRemoteDatasource>(
-        () => DetailsRemoteDatasourceImp(apiServices: getIt<ApiServices>()));
+    getIt.registerLazySingleton<PlayerRemoteDatasource>(
+        () => PlayerRemoteDatasourceImp(apiServices: getIt<ApiServices>()));
     getIt.registerLazySingleton<FavoriteRemoteDatasource>(
         () => FavoriteRemoteDatasourceImp(apiServices: getIt<ApiServices>()));
 
     //Repository
     getIt.registerLazySingleton<AuthRepository>(() =>
         AuthRepositoryImp(authRemoteDataSource: getIt<AuthRemoteDataSource>()));
-    getIt.registerLazySingleton<DetailsRepository>(() => DetailsRepositoryImp(
-        detailsRemoteDatasource: getIt<DetailsRemoteDatasource>()));
+    getIt.registerLazySingleton<PlayerRepository>(() => PlayerRepositoryImp(
+        playerRemoteDatasource: getIt<PlayerRemoteDatasource>()));
     getIt.registerLazySingleton<FavoriteRepository>(() => FavoriteRepositoryImp(
         favoritRemoteDatasource: getIt<FavoriteRemoteDatasource>()));
 
@@ -162,19 +162,19 @@ class ServiceLocator {
       () => ResendCodeUseCase(authRepository: getIt<AuthRepository>()),
     );
     getIt.registerLazySingleton<GetDetailsUsecase>(
-      () => GetDetailsUsecase(detailsRepository: getIt<DetailsRepository>()),
+      () => GetDetailsUsecase(playerRepository: getIt<PlayerRepository>()),
     );
     getIt.registerLazySingleton<GetPlayerDetailsUsecase>(
-      () => GetPlayerDetailsUsecase(
-          detailsRepository: getIt<DetailsRepository>()),
+      () =>
+          GetPlayerDetailsUsecase(playerRepository: getIt<PlayerRepository>()),
     );
     getIt.registerLazySingleton<GetPlayerStatisticsUsecase>(
       () => GetPlayerStatisticsUsecase(
-          detailsRepository: getIt<DetailsRepository>()),
+          playerRepository: getIt<PlayerRepository>()),
     );
     getIt.registerLazySingleton<GetPredictionResultUseCase>(
       () => GetPredictionResultUseCase(
-          detailsRepository: getIt<DetailsRepository>()),
+          playerRepository: getIt<PlayerRepository>()),
     );
     getIt.registerLazySingleton<AddPlayerToFavoriteUsecase>(
       () => AddPlayerToFavoriteUsecase(
