@@ -9,6 +9,11 @@ class ClubBloc extends Bloc<ClubEvent, ClubState> {
   final GetClubsUsecase getClubsUsecase;
   ClubBloc({required this.getClubsUsecase}) : super(const ClubState()) {
     on<GetClubsEvent>((event, emit) async {
+      emit(
+        state.copyWith(
+          getClubsState: RequestStates.loadingState,
+        ),
+      );
       final result = await getClubsUsecase(const NoParameters());
       result.fold(
         (failure) => emit(
