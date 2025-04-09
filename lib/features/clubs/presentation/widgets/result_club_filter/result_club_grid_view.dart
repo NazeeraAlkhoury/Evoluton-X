@@ -1,21 +1,28 @@
+import 'package:evoluton_x/features/clubs/domain/entities/club.dart';
+import 'package:evoluton_x/features/players/presentation/widgets/custom_club.dart';
 import 'package:flutter/material.dart';
 
 class ResultClubGridView extends StatelessWidget {
+  final List<Club> club;
   const ResultClubGridView({
     super.key,
+    required this.club,
   });
 
   @override
   Widget build(BuildContext context) {
-    return SliverGrid.builder(
-      itemCount: 10,
+    return GridView.builder(
+      itemCount: club.length,
+      shrinkWrap: true,
+      physics: const NeverScrollableScrollPhysics(),
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 2,
-        crossAxisSpacing: 10,
+        crossAxisSpacing: 15,
         mainAxisSpacing: 6,
       ),
-      itemBuilder: (context, index) => const SizedBox(),
-      //CustomClub(),
+      itemBuilder: (context, index) => CustomClub(
+        club: club[index],
+      ),
     );
   }
 }

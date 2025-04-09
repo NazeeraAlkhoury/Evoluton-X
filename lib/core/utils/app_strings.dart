@@ -176,4 +176,6 @@ abstract class AppStrings {
   static const String agility = 'Agility :';
   static const String salary = 'Salary';
   static const String predictionResult = 'Prediction Result';
+  static const String enterNameToSearch = 'Enter Club Name to Search';
+  static const String enterName = 'Enter a club name';
 }

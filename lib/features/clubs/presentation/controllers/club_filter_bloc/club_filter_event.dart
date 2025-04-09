@@ -5,34 +5,33 @@ abstract class ClubFilterEvent extends Equatable {
   List<Object?> get props => [];
 }
 
-class SelectedNationEvent extends ClubFilterEvent {
-  final String? selectedNation;
-
-  SelectedNationEvent({required this.selectedNation});
+class ClubNameChangedEvent extends ClubFilterEvent {
+  final String clubName;
+  ClubNameChangedEvent(this.clubName);
   @override
-  List<Object?> get props => [selectedNation];
+  List<Object?> get props => [clubName];
 }
 
-class SavedNationEvent extends ClubFilterEvent {
-  final String? savedNation;
+class SavedNameEvent extends ClubFilterEvent {
+  final String? savedName;
 
-  SavedNationEvent({required this.savedNation});
+  SavedNameEvent({required this.savedName});
   @override
-  List<Object?> get props => [savedNation];
+  List<Object?> get props => [savedName];
 }
 
-class SelectedClubEvent extends ClubFilterEvent {
-  final String? selectedClub;
+class SelectedCompEvent extends ClubFilterEvent {
+  final String? selectedComp;
 
-  SelectedClubEvent({required this.selectedClub});
+  SelectedCompEvent({required this.selectedComp});
   @override
-  List<Object?> get props => [selectedClub];
+  List<Object?> get props => [selectedComp];
 }
 
-class SavedClubEvent extends ClubFilterEvent {
-  final String? savedClub;
+class SavedCompEvent extends ClubFilterEvent {
+  final String? savedComp;
 
-  SavedClubEvent({required this.savedClub});
+  SavedCompEvent({required this.savedComp});
   @override
-  List<Object?> get props => [savedClub];
+  List<Object?> get props => [savedComp];
 }

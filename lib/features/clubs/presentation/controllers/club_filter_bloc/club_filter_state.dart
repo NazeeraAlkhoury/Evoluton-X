@@ -1,29 +1,35 @@
 import 'package:equatable/equatable.dart';
 
 class ClubFilterState extends Equatable {
-  final String? selectedNation;
-  final String? savedNation;
-  final String? selectedClub;
-  final String? savedClub;
-  const ClubFilterState(
-      {this.selectedClub,
-      this.savedClub,
-      this.savedNation,
-      this.selectedNation});
+  final String clubName;
+  final String? savedName;
+  final String? selectedComp;
+  final String? savedComp;
+
+  const ClubFilterState({
+    this.clubName = '',
+    this.savedName,
+    this.selectedComp,
+    this.savedComp,
+  });
 
   ClubFilterState copyWith({
-    String? selectedNation,
-    String? savedNation,
-    String? selectedClub,
-    String? savedClub,
+    String? clubName,
+    String? savedName,
+    String? selectedComp,
+    String? savedComp,
   }) =>
       ClubFilterState(
-        selectedNation: selectedNation ?? this.selectedNation,
-        savedNation: savedNation ?? this.savedNation,
-        selectedClub: selectedClub ?? this.selectedClub,
-        savedClub: savedClub ?? this.savedClub,
+        clubName: clubName ?? this.clubName,
+        savedName: savedName ?? this.savedName,
+        selectedComp: selectedComp ?? this.selectedComp,
+        savedComp: savedComp ?? this.savedComp,
       );
   @override
-  List<Object?> get props =>
-      [selectedNation, savedNation, selectedClub, savedClub];
+  List<Object?> get props => [
+        clubName,
+        savedName,
+        selectedComp,
+        savedComp,
+      ];
 }

@@ -34,7 +34,9 @@ class ResultClubFilterViewBody extends StatelessWidget {
               top: 15,
               bottom: 70,
             ),
-            sliver: ResultClubGridView(),
+            sliver: ResultClubGridView(
+              club: [],
+            ),
           )
         ],
       ),
