@@ -178,4 +178,6 @@ abstract class AppStrings {
   static const String predictionResult = 'Prediction Result';
   static const String enterNameToSearch = 'Enter Club Name to Search';
   static const String enterName = 'Enter a club name';
+  static const String name = 'Name';
+  static const String comp = 'Comp';
 }

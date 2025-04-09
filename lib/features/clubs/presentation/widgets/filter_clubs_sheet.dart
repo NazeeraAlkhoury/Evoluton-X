@@ -34,11 +34,9 @@ class FilterClubsSheet extends StatelessWidget {
           BlocBuilder<ClubFilterBloc, ClubFilterState>(
             builder: (context, state) {
               return FilterSelectorRow(
-                title: AppStrings.nation,
+                title: AppStrings.name,
                 textButton: state.savedName ?? AppStrings.chooseNation,
-                onPressed: () {
-                  _selectName(context);
-                },
+                onPressed: () => _selectName(context),
               );
             },
           ),
@@ -48,11 +46,9 @@ class FilterClubsSheet extends StatelessWidget {
           BlocBuilder<ClubFilterBloc, ClubFilterState>(
               builder: (context, state) {
             return FilterSelectorRow(
-              title: AppStrings.club,
+              title: AppStrings.comp,
               textButton: state.savedComp ?? AppStrings.chooseClub,
-              onPressed: () {
-                _selectClub(context);
-              },
+              onPressed: () => _selectClub(context),
             );
           }),
           const SizedBox(
