@@ -9,9 +9,6 @@ import 'package:evoluton_x/features/search/presentation/views/search_view.dart';
 import 'package:flutter/material.dart';
 
 class LayoutBloc extends Bloc<LayoutEvent, LayoutState> {
-  // final PersistentTabController persistentTabController =
-  //     PersistentTabController(initialIndex: 0);
-
   final List<Widget> screens = const [
     DetailsView(),
     SearchView(),
@@ -26,8 +23,6 @@ class LayoutBloc extends Bloc<LayoutEvent, LayoutState> {
   }
 
   FutureOr<void> onItemSelected(event, emit) {
-    //  persistentTabController.jumpToTab(event.index);
-
     emit(
       state.copyWith(
         selectedIndex: event.index,
@@ -35,11 +30,4 @@ class LayoutBloc extends Bloc<LayoutEvent, LayoutState> {
       ),
     );
   }
-
-  // @override
-  // Future<void> close() {
-  //   persistentTabController.dispose();
-
-  //   return super.close();
-  // }
 }

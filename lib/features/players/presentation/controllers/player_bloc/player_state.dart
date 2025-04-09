@@ -29,7 +29,7 @@ class PlayerState extends Equatable {
   const PlayerState({
     this.changeSliderState = RequestStates.initialState,
     this.index = 0,
-    this.getDetailsState = RequestStates.loadingState,
+    this.getDetailsState = RequestStates.initialState,
     this.getDetailsResponse,
     this.getDetailsErrMessage = '',
     this.playerDetailsState = RequestStates.loadingState,

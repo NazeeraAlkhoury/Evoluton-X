@@ -1,6 +1,6 @@
-import 'package:evoluton_x/features/players/data/models/club_model.dart';
+import 'package:evoluton_x/features/clubs/data/models/club_model.dart';
 import 'package:evoluton_x/features/players/data/models/players_model.dart';
-import 'package:evoluton_x/features/players/domain/entities/club.dart';
+import 'package:evoluton_x/features/clubs/domain/entities/club.dart';
 import 'package:evoluton_x/features/players/domain/entities/details_data.dart';
 import 'package:evoluton_x/features/players/domain/entities/player.dart';
 

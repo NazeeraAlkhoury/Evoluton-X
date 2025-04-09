@@ -1,4 +1,4 @@
-import 'package:evoluton_x/features/players/data/models/club_model.dart';
+import 'package:evoluton_x/features/clubs/data/models/club_model.dart';
 import 'package:evoluton_x/features/players/domain/entities/player.dart';
 
 class PlayersModel extends Player {

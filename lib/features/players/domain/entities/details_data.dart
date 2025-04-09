@@ -1,5 +1,5 @@
 import 'package:equatable/equatable.dart';
-import 'package:evoluton_x/features/players/domain/entities/club.dart';
+import 'package:evoluton_x/features/clubs/domain/entities/club.dart';
 import 'package:evoluton_x/features/players/domain/entities/player.dart';
 
 class DetailsData extends Equatable {

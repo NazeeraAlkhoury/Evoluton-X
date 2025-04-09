@@ -18,6 +18,12 @@ import 'package:evoluton_x/features/authentication/presentation/controllers/logi
 import 'package:evoluton_x/features/authentication/presentation/controllers/password_bloc/password_bloc.dart';
 import 'package:evoluton_x/features/authentication/presentation/controllers/register_bloc/register_bloc.dart';
 import 'package:evoluton_x/features/authentication/presentation/controllers/verify_email_bloc/verify_email_bloc.dart';
+import 'package:evoluton_x/features/clubs/data/datasource/remote/club_remote_datasource.dart';
+import 'package:evoluton_x/features/clubs/data/datasource/remote/club_remote_datasource_imp.dart';
+import 'package:evoluton_x/features/clubs/data/repository/clubs_repository_imp.dart';
+import 'package:evoluton_x/features/clubs/domain/repository/clubs_repository.dart';
+import 'package:evoluton_x/features/clubs/domain/usecases/get_clubs_usecase.dart';
+import 'package:evoluton_x/features/clubs/presentation/controllers/club_bloc/club_bloc.dart';
 import 'package:evoluton_x/features/players/data/datasource/remote/player_remote_datasource.dart';
 import 'package:evoluton_x/features/players/data/datasource/remote/player_remote_datasource_imp.dart';
 import 'package:evoluton_x/features/players/data/repository/player_repository_imp.dart';
@@ -105,6 +111,10 @@ class ServiceLocator {
         getPredictionResultUseCase: getIt<GetPredictionResultUseCase>(),
       ),
     );
+
+    getIt.registerFactory<ClubBloc>(
+      () => ClubBloc(getClubsUsecase: getIt<GetClubsUsecase>()),
+    );
     getIt.registerFactory<ClubFilterBloc>(
       () => ClubFilterBloc(),
     );
@@ -127,6 +137,8 @@ class ServiceLocator {
         () => PlayerRemoteDatasourceImp(apiServices: getIt<ApiServices>()));
     getIt.registerLazySingleton<FavoriteRemoteDatasource>(
         () => FavoriteRemoteDatasourceImp(apiServices: getIt<ApiServices>()));
+    getIt.registerLazySingleton<ClubRemoteDatasource>(
+        () => ClubRemoteDatasourceImp(apiServices: getIt<ApiServices>()));
 
     //Repository
     getIt.registerLazySingleton<AuthRepository>(() =>
@@ -135,6 +147,8 @@ class ServiceLocator {
         playerRemoteDatasource: getIt<PlayerRemoteDatasource>()));
     getIt.registerLazySingleton<FavoriteRepository>(() => FavoriteRepositoryImp(
         favoritRemoteDatasource: getIt<FavoriteRemoteDatasource>()));
+    getIt.registerLazySingleton<ClubsRepository>(() => ClubsRepositoryImp(
+        clubRemoteDatasource: getIt<ClubRemoteDatasource>()));
 
     //usecases
     getIt.registerLazySingleton<RegisterUseCase>(
@@ -183,6 +197,9 @@ class ServiceLocator {
     getIt.registerLazySingleton<RemovePlayerFromFavoriteUsecase>(
       () => RemovePlayerFromFavoriteUsecase(
           favoriteRepository: getIt<FavoriteRepository>()),
+    );
+    getIt.registerLazySingleton<GetClubsUsecase>(
+      () => GetClubsUsecase(clubsRepository: getIt<ClubsRepository>()),
     );
   }
 }

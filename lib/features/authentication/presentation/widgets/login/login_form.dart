@@ -116,6 +116,7 @@ class LoginForm extends StatelessWidget {
       key: AppConstants.token,
       value: state.loginAuthResponse!.data,
     );
+    AppConstants.tokenSaved = state.loginAuthResponse!.data!;
     showCustomSuccessSnackBar(
         context: context, successMessage: state.loginAuthResponse!.message);
 

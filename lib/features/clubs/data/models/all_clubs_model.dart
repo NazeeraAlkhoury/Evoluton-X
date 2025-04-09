@@ -1,6 +1,6 @@
-import 'package:evoluton_x/features/players/data/models/club_model.dart';
-import 'package:evoluton_x/features/players/domain/entities/all_clubs.dart';
-import 'package:evoluton_x/features/players/domain/entities/club.dart';
+import 'package:evoluton_x/features/clubs/data/models/club_model.dart';
+import 'package:evoluton_x/features/clubs/domain/entities/all_clubs.dart';
+import 'package:evoluton_x/features/clubs/domain/entities/club.dart';
 
 class AllClubsModel extends AllClubs {
   const AllClubsModel({required super.msg, required super.data});

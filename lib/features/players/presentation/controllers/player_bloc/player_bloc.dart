@@ -113,6 +113,11 @@ class PlayerBloc extends Bloc<PlayerEvent, PlayerState> {
   }
 
   FutureOr<void> _getDetails(event, emit) async {
+    emit(
+      state.copyWith(
+        getDetailsState: RequestStates.loadingState,
+      ),
+    );
     final result = await getDetailsUsecase(const NoParameters());
     result.fold(
       (failure) => emit(

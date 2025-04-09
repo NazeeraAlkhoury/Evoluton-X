@@ -7,11 +7,15 @@ abstract class EndPoints {
   static const String deleteAccount = 'auth/users';
   static const String forgetPassword = 'auth/forgot-password';
   static const String resetPassword = 'auth/reset-password';
+
   static const String detailsScreen = 'players/details-screen';
   static String playerDetails({required int id}) => 'players/details/$id';
   static String playerStatistics({required int id}) => 'players/statistics/$id';
   static String playersPrediction({required int id}) =>
       'players/prediction/$id';
+
+  static const String clubs = 'clubs';
+
   static const String favorites = 'favorites';
   static String removeFav({required num id}) => 'favorites/$id';
 }

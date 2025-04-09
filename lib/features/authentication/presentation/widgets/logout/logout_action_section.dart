@@ -66,6 +66,7 @@ class LogoutActionSection extends StatelessWidget {
     if (state.logoutState == RequestStates.successState) {
       Navigator.of(context).pop();
       getIt<CachServices>().removeData(key: AppConstants.token);
+      AppConstants.tokenSaved = null;
 
       showCustomSuccessSnackBar(
           context: context, successMessage: state.logoutAuthResponse!.message);

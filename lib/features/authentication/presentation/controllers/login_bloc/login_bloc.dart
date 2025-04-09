@@ -31,22 +31,21 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
         password: passwordController.text,
       ),
     );
-    result.fold(
-      (failure) {
-        emit(
-          state.copyWith(
-            loginState: RequestStates.failureState,
-            loginErrMessage: failure.errorMessage,
-          ),
-        );
-      },
-      (authResponse) => emit(
+    result.fold((failure) {
+      emit(
+        state.copyWith(
+          loginState: RequestStates.failureState,
+          loginErrMessage: failure.errorMessage,
+        ),
+      );
+    }, (authResponse) {
+      emit(
         state.copyWith(
           loginState: RequestStates.successState,
           loginAuthResponse: authResponse,
         ),
-      ),
-    );
+      );
+    });
   }
 
   FutureOr<void> _togglePassword(event, emit) {

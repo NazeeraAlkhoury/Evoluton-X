@@ -1,4 +1,4 @@
-import 'package:evoluton_x/features/players/domain/entities/club.dart';
+import 'package:evoluton_x/features/clubs/domain/entities/club.dart';
 
 class ClubModel extends Club {
   const ClubModel(

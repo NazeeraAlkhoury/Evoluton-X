@@ -3,7 +3,7 @@ import 'package:evoluton_x/core/utils/app_colors.dart';
 import 'package:evoluton_x/core/utils/app_routes.dart';
 import 'package:evoluton_x/core/utils/app_text_styles.dart';
 import 'package:evoluton_x/core/widgets/custom_flag_or_club_avatar.dart';
-import 'package:evoluton_x/features/players/domain/entities/club.dart';
+import 'package:evoluton_x/features/clubs/domain/entities/club.dart';
 import 'package:flutter/material.dart';
 
 class CustomClub extends StatelessWidget {
@@ -18,11 +18,6 @@ class CustomClub extends StatelessWidget {
     return GestureDetector(
       onTap: () {
         Navigator.pushNamed(context, AppRoutes.clubCard);
-        // PersistentNavBarNavigator.pushNewScreen(
-        //   context,
-        //   screen: const ClubCardView(),
-        //   withNavBar: true,
-        // );
       },
       child: AspectRatio(
         aspectRatio: 1.12 / 1.03,
@@ -45,11 +40,6 @@ class CustomClub extends StatelessWidget {
                     width: double.infinity,
                     fit: BoxFit.cover,
                   ),
-                  // Image.asset(
-                  //   'assets/images/club.png',
-                  //   width: double.infinity,
-                  //   fit: BoxFit.cover,
-                  // ),
                 ),
                 Expanded(
                   child: Column(
@@ -80,13 +70,6 @@ class CustomClub extends StatelessWidget {
                               imagePath: club.nation!,
                               radius: 10,
                             ),
-                            //  CircleAvatar(
-                            //   radius: 10,
-                            //   child: Image.asset(
-                            //     'assets/images/flag.png',
-                            //     fit: BoxFit.fill,
-                            //   ),
-                            // ),
                           ),
                         ],
                       ),
