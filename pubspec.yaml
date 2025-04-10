@@ -35,6 +35,7 @@ dependencies:
   expandable_page_view: ^1.0.17
   carousel_slider: ^5.0.0
   percent_indicator: ^4.2.4
+  lottie: ^3.1.3
 
   device_preview: ^1.2.0
 
@@ -54,18 +55,8 @@ flutter:
   assets:
     - assets/images/
     - assets/icons/
+    - assets/lotties/
  
 
 
-  # fonts:
-  #   - family: Schyler
-  #     fonts:
-  #       - asset: fonts/Schyler-Regular.ttf
-  #       - asset: fonts/Schyler-Italic.ttf
-  #         style: italic
-  #   - family: Trajan Pro
-  #     fonts:
-  #       - asset: fonts/TrajanPro.ttf
-  #       - asset: fonts/TrajanPro_Bold.ttf
-  #         weight: 700
-
+ 
