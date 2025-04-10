@@ -1,4 +1,3 @@
-import 'package:evoluton_x/core/functions/show_custom_err_snack_bar.dart';
 import 'package:evoluton_x/core/functions/show_custom_filter_dialog.dart';
 import 'package:evoluton_x/core/utils/app_colors.dart';
 import 'package:evoluton_x/core/utils/app_routes.dart';
@@ -59,16 +58,10 @@ class FilterClubsSheet extends StatelessWidget {
           ),
           BlocConsumer<ClubFilterBloc, ClubFilterState>(
             listener: (context, state) {
-              if (state.clubWithFilterState == RequestStates.successState) {
+              if (state.clubWithFilterState == RequestStates.successState ||
+                  state.clubWithFilterState == RequestStates.failureState) {
                 Navigator.pushReplacementNamed(
                     context, AppRoutes.resultClubFilter);
-              }
-              if (state.clubWithFilterState == RequestStates.failureState) {
-                Navigator.pushReplacementNamed(
-                    context, AppRoutes.resultClubFilter);
-                // showCustomErrSnackBar(
-                //     context: context,
-                //     errMessage: state.clubsWithFilterErrMessage);
               }
             },
             builder: (context, state) {

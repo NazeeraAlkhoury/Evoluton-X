@@ -1,6 +1,7 @@
 import 'package:evoluton_x/core/utils/app_colors.dart';
 import 'package:evoluton_x/core/utils/app_strings.dart';
 import 'package:evoluton_x/core/utils/app_text_styles.dart';
+import 'package:evoluton_x/core/widgets/filter_widgets/class_no_data_found.dart';
 import 'package:evoluton_x/core/widgets/request_state_handle_widget.dart';
 import 'package:evoluton_x/features/clubs/presentation/controllers/club_filter_bloc/club_filter_bloc.dart';
 import 'package:evoluton_x/features/clubs/presentation/controllers/club_filter_bloc/club_filter_state.dart';
@@ -44,6 +45,9 @@ class ResultClubFilterViewBody extends StatelessWidget {
                 return RequestStateHandleWidget(
                   requestState: state.clubWithFilterState,
                   errorMessage: state.clubsWithFilterErrMessage,
+                  errorWidget: (context) => CustomNoDataFound(
+                    errMessg: state.clubsWithFilterErrMessage,
+                  ),
                   successWidget: (context) => ResultClubFilterGrid(
                     club: state.clubs!.data,
                   ),
