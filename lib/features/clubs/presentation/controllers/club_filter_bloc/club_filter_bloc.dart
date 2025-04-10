@@ -24,34 +24,48 @@ class ClubFilterBloc extends Bloc<ClubFilterEvent, ClubFilterState> {
     on<SavedNameEvent>(_savedName);
     on<SelectedCompEvent>(_selectedComp);
     on<SavedCompEvent>(_savedComp);
-    on<ClubWithFilterEvent>(
-      (event, emit) async {
-        emit(
-          state.copyWith(
-            clubWithFilterState: RequestStates.loadingState,
-          ),
-        );
-        final result = await getClubsWithFilterUsecase(event.clubsFilterParams);
-        result.fold(
-          (failure) => emit(
-            state.copyWith(
-              clubWithFilterState: RequestStates.failureState,
-              clubsWithFilterErrMessage: failure.errorMessage,
-            ),
-          ),
-          (clubs) => emit(
-            state.copyWith(
-              clubWithFilterState: RequestStates.successState,
-              clubs: clubs,
-            ),
-          ),
-        );
-      },
-    );
+    on<ClubWithFilterEvent>(_getClubsWithFilter);
+    on<ResetFilterEvent>(_resetFilter);
 
     nameController.addListener(() {
       add(ClubNameChangedEvent(nameController.text));
     });
+  }
+
+  FutureOr<void> _resetFilter(event, emit) {
+    nameController.clear();
+    emit(const ClubFilterState(
+      clubName: '',
+      savedName: null,
+      selectedComp: null,
+      savedComp: null,
+      clubWithFilterState: RequestStates.initialState,
+      clubs: null,
+      clubsWithFilterErrMessage: '',
+    ));
+  }
+
+  FutureOr<void> _getClubsWithFilter(event, emit) async {
+    emit(
+      state.copyWith(
+        clubWithFilterState: RequestStates.loadingState,
+      ),
+    );
+    final result = await getClubsWithFilterUsecase(event.clubsFilterParams);
+    result.fold(
+      (failure) => emit(
+        state.copyWith(
+          clubWithFilterState: RequestStates.failureState,
+          clubsWithFilterErrMessage: failure.errorMessage,
+        ),
+      ),
+      (clubs) => emit(
+        state.copyWith(
+          clubWithFilterState: RequestStates.successState,
+          clubs: clubs,
+        ),
+      ),
+    );
   }
 
   FutureOr<void> _savedComp(event, emit) {

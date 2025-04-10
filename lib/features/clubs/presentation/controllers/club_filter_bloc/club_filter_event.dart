@@ -44,3 +44,9 @@ class ClubWithFilterEvent extends ClubFilterEvent {
   @override
   List<Object?> get props => [clubsFilterParams];
 }
+
+class ResetFilterEvent extends ClubFilterEvent {
+  ResetFilterEvent();
+  @override
+  List<Object?> get props => [];
+}
