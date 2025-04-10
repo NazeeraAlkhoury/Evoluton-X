@@ -1,4 +1,5 @@
 import 'package:equatable/equatable.dart';
+import 'package:evoluton_x/features/clubs/data/models/clubs_filter_params.dart';
 
 abstract class ClubFilterEvent extends Equatable {
   @override
@@ -34,4 +35,12 @@ class SavedCompEvent extends ClubFilterEvent {
   SavedCompEvent({required this.savedComp});
   @override
   List<Object?> get props => [savedComp];
+}
+
+class ClubWithFilterEvent extends ClubFilterEvent {
+  final ClubsFilterParams clubsFilterParams;
+
+  ClubWithFilterEvent({required this.clubsFilterParams});
+  @override
+  List<Object?> get props => [clubsFilterParams];
 }

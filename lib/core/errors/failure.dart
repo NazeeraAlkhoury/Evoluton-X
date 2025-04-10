@@ -44,6 +44,9 @@ class ServerFailure extends Failure {
     }
 
     switch (statusCode) {
+      case 204:
+        return const ServerFailure('No data found for the selected filters.');
+
       case 400:
         return ServerFailure(
             //   'Bad request: ${ErrorMessageModel.fromJson(response).errors.isNotEmpty ? ErrorMessageModel.fromJson(response).errors.join(', ') : 'No specific error message'}',
