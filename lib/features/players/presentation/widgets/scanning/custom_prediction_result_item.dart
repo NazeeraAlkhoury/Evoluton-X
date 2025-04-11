@@ -1,4 +1,3 @@
-import 'package:evoluton_x/core/utils/app_colors.dart';
 import 'package:evoluton_x/features/players/presentation/widgets/scanning/custom_result_row.dart';
 import 'package:flutter/material.dart';
 
@@ -20,7 +19,6 @@ class CustomPredictionResultItem extends StatelessWidget {
               margin: const EdgeInsets.only(bottom: 15),
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(20)),
-              color: AppColors.fillFieldColor,
               child: Padding(
                 padding:
                     const EdgeInsets.symmetric(horizontal: 20, vertical: 20),

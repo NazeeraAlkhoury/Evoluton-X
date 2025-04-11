@@ -1,5 +1,5 @@
 import 'package:evoluton_x/core/utils/app_text_styles.dart';
-import 'package:evoluton_x/features/players/presentation/widgets/custom_appbar.dart';
+import 'package:evoluton_x/core/widgets/appbar/custom_appbar.dart';
 import 'package:flutter/material.dart';
 
 class FavoriteView extends StatelessWidget {

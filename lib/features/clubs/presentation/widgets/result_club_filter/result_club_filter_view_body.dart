@@ -6,7 +6,7 @@ import 'package:evoluton_x/core/widgets/request_state_handle_widget.dart';
 import 'package:evoluton_x/features/clubs/presentation/controllers/club_filter_bloc/club_filter_bloc.dart';
 import 'package:evoluton_x/features/clubs/presentation/controllers/club_filter_bloc/club_filter_state.dart';
 import 'package:evoluton_x/features/clubs/presentation/widgets/result_club_filter/result_club_filter_grid.dart';
-import 'package:evoluton_x/features/players/presentation/widgets/custom_appbar.dart';
+import 'package:evoluton_x/core/widgets/appbar/custom_appbar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

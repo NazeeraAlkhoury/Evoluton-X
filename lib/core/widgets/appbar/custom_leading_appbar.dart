@@ -2,7 +2,7 @@ import 'package:evoluton_x/core/services/cach_services.dart';
 import 'package:evoluton_x/core/services/service_locator.dart';
 import 'package:evoluton_x/core/utils/app_constants.dart';
 import 'package:evoluton_x/core/utils/app_text_styles.dart';
-import 'package:evoluton_x/features/players/presentation/widgets/pop_options_button.dart';
+import 'package:evoluton_x/core/widgets/appbar/pop_options_button.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 

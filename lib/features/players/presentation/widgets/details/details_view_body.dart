@@ -8,7 +8,7 @@ import 'package:evoluton_x/features/clubs/presentation/controllers/club_bloc/clu
 import 'package:evoluton_x/features/players/presentation/controllers/player_bloc/player_bloc.dart';
 import 'package:evoluton_x/features/players/presentation/controllers/player_bloc/player_state.dart';
 import 'package:evoluton_x/features/players/presentation/widgets/details/best_club_listview.dart';
-import 'package:evoluton_x/core/widgets/custom_show_row.dart';
+import 'package:evoluton_x/features/players/presentation/widgets/details/custom_show_row.dart';
 import 'package:evoluton_x/features/players/presentation/widgets/details/players_card_listview.dart';
 import 'package:evoluton_x/features/players/presentation/widgets/details/slider_section.dart';
 import 'package:flutter/material.dart';

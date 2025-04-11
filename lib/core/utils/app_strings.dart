@@ -99,7 +99,7 @@ abstract class AppStrings {
       'With Evoluton-X search filter find any player you want in just few second';
   static const String club = 'Club';
   static const String chooseNation = 'Choose the Nation';
-  static const String chooseClub = 'Choose the club';
+  static const String chooseComp = 'Choose the comp';
   static const String filterNow = 'Filter now';
   static const String selectNation = 'choose the nation you want  :';
   static const String selectClub = 'choose the club you want  :';

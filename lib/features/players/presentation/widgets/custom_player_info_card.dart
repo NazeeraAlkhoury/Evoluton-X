@@ -83,10 +83,3 @@ class CustomPlayerInfoCard extends StatelessWidget {
     );
   }
 }
-// PersistentNavBarNavigator.pushNewScreen(
-//   context,
-//   screen: PlayerCardView(),
-//   withNavBar: true,
-// );
-
-

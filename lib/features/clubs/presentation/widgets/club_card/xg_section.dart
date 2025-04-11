@@ -1,5 +1,5 @@
 import 'package:evoluton_x/core/utils/app_strings.dart';
-import 'package:evoluton_x/core/widgets/custom_show_row.dart';
+import 'package:evoluton_x/features/players/presentation/widgets/details/custom_show_row.dart';
 import 'package:evoluton_x/features/clubs/presentation/widgets/club_card/custom_players_xg.dart';
 import 'package:flutter/material.dart';
 

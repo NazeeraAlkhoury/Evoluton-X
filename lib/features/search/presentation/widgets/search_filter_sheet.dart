@@ -48,7 +48,7 @@ class SearchFilterSheet extends StatelessWidget {
             builder: (context, state) {
               return FilterSelectorRow(
                 title: AppStrings.club,
-                textButton: state.savedClub ?? AppStrings.chooseClub,
+                textButton: state.savedClub ?? AppStrings.chooseComp,
                 onPressed: () {
                   return _selectClub(context);
                 },
