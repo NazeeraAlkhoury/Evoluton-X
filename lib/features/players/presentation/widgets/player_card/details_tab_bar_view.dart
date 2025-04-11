@@ -1,3 +1,4 @@
+import 'package:evoluton_x/core/functions/format_currency.dart';
 import 'package:evoluton_x/core/utils/app_colors.dart';
 import 'package:evoluton_x/core/utils/app_strings.dart';
 import 'package:evoluton_x/core/widgets/request_state_handle_widget.dart';
@@ -54,8 +55,9 @@ class DetailsTapBarView extends StatelessWidget {
                         title: AppStrings.favLeg,
                         value: data.preferredFoot.toString()),
                     PlayerItemInput(
-                        title: AppStrings.value,
-                        value: data.valueEuro.toString()),
+                      title: AppStrings.value,
+                      value: formatCurrency(data.valueEuro),
+                    ),
                   ];
                   return PlayerDetailsItemGridView(
                     playerDetailsItemInput: items,
