@@ -1,3 +1,4 @@
+import 'package:evoluton_x/core/utils/app_colors.dart';
 import 'package:evoluton_x/core/widgets/custom_back_button.dart';
 import 'package:flutter/material.dart';
 
@@ -9,6 +10,7 @@ class ScaningAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
+      backgroundColor: AppColors.whiteColor,
       elevation: 0,
       leadingWidth: 80,
       leading: Padding(

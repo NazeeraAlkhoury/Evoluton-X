@@ -1,8 +1,9 @@
+import 'package:evoluton_x/core/utils/app_strings.dart';
 import 'package:evoluton_x/features/players/presentation/widgets/scanning/custom_result_row.dart';
 import 'package:flutter/material.dart';
 
-class CustomPredictionResultItem extends StatelessWidget {
-  const CustomPredictionResultItem({
+class CustomPredictionResult extends StatelessWidget {
+  const CustomPredictionResult({
     super.key,
     required this.items,
   });
@@ -15,6 +16,7 @@ class CustomPredictionResultItem extends StatelessWidget {
       children: items
           .map(
             (e) => Card(
+              color: e.color,
               elevation: 2,
               margin: const EdgeInsets.only(bottom: 15),
               shape: RoundedRectangleBorder(
@@ -24,6 +26,7 @@ class CustomPredictionResultItem extends StatelessWidget {
                     const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
                 child: CustomResultRow(
                   resultModel: e,
+                  isResult: e.title == AppStrings.predictionResult,
                 ),
               ),
             ),
