@@ -1,8 +1,8 @@
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:evoluton_x/core/utils/app_text_styles.dart';
 import 'package:evoluton_x/core/widgets/custom_back_button.dart';
 import 'package:evoluton_x/core/widgets/custom_flag_or_club_avatar.dart';
 import 'package:evoluton_x/features/players/domain/entities/player.dart';
+import 'package:evoluton_x/features/players/presentation/widgets/player_card/custom_player_name.dart';
 import 'package:flutter/material.dart';
 
 class CustomCardPlayerSliverAppBar extends StatelessWidget {
@@ -27,10 +27,7 @@ class CustomCardPlayerSliverAppBar extends StatelessWidget {
               const SizedBox(
                 width: 80,
               ),
-              Text(
-                player.name,
-                style: AppTextStyles.styleSemiBold20(context),
-              ),
+              CustomPlayerName(name: player.name),
               const SizedBox(
                 width: 50,
               ),
