@@ -29,6 +29,9 @@ class ClubCardViewBody extends StatelessWidget {
               ),
             ),
           ),
+          const SliverToBoxAdapter(
+            child: SizedBox(height: 10),
+          ),
         ],
         body: TabBarView(
           controller: tabController,

@@ -17,7 +17,7 @@ class CustomClub extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Navigator.pushNamed(context, AppRoutes.clubCard);
+        Navigator.pushNamed(context, AppRoutes.clubCard, arguments: club);
       },
       child: AspectRatio(
         aspectRatio: 1.12 / 1.03,

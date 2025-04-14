@@ -8,7 +8,7 @@ class ClubCardModel extends ClubCard {
   });
 
   factory ClubCardModel.fromJson(Map<String, dynamic> json) => ClubCardModel(
-        msg: json['msg'],
+        msg: json['msg'] ?? '',
         data: ClubCardCardDataModel.fromJson(json['data']),
       );
 }

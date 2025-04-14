@@ -4,12 +4,12 @@ import 'package:evoluton_x/core/utils/app_text_styles.dart';
 import 'package:evoluton_x/core/widgets/request_state_handle_widget.dart';
 import 'package:evoluton_x/features/clubs/presentation/controllers/club_bloc/club_bloc.dart';
 import 'package:evoluton_x/features/clubs/presentation/controllers/club_bloc/club_state.dart';
-import 'package:evoluton_x/features/clubs/presentation/widgets/club_card/team_player_list.dart';
+import 'package:evoluton_x/features/clubs/presentation/widgets/club_card/team_prediction_result_list.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class TeamPlayersSection extends StatelessWidget {
-  const TeamPlayersSection({
+class TeamPredictionResultSection extends StatelessWidget {
+  const TeamPredictionResultSection({
     super.key,
   });
 
@@ -19,7 +19,7 @@ class TeamPlayersSection extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          AppStrings.teamPlayers,
+          AppStrings.teamPredictionResult,
           style: AppTextStyles.styleSemiBold18(context)
               .copyWith(color: AppColors.blackColor),
         ),
@@ -31,8 +31,8 @@ class TeamPlayersSection extends StatelessWidget {
             return RequestStateHandleWidget(
               requestState: state.getClubCardState,
               errorMessage: state.getClubCardErrMessage,
-              successWidget: (context) => TeamPlayersList(
-                players: state.clubCard!.data.teamPlayers,
+              successWidget: (context) => TeamPredictionResultList(
+                players: state.clubCard!.data.teamPredictionResult,
               ),
             );
           },

@@ -16,9 +16,9 @@ class ClubCardCardDataModel extends ClubCardData {
 
   factory ClubCardCardDataModel.fromJson(Map<String, dynamic> json) =>
       ClubCardCardDataModel(
-        name: json[''],
-        nation: json[''],
-        nationName: json[''],
+        name: json['name'],
+        nation: json['nation'],
+        nationName: json['nation_name'],
         imageUrl: json['image_url'],
         teamPlayers: json['team_players'] == null
             ? []

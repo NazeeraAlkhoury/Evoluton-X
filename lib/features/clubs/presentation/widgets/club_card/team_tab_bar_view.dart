@@ -1,4 +1,3 @@
-import 'package:evoluton_x/features/clubs/presentation/widgets/club_card/coach_section.dart';
 import 'package:evoluton_x/features/clubs/presentation/widgets/club_card/team_players_section.dart';
 import 'package:flutter/material.dart';
 
@@ -17,13 +16,9 @@ class TeamTabBarView extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                CoachSection(),
-                SizedBox(
-                  height: 20,
-                ),
                 TeamPlayersSection(),
                 SizedBox(
-                  height: 70,
+                  height: 30,
                 ),
               ],
             ),

@@ -1,5 +1,5 @@
 import 'package:evoluton_x/features/clubs/domain/entities/club.dart';
-import 'package:evoluton_x/features/players/presentation/widgets/custom_club.dart';
+import 'package:evoluton_x/core/widgets/custom_club.dart';
 import 'package:flutter/material.dart';
 
 class ResultClubGridView extends StatelessWidget {

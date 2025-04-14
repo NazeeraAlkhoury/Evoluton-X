@@ -22,6 +22,7 @@ import 'package:evoluton_x/features/clubs/data/datasource/remote/club_remote_dat
 import 'package:evoluton_x/features/clubs/data/datasource/remote/club_remote_datasource_imp.dart';
 import 'package:evoluton_x/features/clubs/data/repository/clubs_repository_imp.dart';
 import 'package:evoluton_x/features/clubs/domain/repository/clubs_repository.dart';
+import 'package:evoluton_x/features/clubs/domain/usecases/get_club_card_usecase.dart';
 import 'package:evoluton_x/features/clubs/domain/usecases/get_clubs_usecase.dart';
 import 'package:evoluton_x/features/clubs/domain/usecases/get_clubs_with_filter_usecase.dart';
 import 'package:evoluton_x/features/clubs/presentation/controllers/club_bloc/club_bloc.dart';
@@ -115,7 +116,10 @@ class ServiceLocator {
     );
 
     getIt.registerFactory<ClubBloc>(
-      () => ClubBloc(getClubsUsecase: getIt<GetClubsUsecase>()),
+      () => ClubBloc(
+        getClubsUsecase: getIt<GetClubsUsecase>(),
+        getClubCardUsecase: getIt<GetClubCardUsecase>(),
+      ),
     );
     getIt.registerFactory<ClubFilterBloc>(
       () => ClubFilterBloc(
@@ -212,6 +216,9 @@ class ServiceLocator {
     getIt.registerLazySingleton<GetFavoritePlayersUsecase>(
       () => GetFavoritePlayersUsecase(
           favoriteRepository: getIt<FavoriteRepository>()),
+    );
+    getIt.registerLazySingleton<GetClubCardUsecase>(
+      () => GetClubCardUsecase(clubsRepository: getIt<ClubsRepository>()),
     );
   }
 }

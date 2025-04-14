@@ -4,6 +4,7 @@ import 'package:evoluton_x/core/services/api_services.dart';
 import 'package:evoluton_x/core/utils/app_constants.dart';
 import 'package:evoluton_x/features/clubs/data/datasource/remote/club_remote_datasource.dart';
 import 'package:evoluton_x/features/clubs/data/models/all_clubs_model.dart';
+import 'package:evoluton_x/features/clubs/data/models/club_card_model.dart';
 import 'package:evoluton_x/features/clubs/data/models/clubs_filter_params.dart';
 import 'package:evoluton_x/features/clubs/domain/entities/all_clubs.dart';
 
@@ -37,5 +38,15 @@ class ClubRemoteDatasourceImp implements ClubRemoteDatasource {
         type: DioExceptionType.badResponse,
       );
     }
+  }
+
+  @override
+  Future<ClubCardModel> getClubCard({required int clubId}) async {
+    final response = await apiServices.fetchData(
+      path: EndPoints.clubCard(id: clubId),
+      token: AppConstants.tokenSaved,
+    );
+
+    return ClubCardModel.fromJson(response.data);
   }
 }

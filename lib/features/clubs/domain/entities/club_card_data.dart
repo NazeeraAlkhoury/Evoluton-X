@@ -23,5 +23,14 @@ class ClubCardData extends Equatable {
   });
 
   @override
-  List<Object?> get props => [];
+  List<Object?> get props => [
+        name,
+        nation,
+        nationName,
+        imageUrl,
+        teamPlayers,
+        teamOverallRating,
+        teamPower,
+        teamPredictionResult,
+      ];
 }

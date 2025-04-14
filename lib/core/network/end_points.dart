@@ -15,6 +15,7 @@ abstract class EndPoints {
       'players/prediction/$id';
 
   static const String clubs = 'clubs';
+  static String clubCard({required num id}) => 'clubs/$id';
 
   static const String favorites = 'favorites';
   static String removeFav({required num id}) => 'favorites/$id';

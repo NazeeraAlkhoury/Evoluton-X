@@ -181,4 +181,7 @@ abstract class AppStrings {
   static const String name = 'Name';
   static const String comp = 'Comp';
   static const String yourFavorites = 'Your Favorite Players : ';
+  static const String teamOverallRating = 'Team overall rating';
+  static const String teamPredictionResult = 'Team prediction result';
+  static const String teamPower = 'Team power';
 }

@@ -1,11 +1,14 @@
 import 'package:evoluton_x/core/utils/app_colors.dart';
 import 'package:evoluton_x/core/utils/app_text_styles.dart';
 import 'package:evoluton_x/core/widgets/custom_flag_or_club_avatar.dart';
+import 'package:evoluton_x/features/clubs/domain/entities/player_in_team.dart';
 import 'package:flutter/material.dart';
 
 class CustomPlayerProfileRow extends StatelessWidget {
+  final PlayerInTeam player;
   const CustomPlayerProfileRow({
     super.key,
+    required this.player,
   });
 
   @override
@@ -16,8 +19,8 @@ class CustomPlayerProfileRow extends StatelessWidget {
         children: [
           Row(
             children: [
-              const CustomFlagOrClubAvatar(
-                imagePath: 'assets/images/idiol_image.png',
+              CustomFlagOrClubAvatar(
+                imagePath: player.imageUrl[0],
                 radius: 22,
               ),
               Expanded(
@@ -29,7 +32,7 @@ class CustomPlayerProfileRow extends StatelessWidget {
                       FittedBox(
                         fit: BoxFit.scaleDown,
                         child: Text(
-                          'Carlo ancelotti',
+                          player.fullName,
                           style: AppTextStyles.styleRegular14(context),
                         ),
                       ),
@@ -44,32 +47,25 @@ class CustomPlayerProfileRow extends StatelessWidget {
                               padding:
                                   const EdgeInsetsDirectional.only(end: 10),
                               child: Text(
-                                '9',
-                                style: AppTextStyles.styleRegular12(context),
-                              ),
-                            ),
-                            Padding(
-                              padding:
-                                  const EdgeInsetsDirectional.only(end: 10),
-                              child: Text(
-                                '25 y',
+                                player.age,
                                 style: AppTextStyles.styleRegular12(context),
                               ),
                             ),
                             const SizedBox(
                               height: 10,
                             ),
-                            const Padding(
-                              padding: EdgeInsetsDirectional.only(end: 10),
+                            Padding(
+                              padding:
+                                  const EdgeInsetsDirectional.only(end: 10),
                               child: CustomFlagOrClubAvatar(
-                                imagePath: 'assets/images/flag.png',
+                                imagePath: player.nation,
                               ),
                             ),
                             Padding(
                               padding:
                                   const EdgeInsetsDirectional.only(end: 10),
                               child: Text(
-                                'FRA',
+                                player.nationality,
                                 style: AppTextStyles.styleRegular12(context),
                               ),
                             ),
