@@ -1,3 +1,4 @@
+import 'package:evoluton_x/features/favorite/data/models/favorite_item_data_model.dart';
 import 'package:evoluton_x/features/favorite/domain/entities/favorite.dart';
 import 'package:evoluton_x/features/favorite/domain/entities/favorite_item_data.dart';
 
@@ -11,7 +12,7 @@ class FavoriteModel extends Favorite {
         msg: json['msg'],
         data: json['data'] != null
             ? List<FavoriteItemData>.from((json['data'] as List).map(
-                (favorite) => FavoriteModel.fromJson(favorite),
+                (favorite) => FavoriteItemDataModel.fromJson(favorite),
               ))
             : [],
       );

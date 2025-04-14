@@ -5,13 +5,12 @@ import 'package:evoluton_x/features/favorite/domain/entities/add_remove_favorite
 import 'package:evoluton_x/features/favorite/domain/repository/favorite_repository.dart';
 
 class AddPlayerToFavoriteUsecase
-    implements BaseUseCases<AddRemoveFavorite, NoParameters> {
+    implements BaseUseCases<AddRemoveFavorite, int> {
   final FavoriteRepository favoriteRepository;
 
   AddPlayerToFavoriteUsecase({required this.favoriteRepository});
   @override
-  Future<Either<Failure, AddRemoveFavorite>> call(
-      NoParameters parameters) async {
-    return await favoriteRepository.addPlayerToFavorite();
+  Future<Either<Failure, AddRemoveFavorite>> call(int parameters) async {
+    return await favoriteRepository.addPlayerToFavorite(playerId: parameters);
   }
 }

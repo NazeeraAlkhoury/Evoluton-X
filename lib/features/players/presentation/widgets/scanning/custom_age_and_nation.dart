@@ -4,7 +4,7 @@ import 'package:evoluton_x/core/widgets/custom_flag_or_club_avatar.dart';
 import 'package:flutter/material.dart';
 
 class CustomAgeandNation extends StatelessWidget {
-  final num age;
+  final String age;
   final String imageUrl;
   const CustomAgeandNation({
     super.key,

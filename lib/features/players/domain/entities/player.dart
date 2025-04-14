@@ -7,7 +7,7 @@ class Player extends Equatable {
   final String positions;
   final num power;
   final num clubId;
-  final num age;
+  final String age;
   final String nation;
   final List<String> imageUrl;
   final Club club;

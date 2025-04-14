@@ -1,6 +1,7 @@
 import 'package:equatable/equatable.dart';
 import 'package:evoluton_x/core/utils/enums.dart';
 import 'package:evoluton_x/features/favorite/domain/entities/add_remove_favorite.dart';
+import 'package:evoluton_x/features/favorite/domain/entities/favorite.dart';
 
 class FavoriteState extends Equatable {
   final bool isFavorite;
@@ -12,6 +13,11 @@ class FavoriteState extends Equatable {
   final RequestStates removeFromFavState;
   final AddRemoveFavorite? removeFromFavResponse;
   final String removeFromFavoriteErrMsg;
+
+  final RequestStates getFavState;
+  final Favorite? getFavResponse;
+  final String getFavoriteErrMsg;
+
   const FavoriteState({
     this.isFavorite = false,
     this.addtoFavState = RequestStates.initialState,
@@ -20,6 +26,9 @@ class FavoriteState extends Equatable {
     this.removeFromFavState = RequestStates.initialState,
     this.removeFromFavResponse,
     this.removeFromFavoriteErrMsg = '',
+    this.getFavState = RequestStates.initialState,
+    this.getFavResponse,
+    this.getFavoriteErrMsg = '',
   });
 
   FavoriteState copyWith({
@@ -30,6 +39,9 @@ class FavoriteState extends Equatable {
     RequestStates? removeFromFavState,
     AddRemoveFavorite? removeFromFavResponse,
     String? removeFromFavoriteErrMsg,
+    RequestStates? getFavState,
+    Favorite? getFavResponse,
+    String? getFavoriteErrMsg,
   }) =>
       FavoriteState(
         isFavorite: isFavorite ?? this.isFavorite,
@@ -41,6 +53,9 @@ class FavoriteState extends Equatable {
             removeFromFavResponse ?? this.removeFromFavResponse,
         removeFromFavoriteErrMsg:
             removeFromFavoriteErrMsg ?? this.removeFromFavoriteErrMsg,
+        getFavState: getFavState ?? this.getFavState,
+        getFavResponse: getFavResponse ?? this.getFavResponse,
+        getFavoriteErrMsg: getFavoriteErrMsg ?? this.getFavoriteErrMsg,
       );
 
   @override
@@ -52,5 +67,8 @@ class FavoriteState extends Equatable {
         removeFromFavResponse,
         addtoFavoriteErrMsg,
         removeFromFavoriteErrMsg,
+        getFavState,
+        getFavResponse,
+        getFavoriteErrMsg,
       ];
 }

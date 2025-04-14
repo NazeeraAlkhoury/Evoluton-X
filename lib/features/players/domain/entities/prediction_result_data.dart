@@ -11,7 +11,7 @@ class PredictionResultData extends Equatable {
   final num salaryEuro;
   final String preferredFoot;
   final num predictionResult;
-  final num age;
+  final String age;
   final String nation;
   final List<String> imageUrl;
 

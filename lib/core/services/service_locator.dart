@@ -25,6 +25,7 @@ import 'package:evoluton_x/features/clubs/domain/repository/clubs_repository.dar
 import 'package:evoluton_x/features/clubs/domain/usecases/get_clubs_usecase.dart';
 import 'package:evoluton_x/features/clubs/domain/usecases/get_clubs_with_filter_usecase.dart';
 import 'package:evoluton_x/features/clubs/presentation/controllers/club_bloc/club_bloc.dart';
+import 'package:evoluton_x/features/favorite/domain/usecase/get_favorite_players.dart';
 import 'package:evoluton_x/features/players/data/datasource/remote/player_remote_datasource.dart';
 import 'package:evoluton_x/features/players/data/datasource/remote/player_remote_datasource_imp.dart';
 import 'package:evoluton_x/features/players/data/repository/player_repository_imp.dart';
@@ -126,6 +127,7 @@ class ServiceLocator {
         addPlayerToFavoriteUsecase: getIt<AddPlayerToFavoriteUsecase>(),
         removePlayerFromFavoriteUsecase:
             getIt<RemovePlayerFromFavoriteUsecase>(),
+        getFavoritePlayersUsecase: getIt<GetFavoritePlayersUsecase>(),
       ),
     );
     getIt.registerFactory<SearchBloc>(
@@ -206,6 +208,10 @@ class ServiceLocator {
     getIt.registerLazySingleton<GetClubsWithFilterUsecase>(
       () =>
           GetClubsWithFilterUsecase(clubsRepository: getIt<ClubsRepository>()),
+    );
+    getIt.registerLazySingleton<GetFavoritePlayersUsecase>(
+      () => GetFavoritePlayersUsecase(
+          favoriteRepository: getIt<FavoriteRepository>()),
     );
   }
 }

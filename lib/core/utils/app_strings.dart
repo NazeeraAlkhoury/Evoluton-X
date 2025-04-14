@@ -180,4 +180,5 @@ abstract class AppStrings {
   static const String enterName = 'Enter a club name';
   static const String name = 'Name';
   static const String comp = 'Comp';
+  static const String yourFavorites = 'Your Favorite Players : ';
 }

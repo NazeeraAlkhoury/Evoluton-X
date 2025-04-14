@@ -4,7 +4,7 @@ class PlayerDetailsCard extends Equatable {
   final String name;
   final String pos;
   final num power;
-  final num age;
+  final String age;
   final num overallRating;
   final String preferredFoot;
   final num valueEuro;

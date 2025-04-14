@@ -1,3 +1,5 @@
+import 'package:evoluton_x/features/favorite/presentation/controller/favorite%20_bloc/favorite_bloc.dart';
+import 'package:evoluton_x/features/favorite/presentation/controller/favorite%20_bloc/favorite_event.dart';
 import 'package:evoluton_x/features/layout/presentation/controller/layout_bloc/layout_bloc.dart';
 import 'package:evoluton_x/features/layout/presentation/controller/layout_bloc/layout_event.dart';
 import 'package:evoluton_x/features/layout/presentation/controller/layout_bloc/layout_state.dart';
@@ -20,6 +22,9 @@ class MainLayoutView extends StatelessWidget {
         final bloc = context.read<LayoutBloc>();
         if (state.selectedIndex == 0) {
           context.read<PlayerBloc>().add(const GetDetailsEvent());
+        }
+        if (state.selectedIndex == 2) {
+          context.read<FavoriteBloc>().add(GetFavoritePlayersEvent());
         }
         return Scaffold(
           body: bloc.screens[state.selectedIndex],

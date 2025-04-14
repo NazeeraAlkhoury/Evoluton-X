@@ -55,6 +55,7 @@ class ApiServices {
     required String path,
     Object? data,
     Map<String, dynamic>? queryParameters,
+    String? token,
   }) async {
     Response response = await dio.post(
       path,
@@ -62,6 +63,7 @@ class ApiServices {
       queryParameters: queryParameters,
       options: Options(
         headers: {
+          if (token != null) 'Authorization': 'Bearer $token',
           'Accept': 'application/json',
           'Content-Type': 'application/json',
         },
