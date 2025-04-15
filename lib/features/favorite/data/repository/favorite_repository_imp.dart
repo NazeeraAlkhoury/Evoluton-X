@@ -36,10 +36,10 @@ class FavoriteRepositoryImp implements FavoriteRepository {
 
   @override
   Future<Either<Failure, AddRemoveFavorite>> removePlayerFromFavorite(
-      {required num playerId}) async {
+      {required num favoriteId}) async {
     try {
       final result = await favoritRemoteDatasource.removePlayersToFavorite(
-          playerId: playerId);
+          favoriteId: favoriteId);
       return Right(result);
     } catch (e) {
       if (e is DioException) {

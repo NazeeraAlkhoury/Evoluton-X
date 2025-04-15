@@ -10,6 +10,7 @@ class Player extends Equatable {
   final String age;
   final String nation;
   final List<String> imageUrl;
+  final bool isFav;
   final Club club;
 
   const Player({
@@ -21,6 +22,7 @@ class Player extends Equatable {
     required this.age,
     required this.nation,
     required this.imageUrl,
+    required this.isFav,
     required this.club,
   });
 
@@ -34,6 +36,7 @@ class Player extends Equatable {
         age,
         nation,
         imageUrl,
+        isFav,
         club,
       ];
 }

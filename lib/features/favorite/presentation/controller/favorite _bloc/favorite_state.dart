@@ -4,8 +4,6 @@ import 'package:evoluton_x/features/favorite/domain/entities/add_remove_favorite
 import 'package:evoluton_x/features/favorite/domain/entities/favorite.dart';
 
 class FavoriteState extends Equatable {
-  final bool isFavorite;
-
   final RequestStates addtoFavState;
   final AddRemoveFavorite? addtoFavResponse;
   final String addtoFavoriteErrMsg;
@@ -19,7 +17,6 @@ class FavoriteState extends Equatable {
   final String getFavoriteErrMsg;
 
   const FavoriteState({
-    this.isFavorite = false,
     this.addtoFavState = RequestStates.initialState,
     this.addtoFavResponse,
     this.addtoFavoriteErrMsg = '',
@@ -32,7 +29,6 @@ class FavoriteState extends Equatable {
   });
 
   FavoriteState copyWith({
-    bool? isFavorite,
     RequestStates? addtoFavState,
     AddRemoveFavorite? addtoFavResponse,
     String? addtoFavoriteErrMsg,
@@ -44,7 +40,6 @@ class FavoriteState extends Equatable {
     String? getFavoriteErrMsg,
   }) =>
       FavoriteState(
-        isFavorite: isFavorite ?? this.isFavorite,
         addtoFavState: addtoFavState ?? this.addtoFavState,
         addtoFavResponse: addtoFavResponse ?? this.addtoFavResponse,
         addtoFavoriteErrMsg: addtoFavoriteErrMsg ?? this.addtoFavoriteErrMsg,
@@ -60,7 +55,6 @@ class FavoriteState extends Equatable {
 
   @override
   List<Object?> get props => [
-        isFavorite,
         addtoFavState,
         addtoFavResponse,
         removeFromFavState,

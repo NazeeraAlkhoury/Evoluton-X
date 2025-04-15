@@ -1,3 +1,4 @@
+import 'package:dio/dio.dart';
 import 'package:evoluton_x/core/network/end_points.dart';
 import 'package:evoluton_x/core/services/api_services.dart';
 import 'package:evoluton_x/core/utils/app_constants.dart';
@@ -25,9 +26,9 @@ class FavoriteRemoteDatasourceImp implements FavoriteRemoteDatasource {
 
   @override
   Future<AddRemoveFavoriteModel> removePlayersToFavorite(
-      {required num playerId}) async {
+      {required num favoriteId}) async {
     final response = await apiServices.deleteData(
-      path: EndPoints.removeFav(id: playerId),
+      path: EndPoints.removeFav(id: favoriteId),
       token: AppConstants.tokenSaved,
     );
 
@@ -40,7 +41,14 @@ class FavoriteRemoteDatasourceImp implements FavoriteRemoteDatasource {
       path: EndPoints.favorites,
       token: AppConstants.tokenSaved,
     );
-
-    return FavoriteModel.fromJson(response.data);
+    if (response.data is Map<String, dynamic>) {
+      return FavoriteModel.fromJson(response.data);
+    } else {
+      throw DioException(
+        requestOptions: response.requestOptions,
+        response: response,
+        type: DioExceptionType.badResponse,
+      );
+    }
   }
 }

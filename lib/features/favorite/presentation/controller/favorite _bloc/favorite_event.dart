@@ -22,10 +22,10 @@ class AddPlayerToFavoritesEvent extends FavoriteEvent {
 }
 
 class RemovePlayerFromFavoritesEvent extends FavoriteEvent {
-  final int playerId;
+  final int favoriteId;
 
-  const RemovePlayerFromFavoritesEvent({required this.playerId});
+  const RemovePlayerFromFavoritesEvent({required this.favoriteId});
 
   @override
-  List<Object> get props => [playerId];
+  List<Object> get props => [favoriteId];
 }

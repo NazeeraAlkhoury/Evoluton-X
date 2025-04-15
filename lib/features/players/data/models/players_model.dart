@@ -11,6 +11,7 @@ class PlayersModel extends Player {
     required super.age,
     required super.nation,
     required super.imageUrl,
+    required super.isFav,
     required super.club,
   });
 
@@ -26,6 +27,7 @@ class PlayersModel extends Player {
             ? []
             : List<String>.from(
                 (json['image_url'] as List).map((e) => e.toString())),
+        isFav: json['is_fav'],
         club: ClubModel.fromJson(json['club']),
       );
 }

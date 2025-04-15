@@ -184,4 +184,6 @@ abstract class AppStrings {
   static const String teamOverallRating = 'Team overall rating';
   static const String teamPredictionResult = 'Team prediction result';
   static const String teamPower = 'Team power';
+  static const String remove = 'Remove from Favorites';
+  static const String add = 'Add to Favorites';
 }

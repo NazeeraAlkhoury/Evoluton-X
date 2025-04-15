@@ -7,6 +7,6 @@ abstract class FavoriteRepository {
   Future<Either<Failure, AddRemoveFavorite>> addPlayerToFavorite(
       {required int playerId});
   Future<Either<Failure, AddRemoveFavorite>> removePlayerFromFavorite(
-      {required int playerId});
+      {required int favoriteId});
   Future<Either<Failure, Favorite>> getFavoritesPlayer();
 }

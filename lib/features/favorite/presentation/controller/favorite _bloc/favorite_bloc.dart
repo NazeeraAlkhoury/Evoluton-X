@@ -12,6 +12,9 @@ class FavoriteBloc extends Bloc<FavoriteEvent, FavoriteState> {
   final AddPlayerToFavoriteUsecase addPlayerToFavoriteUsecase;
   final RemovePlayerFromFavoriteUsecase removePlayerFromFavoriteUsecase;
   final GetFavoritePlayersUsecase getFavoritePlayersUsecase;
+
+  final Map<int, int> playerIdToFavoriteIdMap = {};
+
   FavoriteBloc({
     required this.addPlayerToFavoriteUsecase,
     required this.removePlayerFromFavoriteUsecase,
@@ -23,12 +26,10 @@ class FavoriteBloc extends Bloc<FavoriteEvent, FavoriteState> {
   }
 
   FutureOr<void> _removeFromFavorite(event, emit) async {
-    print('======================= remove');
-    final result = await removePlayerFromFavoriteUsecase(event.playerId);
+    final result = await removePlayerFromFavoriteUsecase(event.favoriteId);
     result.fold(
         (failure) => emit(
               state.copyWith(
-                //  isFavorite: !state.isFavorite,
                 removeFromFavState: RequestStates.failureState,
                 removeFromFavoriteErrMsg: failure.errorMessage,
               ),
@@ -39,29 +40,27 @@ class FavoriteBloc extends Bloc<FavoriteEvent, FavoriteState> {
           removeFromFavResponse: removeFavResponse,
         ),
       );
-      //  add(GetFavoritePlayersEvent());
+      add(GetFavoritePlayersEvent());
     });
   }
 
   FutureOr<void> _addtoFavorites(event, emit) async {
-    print('======================= add');
     final result = await addPlayerToFavoriteUsecase(event.playerId);
     result.fold(
-      (failure) => emit(
+        (failure) => emit(
+              state.copyWith(
+                addtoFavState: RequestStates.failureState,
+                addtoFavoriteErrMsg: failure.errorMessage,
+              ),
+            ), (addtoFavResponse) {
+      emit(
         state.copyWith(
-          //isFavorite: !state.isFavorite,
-          addtoFavState: RequestStates.failureState,
-          addtoFavoriteErrMsg: failure.errorMessage,
-        ),
-      ),
-      (addtoFavResponse) => emit(
-        state.copyWith(
-          // isFavorite: !state.isFavorite,
           addtoFavState: RequestStates.successState,
           addtoFavResponse: addtoFavResponse,
         ),
-      ),
-    );
+      );
+      add(GetFavoritePlayersEvent());
+    });
   }
 
   FutureOr<void> _getFavoritePlayers(event, emit) async {
@@ -72,19 +71,27 @@ class FavoriteBloc extends Bloc<FavoriteEvent, FavoriteState> {
       ),
     );
     final result = await getFavoritePlayersUsecase(const NoParameters());
-    result.fold(
-      (failure) => emit(
+    result.fold((failure) {
+      playerIdToFavoriteIdMap.clear();
+
+      emit(
         state.copyWith(
           getFavState: RequestStates.failureState,
           getFavoriteErrMsg: failure.errorMessage,
         ),
-      ),
-      (favResponse) => emit(
+      );
+    }, (favResponse) {
+      playerIdToFavoriteIdMap.clear();
+      for (var item in favResponse.data) {
+        playerIdToFavoriteIdMap[item.playerId.toInt()] = item.id.toInt();
+      }
+
+      emit(
         state.copyWith(
           getFavState: RequestStates.successState,
           getFavResponse: favResponse,
         ),
-      ),
-    );
+      );
+    });
   }
 }

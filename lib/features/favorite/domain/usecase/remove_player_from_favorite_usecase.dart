@@ -12,6 +12,6 @@ class RemovePlayerFromFavoriteUsecase
   @override
   Future<Either<Failure, AddRemoveFavorite>> call(int parameters) async {
     return await favoriteRepository.removePlayerFromFavorite(
-        playerId: parameters);
+        favoriteId: parameters);
   }
 }
