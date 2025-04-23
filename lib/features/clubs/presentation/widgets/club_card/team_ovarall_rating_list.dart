@@ -1,5 +1,5 @@
 import 'package:evoluton_x/features/clubs/domain/entities/player_in_team.dart';
-import 'package:evoluton_x/features/clubs/presentation/widgets/club_card/custom_player_profile_row.dart';
+import 'package:evoluton_x/features/clubs/presentation/widgets/club_card/custom_player_with_rating.dart';
 import 'package:flutter/material.dart';
 
 class TeamOvarallRatingList extends StatelessWidget {
@@ -16,7 +16,7 @@ class TeamOvarallRatingList extends StatelessWidget {
       physics: const NeverScrollableScrollPhysics(),
       itemBuilder: (context, index) => Padding(
         padding: const EdgeInsets.only(bottom: 10),
-        child: CustomPlayerProfileRow(
+        child: CustomPlayerwithRating(
           player: players[index],
         ),
       ),
