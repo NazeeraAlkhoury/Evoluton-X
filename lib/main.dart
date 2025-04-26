@@ -12,25 +12,13 @@ import 'package:evoluton_x/features/favorite/presentation/controller/favorite%20
 import 'package:evoluton_x/features/search/presentation/search_bloc/search_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:device_preview/device_preview.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await ServiceLocator().setupServiceLocator();
   Bloc.observer = MyBlocObserver();
 
-  runApp(
-      // DevicePreview(
-      //   builder: (context) => MultiBlocProvider(providers: [
-      //         BlocProvider(
-      //           create: (context) => getIt<ClubFilterBloc>(),
-      //         ),
-      //         BlocProvider(
-      //           create: (context) => getIt<SearchBloc>(),
-      //         ),
-      //       ], child: const MyApp())));
-
-      MultiBlocProvider(providers: [
+  runApp(MultiBlocProvider(providers: [
     BlocProvider(
       create: (context) => getIt<RegisterBloc>(),
     ),
@@ -69,9 +57,6 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       onGenerateRoute: AppRoutes.onGenerateRoute,
       initialRoute: AppRoutes.splash,
-      //  home: ResultAfterScaningView(),
-      locale: DevicePreview.locale(context),
-      builder: DevicePreview.appBuilder,
     );
   }
 }

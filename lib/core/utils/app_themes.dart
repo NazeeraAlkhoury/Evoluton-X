@@ -16,14 +16,7 @@ abstract class AppThemes {
     textTheme: GoogleFonts.poppinsTextTheme(),
     bottomNavigationBarTheme: const BottomNavigationBarThemeData(
       backgroundColor: AppColors.whiteColor,
-      //   selectedItemColor: AppColors.whiteColor,
-      //   unselectedItemColor: AppColors.blackColor,
-      //   type: BottomNavigationBarType.fixed,
       elevation: 0,
-      //   selectedLabelStyle: TextStyle(fontSize: 0),
-      //   unselectedLabelStyle: TextStyle(fontSize: 0),
-      //   showSelectedLabels: false,
-      //   showUnselectedLabels: false,
     ),
   );
 }

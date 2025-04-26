@@ -16,18 +16,10 @@ class CustomFlagOrClubAvatar extends StatelessWidget {
         child: CachedNetworkImage(
           imageUrl: imagePath,
           fit: BoxFit.cover,
-
           width: double.infinity,
           height: double.infinity,
-          //  placeholder: (context, url) => const CircularProgressIndicator(),
           errorWidget: (context, url, error) => const Icon(Icons.error),
         ),
-        // Image.asset(
-        //   imagePath,
-        //   fit: BoxFit.cover,
-        //   width: double.infinity,
-        //   height: double.infinity,
-        // ),
       ),
     );
   }

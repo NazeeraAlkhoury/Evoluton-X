@@ -12,7 +12,6 @@ class CustomClub extends StatelessWidget {
     super.key,
     required this.club,
   });
-  // aspectRatio: 1.12 / 1.03,
   @override
   Widget build(BuildContext context) {
     return GestureDetector(

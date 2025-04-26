@@ -13,7 +13,6 @@ class RegisterHeader extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-      //   mainAxisSize: MainAxisSize.min,
       children: [
         CustomBackButton(
           onTap: () => Navigator.pushNamed(context, AppRoutes.home),

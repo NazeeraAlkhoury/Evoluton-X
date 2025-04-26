@@ -47,6 +47,11 @@ class ClubRemoteDatasourceImp implements ClubRemoteDatasource {
       token: AppConstants.tokenSaved,
     );
 
-    return ClubCardModel.fromJson(response.data);
+    // return ClubCardModel.fromJson(response.data);
+    if (response.data is Map<String, dynamic>) {
+      return ClubCardModel.fromJson(response.data);
+    } else {
+      throw Exception('No players are currently available for this club.');
+    }
   }
 }

@@ -16,9 +16,6 @@ String? validateInput({
       return AppStrings.minPassword;
     }
 
-    // if (val.length > max) {
-    //   return "Password can't be larger than $max characters";
-    // }
     bool isUpperCase = !RegExp(r'(?=.*[A-Z])').hasMatch(val);
     bool isLowerCase = !RegExp(r'(?=.*[a-z])').hasMatch(val);
     bool isSymbol = !RegExp(r'(?=.*[\W_])').hasMatch(val);

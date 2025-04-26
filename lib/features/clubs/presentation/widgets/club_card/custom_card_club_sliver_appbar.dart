@@ -97,7 +97,11 @@ class CustomSliverErr extends StatelessWidget {
   Widget build(BuildContext context) {
     return SliverToBoxAdapter(
       child: SizedBox(
-          height: 280, child: CustomErrorMessage(errMessage: errMessage)),
+          height: 280,
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20),
+            child: CustomErrorMessage(errMessage: errMessage),
+          )),
     );
   }
 }

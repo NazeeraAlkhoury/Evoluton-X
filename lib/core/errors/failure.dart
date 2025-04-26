@@ -49,8 +49,6 @@ class ServerFailure extends Failure {
 
       case 400:
         return ServerFailure(
-            //   'Bad request: ${ErrorMessageModel.fromJson(response).errors.isNotEmpty ? ErrorMessageModel.fromJson(response).errors.join(', ') : 'No specific error message'}',
-            // );
             'Bad request: ${ErrorMessageModel.fromJson(response).errors.toString()}');
       case 401:
         return const ServerFailure('Unauthenticated.');
@@ -64,9 +62,7 @@ class ServerFailure extends Failure {
         final errorMessage =
             errors.isNotEmpty ? errors.join(', ') : 'Validation failed';
         return ServerFailure(errorMessage);
-      // return ServerFailure(
-      //   ErrorMessageModel.fromJson(response).errors.toString(),
-      //);
+
       case 429:
         return const ServerFailure(
             'Too Many Attempts, Retry After One Minute.');

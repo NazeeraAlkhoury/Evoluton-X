@@ -26,7 +26,6 @@ class OtpVerification extends StatelessWidget {
           return Expanded(
             child: AspectRatio(
               aspectRatio: .5 / .7,
-              //1 / .8,
               child: Container(
                 margin: EdgeInsetsDirectional.only(start: index < 6 ? 6 : 0),
                 child: TextFormField(
