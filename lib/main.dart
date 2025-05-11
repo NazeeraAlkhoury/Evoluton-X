@@ -10,6 +10,7 @@ import 'package:evoluton_x/core/utils/app_themes.dart';
 import 'package:evoluton_x/features/players/presentation/controllers/player_bloc/player_bloc.dart';
 import 'package:evoluton_x/features/favorite/presentation/controller/favorite%20_bloc/favorite_bloc.dart';
 import 'package:evoluton_x/features/search/presentation/search_bloc/search_bloc.dart';
+import 'package:evoluton_x/features/search/presentation/search_bloc/search_event.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -41,7 +42,7 @@ void main() async {
       create: (context) => getIt<ClubBloc>(),
     ),
     BlocProvider(
-      create: (context) => getIt<SearchBloc>(),
+      create: (context) => getIt<SearchBloc>()..add(const GetPlayersEvent()),
     ),
   ], child: const MyApp()));
 }

@@ -3,8 +3,11 @@ import 'package:evoluton_x/core/utils/app_colors.dart';
 import 'package:evoluton_x/core/utils/app_icons_assets.dart';
 import 'package:evoluton_x/core/utils/app_strings.dart';
 import 'package:evoluton_x/core/utils/app_text_styles.dart';
+import 'package:evoluton_x/features/search/presentation/search_bloc/search_bloc.dart';
+import 'package:evoluton_x/features/search/presentation/search_bloc/search_event.dart';
 import 'package:evoluton_x/features/search/presentation/widgets/search_filter_sheet.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class CustomSearchButton extends StatelessWidget {
@@ -18,6 +21,7 @@ class CustomSearchButton extends StatelessWidget {
       height: 44,
       child: ElevatedButton(
         onPressed: () {
+          context.read<SearchBloc>().add(const ResetSearchEvent());
           showCustomBottomSheet(
             context,
             child: const SearchFilterSheet(),

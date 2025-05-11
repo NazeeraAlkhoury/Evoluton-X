@@ -177,7 +177,9 @@ abstract class AppStrings {
   static const String salary = 'Salary';
   static const String predictionResult = 'Prediction Result';
   static const String enterNameToSearch = 'Enter Club Name to Search';
+  static const String enterPlayerNameToSearch = 'Enter Player Name to Search';
   static const String enterName = 'Enter a club name';
+  static const String enterPlayerName = 'Enter a player name';
   static const String name = 'Name';
   static const String comp = 'Comp';
   static const String yourFavorites = 'Your Favorite Players : ';
