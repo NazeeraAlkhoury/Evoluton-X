@@ -87,7 +87,7 @@ class HomeViewBody extends StatelessWidget {
             child: AppButton(
               textButton: AppStrings.registerNow,
               onPressed: () {
-                Navigator.pushNamed(context, AppRoutes.register);
+                Navigator.pushReplacementNamed(context, AppRoutes.register);
               },
               widthButton: double.infinity,
             ),

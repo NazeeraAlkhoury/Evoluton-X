@@ -28,7 +28,7 @@ class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
         AppButton(
           textButton: AppStrings.login,
           onPressed: () {
-            Navigator.pushNamed(context, AppRoutes.login);
+            Navigator.pushReplacementNamed(context, AppRoutes.login);
           },
           hieghtButton: 36.77,
         ),

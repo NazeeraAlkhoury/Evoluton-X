@@ -26,7 +26,7 @@ class FilterClubsActionButton extends StatelessWidget {
       },
       builder: (context, state) {
         final bloc = context.read<ClubFilterBloc>();
-        bool enableFilter = state.savedComp != null && state.savedName != null;
+        bool enableFilter = state.savedComp != null || state.savedName != null;
         if (state.clubWithFilterState == RequestStates.loadingState) {
           return const Center(
             child: CircularProgressIndicator(),
@@ -42,7 +42,7 @@ class FilterClubsActionButton extends StatelessWidget {
                         bloc.add(
                           ClubWithFilterEvent(
                             clubsFilterParams: ClubsFilterParams(
-                                name: state.savedName!, comp: state.savedComp!),
+                                name: state.savedName, comp: state.savedComp),
                           ),
                         );
                       });

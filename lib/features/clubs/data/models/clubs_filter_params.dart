@@ -1,16 +1,20 @@
 import 'package:equatable/equatable.dart';
 
 class ClubsFilterParams extends Equatable {
-  final String name;
-  final String comp;
+  final String? name;
+  final String? comp;
 
-  const ClubsFilterParams({required this.name, required this.comp});
+  const ClubsFilterParams({this.name, this.comp});
 
   Map<String, String> toJson() {
-    return {
-      'name': name,
-      'comp': comp,
-    };
+    final Map<String, String> data = {};
+    if (name != null && name!.isNotEmpty) {
+      data['name'] = name!;
+    }
+    if (comp != null && comp!.isNotEmpty) {
+      data['comp'] = comp!;
+    }
+    return data;
   }
 
   @override
